@@ -1,36 +1,46 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, Search, User, ShoppingCart } from "lucide-react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Menu, X, Search, ShoppingCart } from "lucide-react";
 import { LogoLockup } from "./Logo";
-import { STORE_URL } from "../lib/constants";
+import { useCart } from "../lib/cart-context";
 
 const LINKS = [
-  { label: "Categorías", href: "#categorias" },
-  { label: "Ofertas", href: "#destacados" },
-  { label: "18 cuotas sin interés", href: STORE_URL },
-  { label: "Envío gratis a todo el país", href: STORE_URL },
-  { label: "Cumbre Home", href: "#categorias" },
+  { label: "Categorías", href: "/#categorias" },
+  { label: "Todos los productos", href: "/productos" },
+  { label: "Cumbre Home", href: "/productos?linea=cumbre-home" },
+  { label: "Electrodomésticos", href: "/productos?linea=electrodomesticos" },
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
+  const router = useRouter();
+  const { count } = useCart();
 
   return (
     <header className="sticky top-0 z-40 bg-wine-dark text-cream">
       <div className="mx-auto max-w-6xl px-5 sm:px-8 h-16 flex items-center gap-4">
-        <a href="#top" className="shrink-0">
+        <Link href="/" className="shrink-0">
           <LogoLockup color="var(--cream)" />
-        </a>
+        </Link>
 
         <form
-          action={STORE_URL}
-          target="_blank"
+          onSubmit={(e) => {
+            e.preventDefault();
+            router.push(
+              query ? `/productos?q=${encodeURIComponent(query)}` : "/productos"
+            );
+          }}
           className="hidden sm:flex flex-1 max-w-xl"
         >
           <div className="relative w-full">
             <input
               type="text"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
               placeholder="Buscar productos"
               className="w-full rounded-full bg-cream text-ink placeholder:text-ink/40 pl-4 pr-11 py-2.5 text-sm outline-none"
             />
@@ -45,24 +55,18 @@ export function Header() {
         </form>
 
         <div className="ml-auto flex items-center gap-5">
-          <a
-            href={STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-1.5 text-sm text-cream/90 hover:text-cream"
-          >
-            <User size={18} />
-            Ingresar
-          </a>
-          <a
-            href={STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center text-cream/90 hover:text-cream"
+          <Link
+            href="/carrito"
+            className="relative flex items-center text-cream/90 hover:text-cream"
             aria-label="Carrito"
           >
             <ShoppingCart size={20} />
-          </a>
+            {count > 0 && (
+              <span className="absolute -top-2 -right-2 h-4 min-w-4 px-1 rounded-full bg-cream text-wine text-[10px] font-medium flex items-center justify-center">
+                {count}
+              </span>
+            )}
+          </Link>
           <button
             onClick={() => setOpen((v) => !v)}
             className="sm:hidden text-cream"
@@ -78,8 +82,6 @@ export function Header() {
           <a
             key={l.label}
             href={l.href}
-            target={l.href === STORE_URL ? "_blank" : undefined}
-            rel={l.href === STORE_URL ? "noopener noreferrer" : undefined}
             className="text-cream/75 hover:text-cream transition-colors"
           >
             {l.label}
@@ -99,14 +101,13 @@ export function Header() {
               {l.label}
             </a>
           ))}
-          <a
-            href={STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/productos"
+            onClick={() => setOpen(false)}
             className="rounded-full bg-cream text-wine text-sm font-medium px-5 py-2.5 text-center"
           >
-            Ver tienda
-          </a>
+            Ver catálogo
+          </Link>
         </div>
       )}
     </header>

@@ -1,4 +1,3 @@
-export const STORE_URL = "https://cumbre17.mitiendanube.com";
 export const INSTAGRAM_URL = "https://instagram.com/ec.cumbre";
 export const COUPON_CODE = "BIENVENIDA10";
 export const WHATSAPP_URL = "https://wa.me/5491139195754";

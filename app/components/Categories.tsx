@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   Refrigerator,
@@ -9,7 +10,7 @@ import {
   Blender,
   type LucideIcon,
 } from "lucide-react";
-import { LINES, APPLIANCE_TYPES, STORE_URL } from "../lib/constants";
+import { LINES, APPLIANCE_TYPES } from "../lib/constants";
 
 const ICONS: Record<string, LucideIcon> = {
   Refrigerator,
@@ -18,6 +19,8 @@ const ICONS: Record<string, LucideIcon> = {
   WashingMachine,
   Blender,
 };
+
+const MotionLink = motion.create(Link);
 
 export function Categories() {
   return (
@@ -28,11 +31,9 @@ export function Categories() {
           {APPLIANCE_TYPES.map((item, i) => {
             const Icon = ICONS[item.icon];
             return (
-              <motion.a
+              <MotionLink
                 key={item.label}
-                href={`${STORE_URL}/categorias/${item.line}/`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/productos?linea=${item.line}`}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
@@ -45,7 +46,7 @@ export function Categories() {
                 <span className="text-xs text-center text-ink/70 leading-tight">
                   {item.label}
                 </span>
-              </motion.a>
+              </MotionLink>
             );
           })}
         </div>
@@ -65,11 +66,9 @@ export function Categories() {
 
         <div className="mt-10 grid sm:grid-cols-2 gap-5">
           {LINES.map((line, i) => (
-            <motion.a
+            <MotionLink
               key={line.slug}
-              href={`${STORE_URL}/categorias/${line.slug}/`}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`/productos?linea=${line.slug}`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -86,7 +85,7 @@ export function Categories() {
               <span className="mt-4 inline-block text-sm font-medium text-wine group-hover:text-cream transition-colors">
                 Explorar →
               </span>
-            </motion.a>
+            </MotionLink>
           ))}
         </div>
       </div>

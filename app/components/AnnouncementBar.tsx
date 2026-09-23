@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { COUPON_CODE, STORE_URL } from "../lib/constants";
+import { COUPON_CODE } from "../lib/constants";
 
 const MESSAGE = (
   <>
@@ -14,10 +15,8 @@ export function AnnouncementBar() {
   const items = Array.from({ length: 6 });
 
   return (
-    <a
-      href={STORE_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      href="/productos"
       className="block overflow-hidden bg-wine text-cream text-sm py-2.5"
     >
       <motion.div
@@ -29,6 +28,6 @@ export function AnnouncementBar() {
           <span key={i}>{MESSAGE}</span>
         ))}
       </motion.div>
-    </a>
+    </Link>
   );
 }

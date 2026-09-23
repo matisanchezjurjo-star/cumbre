@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { STORE_URL } from "../lib/constants";
 
 const SLIDES = [
   {
@@ -14,7 +14,7 @@ const SLIDES = [
     title: "Diseño, innovación y confort para tus espacios",
     subtitle:
       "Electrodomésticos premium con cuotas sin interés y envío gratis a todo el país.",
-    href: `${STORE_URL}/categorias/cumbre-home/`,
+    href: "/productos?linea=cumbre-home",
   },
   {
     image: "/hero-living-v1.webp",
@@ -23,7 +23,7 @@ const SLIDES = [
     title: "Tu living, a la altura de cada momento",
     subtitle:
       "TVs, climatización y equipamiento para tus espacios, en casa o en la oficina, con la mejor calidad y financiación.",
-    href: `${STORE_URL}/categorias/electrodomesticos/`,
+    href: "/productos?linea=electrodomesticos",
   },
   {
     image: "/hero-office-v1.webp",
@@ -32,7 +32,7 @@ const SLIDES = [
     title: "Equipamos hogares y también empresas",
     subtitle:
       "Soluciones para cada espacio de trabajo, con asesoramiento, cuotas sin interés y envíos a todo el país.",
-    href: `${STORE_URL}/categorias/electrodomesticos/`,
+    href: "/productos?linea=electrodomesticos",
   },
 ];
 
@@ -96,14 +96,12 @@ export function Hero() {
                 {slide.subtitle}
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <a
+                <Link
                   href={slide.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="rounded-full bg-cream text-wine font-medium px-7 py-3 hover:bg-cream-soft transition-colors hover:scale-[1.03] active:scale-[0.98] duration-200"
                 >
                   Comprar ahora
-                </a>
+                </Link>
                 <a
                   href="#categorias"
                   className="rounded-full border border-cream/50 text-cream font-medium px-7 py-3 hover:bg-cream/10 transition-colors"

@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Mail, AtSign } from "lucide-react";
 import { LogoLockup } from "./Logo";
-import { STORE_URL, INSTAGRAM_URL, COUPON_CODE } from "../lib/constants";
+import { INSTAGRAM_URL, WHATSAPP_URL, COUPON_CODE } from "../lib/constants";
 
 export function CTASection() {
   return (
@@ -23,14 +24,12 @@ export function CTASection() {
           Usá el código <span className="font-semibold">{COUPON_CODE}</span>{" "}
           en el checkout de tu primera compra.
         </p>
-        <a
-          href={STORE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/productos"
           className="mt-8 inline-block rounded-full bg-cream text-wine font-medium px-8 py-3.5 hover:bg-cream-soft transition-colors hover:scale-[1.03] active:scale-[0.98] duration-200"
         >
-          Ir a la tienda
-        </a>
+          Ver catálogo
+        </Link>
       </motion.div>
     </section>
   );
@@ -40,22 +39,21 @@ const COLUMNS = [
   {
     title: "Más Buscados",
     links: [
-      { label: "Inicio", href: "#top" },
-      { label: "Cumbre Home", href: "#categorias" },
-      { label: "Electrodomésticos", href: "#categorias" },
+      { label: "Inicio", href: "/" },
+      { label: "Cumbre Home", href: "/productos?linea=cumbre-home" },
+      { label: "Electrodomésticos", href: "/productos?linea=electrodomesticos" },
     ],
   },
   {
     title: "Servicio al Cliente",
     links: [
-      { label: "Ingresar / Registrarme", href: STORE_URL },
-      { label: "Estado de mi pedido", href: STORE_URL },
-      { label: "Cambios y devoluciones", href: STORE_URL },
+      { label: "Estado de mi pedido", href: WHATSAPP_URL },
+      { label: "Cambios y devoluciones", href: WHATSAPP_URL },
     ],
   },
   {
     title: "Nosotros",
-    links: [{ label: "Comunicate por WhatsApp", href: STORE_URL }],
+    links: [{ label: "Comunicate por WhatsApp", href: WHATSAPP_URL }],
   },
 ];
 
@@ -117,22 +115,21 @@ export function Footer() {
                 {col.title}
               </h4>
               <ul className="space-y-2">
-                {col.links.map((l) => (
-                  <li key={l.label}>
-                    <a
-                      href={l.href}
-                      target={l.href === STORE_URL ? "_blank" : undefined}
-                      rel={
-                        l.href === STORE_URL
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
-                      className="text-cream/70 hover:text-cream text-sm transition-colors"
-                    >
-                      {l.label}
-                    </a>
-                  </li>
-                ))}
+                {col.links.map((l) => {
+                  const external = l.href.startsWith("http");
+                  return (
+                    <li key={l.label}>
+                      <a
+                        href={l.href}
+                        target={external ? "_blank" : undefined}
+                        rel={external ? "noopener noreferrer" : undefined}
+                        className="text-cream/70 hover:text-cream text-sm transition-colors"
+                      >
+                        {l.label}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
