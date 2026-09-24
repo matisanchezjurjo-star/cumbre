@@ -8,6 +8,7 @@ import {
   Microwave,
   WashingMachine,
   Blender,
+  Tv,
   type LucideIcon,
 } from "lucide-react";
 import { LINES, APPLIANCE_TYPES } from "../lib/constants";
@@ -18,6 +19,7 @@ const ICONS: Record<string, LucideIcon> = {
   Microwave,
   WashingMachine,
   Blender,
+  Tv,
 };
 
 const MotionLink = motion.create(Link);
@@ -33,7 +35,7 @@ export function Categories() {
             return (
               <MotionLink
                 key={item.label}
-                href={`/productos?linea=${item.line}`}
+                href={`/productos?linea=${item.line}&categoria=${encodeURIComponent(item.category)}`}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}

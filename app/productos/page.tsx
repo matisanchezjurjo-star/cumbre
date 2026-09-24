@@ -10,13 +10,16 @@ import { LINES } from "../lib/constants";
 export default async function ProductosPage({
   searchParams,
 }: {
-  searchParams: Promise<{ linea?: string; q?: string }>;
+  searchParams: Promise<{ linea?: string; categoria?: string; q?: string }>;
 }) {
-  const { linea, q } = await searchParams;
+  const { linea, categoria, q } = await searchParams;
   const activeLine = LINES.find((l) => l.slug === linea);
   let products = activeLine
     ? PRODUCTS.filter((p) => p.line === activeLine.slug)
     : PRODUCTS;
+  if (categoria) {
+    products = products.filter((p) => p.category === categoria);
+  }
   if (q) {
     const needle = q.toLowerCase();
     products = products.filter((p) => p.name.toLowerCase().includes(needle));
@@ -29,14 +32,14 @@ export default async function ProductosPage({
       <main className="flex-1">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 py-12">
           <h1 className="font-serif text-3xl sm:text-4xl text-wine">
-            {activeLine ? activeLine.name : "Todos los productos"}
+            {categoria ?? (activeLine ? activeLine.name : "Todos los productos")}
           </h1>
 
-          <div className="mt-4 flex gap-3 text-sm">
+          <div className="mt-4 flex flex-wrap gap-3 text-sm">
             <Link
               href="/productos"
               className={`rounded-full px-4 py-1.5 border transition-colors ${
-                !activeLine
+                !activeLine && !categoria
                   ? "bg-wine text-cream border-wine"
                   : "border-wine/20 text-ink/70 hover:border-wine/40"
               }`}
@@ -48,7 +51,7 @@ export default async function ProductosPage({
                 key={l.slug}
                 href={`/productos?linea=${l.slug}`}
                 className={`rounded-full px-4 py-1.5 border transition-colors ${
-                  activeLine?.slug === l.slug
+                  activeLine?.slug === l.slug && !categoria
                     ? "bg-wine text-cream border-wine"
                     : "border-wine/20 text-ink/70 hover:border-wine/40"
                 }`}
@@ -56,6 +59,14 @@ export default async function ProductosPage({
                 {l.name}
               </Link>
             ))}
+            {categoria && (
+              <Link
+                href={activeLine ? `/productos?linea=${activeLine.slug}` : "/productos"}
+                className="rounded-full px-4 py-1.5 border border-wine/20 text-ink/70 hover:border-wine/40 transition-colors"
+              >
+                {categoria} ✕
+              </Link>
+            )}
           </div>
 
           {products.length === 0 ? (

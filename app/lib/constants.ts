@@ -15,12 +15,43 @@ export const LINES = [
   },
 ] as const;
 
-// Visual-only appliance types for the icon row — each links through to the
-// Cumbre Home or Electrodomésticos category page above.
+// Appliance type icon row — each links to /productos filtered by the exact
+// product category (must match a `category` value used in products.ts).
 export const APPLIANCE_TYPES = [
-  { label: "Heladeras", icon: "Refrigerator", line: "electrodomesticos" },
-  { label: "Aire Acondicionado", icon: "AirVent", line: "electrodomesticos" },
-  { label: "Microondas", icon: "Microwave", line: "cumbre-home" },
-  { label: "Lavado", icon: "WashingMachine", line: "electrodomesticos" },
-  { label: "Pequeños Electro", icon: "Blender", line: "cumbre-home" },
+  {
+    label: "Heladeras",
+    icon: "Refrigerator",
+    line: "electrodomesticos",
+    category: "Heladeras y Freezers",
+  },
+  {
+    label: "Aire Acondicionado",
+    icon: "AirVent",
+    line: "electrodomesticos",
+    category: "Aire Acondicionado y Climatización",
+  },
+  {
+    label: "Microondas",
+    icon: "Microwave",
+    line: "cumbre-home",
+    category: "Microondas",
+  },
+  {
+    label: "Lavado",
+    icon: "WashingMachine",
+    line: "electrodomesticos",
+    category: "Lavado y Secado",
+  },
+  {
+    label: "TV y Audio",
+    icon: "Tv",
+    line: "electrodomesticos",
+    category: "TV y Audio",
+  },
+  {
+    label: "Hornos y Anafes",
+    icon: "Blender",
+    line: "cumbre-home",
+    category: "Hornos y Anafes",
+  },
 ] as const;
