@@ -67,3 +67,51 @@ export const APPLIANCE_TYPES = [
     category: "Hornos y Anafes",
   },
 ] as const;
+
+// Todas las categorías (para el panel lateral), agrupadas por línea.
+export const CATEGORIES = [
+  {
+    label: "Hornos y Anafes",
+    icon: "Flame",
+    line: "cumbre-home",
+    category: "Hornos y Anafes",
+  },
+  {
+    label: "Microondas",
+    icon: "Microwave",
+    line: "cumbre-home",
+    category: "Microondas",
+  },
+  {
+    label: "Campanas y Extractores",
+    icon: "Wind",
+    line: "cumbre-home",
+    category: "Campanas y Extractores",
+  },
+  {
+    label: "Heladeras y Freezers",
+    icon: "Refrigerator",
+    line: "electrodomesticos",
+    category: "Heladeras y Freezers",
+  },
+  {
+    label: "Aire Acondicionado y Climatización",
+    icon: "AirVent",
+    line: "electrodomesticos",
+    category: "Aire Acondicionado y Climatización",
+  },
+  {
+    label: "Lavado y Secado",
+    icon: "WashingMachine",
+    line: "electrodomesticos",
+    category: "Lavado y Secado",
+  },
+  {
+    label: "TV y Audio",
+    icon: "Tv",
+    line: "electrodomesticos",
+    category: "TV y Audio",
+  },
+] as const;
+
+export const BRANDS = ["Samsung", "TCL", "Longvie"] as const;

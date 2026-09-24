@@ -5,14 +5,19 @@ import { AnnouncementBar } from "../components/AnnouncementBar";
 import { Footer } from "../components/CTAFooter";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import { PRODUCTS } from "../lib/products";
-import { LINES } from "../lib/constants";
+import { LINES, BRANDS } from "../lib/constants";
 
 export default async function ProductosPage({
   searchParams,
 }: {
-  searchParams: Promise<{ linea?: string; categoria?: string; q?: string }>;
+  searchParams: Promise<{
+    linea?: string;
+    categoria?: string;
+    marca?: string;
+    q?: string;
+  }>;
 }) {
-  const { linea, categoria, q } = await searchParams;
+  const { linea, categoria, marca, q } = await searchParams;
   const activeLine = LINES.find((l) => l.slug === linea);
   let products = activeLine
     ? PRODUCTS.filter((p) => p.line === activeLine.slug)
@@ -20,10 +25,18 @@ export default async function ProductosPage({
   if (categoria) {
     products = products.filter((p) => p.category === categoria);
   }
+  if (marca) {
+    products = products.filter((p) => p.brand === marca);
+  }
   if (q) {
     const needle = q.toLowerCase();
     products = products.filter((p) => p.name.toLowerCase().includes(needle));
   }
+
+  const filterParams = new URLSearchParams();
+  if (linea) filterParams.set("linea", linea);
+  if (categoria) filterParams.set("categoria", categoria);
+  const baseFilterQuery = filterParams.toString();
 
   return (
     <div className="flex flex-col flex-1">
@@ -65,6 +78,31 @@ export default async function ProductosPage({
                 className="rounded-full px-4 py-1.5 border border-wine/20 text-ink/70 hover:border-wine/40 transition-colors"
               >
                 {categoria} ✕
+              </Link>
+            )}
+          </div>
+
+          <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
+            <span className="text-ink/50">Marca:</span>
+            {BRANDS.map((b) => (
+              <Link
+                key={b}
+                href={`/productos?${baseFilterQuery ? baseFilterQuery + "&" : ""}marca=${encodeURIComponent(b)}`}
+                className={`rounded-full px-3 py-1 border transition-colors ${
+                  marca === b
+                    ? "bg-wine text-cream border-wine"
+                    : "border-wine/20 text-ink/70 hover:border-wine/40"
+                }`}
+              >
+                {b}
+              </Link>
+            ))}
+            {marca && (
+              <Link
+                href={`/productos${baseFilterQuery ? `?${baseFilterQuery}` : ""}`}
+                className="text-wine underline"
+              >
+                Quitar ✕
               </Link>
             )}
           </div>

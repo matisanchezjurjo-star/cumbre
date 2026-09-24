@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Menu, X, Search, ShoppingCart } from "lucide-react";
 import { LogoLockup } from "./Logo";
+import { CategoryDrawer } from "./CategoryDrawer";
 import { useCart } from "../lib/cart-context";
 
 const LINKS = [
-  { label: "Categorías", href: "/#categorias" },
   { label: "Todos los productos", href: "/productos" },
   { label: "Cumbre Home", href: "/productos?linea=cumbre-home" },
   { label: "Electrodomésticos", href: "/productos?linea=electrodomesticos" },
@@ -16,6 +16,7 @@ const LINKS = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const [query, setQuery] = useState("");
   const router = useRouter();
   const { count } = useCart();
@@ -78,6 +79,12 @@ export function Header() {
       </div>
 
       <nav className="hidden md:flex items-center gap-6 border-t border-cream/10 px-5 sm:px-8 h-11 text-xs tracking-wide">
+        <button
+          onClick={() => setDrawerOpen(true)}
+          className="text-cream/75 hover:text-cream transition-colors"
+        >
+          Categorías
+        </button>
         {LINKS.map((l) => (
           <a
             key={l.label}
@@ -91,6 +98,15 @@ export function Header() {
 
       {open && (
         <div className="md:hidden border-t border-cream/10 px-5 py-4 flex flex-col gap-4 bg-wine-dark">
+          <button
+            onClick={() => {
+              setOpen(false);
+              setDrawerOpen(true);
+            }}
+            className="text-cream/90 text-sm text-left"
+          >
+            Categorías
+          </button>
           {LINKS.map((l) => (
             <a
               key={l.label}
@@ -110,6 +126,8 @@ export function Header() {
           </Link>
         </div>
       )}
+
+      <CategoryDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </header>
   );
 }

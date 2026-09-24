@@ -13,6 +13,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/anafe.png"],
     line: "cumbre-home",
     category: "Hornos y Anafes",
+    brand: "Samsung",
     description:
       "Anafe eléctrico vitrocerámico Samsung con 4 zonas de cocción. Fácil limpieza y controles táctiles. 18 cuotas sin interés y envío gratis.",
     stock: 10,
@@ -26,6 +27,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/ac1.png"],
     line: "electrodomesticos",
     category: "Aire Acondicionado y Climatización",
+    brand: "Samsung",
     description:
       "Split frío/calor Samsung Inverter 12000 BTU, bajo consumo eléctrico. 18 cuotas sin interés y envío gratis.",
     stock: 8,
@@ -39,6 +41,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/horno-dual.png"],
     line: "cumbre-home",
     category: "Hornos y Anafes",
+    brand: "Samsung",
     description:
       "Horno eléctrico empotrable Samsung con tecnología Dual Cook Flex: dos cámaras independientes para cocinar a distintas temperaturas al mismo tiempo. 18 cuotas sin interés y envío gratis.",
     stock: 5,
@@ -52,6 +55,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/ac2.png"],
     line: "electrodomesticos",
     category: "Aire Acondicionado y Climatización",
+    brand: "Samsung",
     description:
       "Split frío/calor Samsung con ahorro energético. 18 cuotas sin interés.",
     stock: 6,
@@ -65,6 +69,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/microondas.png"],
     line: "cumbre-home",
     category: "Microondas",
+    brand: "Samsung",
     description:
       "Microondas Samsung Smart de 32 litros con función Air Fry y convección — cocina, gratina y fríe con aire. 6 cuotas sin interés y envío gratis.",
     stock: 12,
@@ -78,6 +83,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/tv1.png"],
     line: "electrodomesticos",
     category: "TV y Audio",
+    brand: "Samsung",
     description:
       'Smart TV Samsung 55" Crystal UHD 4K. 9 cuotas sin interés y envío gratis.',
     stock: 7,
@@ -91,6 +97,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/tv2.png"],
     line: "electrodomesticos",
     category: "TV y Audio",
+    brand: "Samsung",
     description:
       'Televisor Samsung 50" Crystal UHD U8000F, modelo 2025. 6 cuotas sin interés y envío gratis.',
     stock: 7,
@@ -104,6 +111,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/tv3.png"],
     line: "electrodomesticos",
     category: "TV y Audio",
+    brand: "TCL",
     description:
       'Televisor TCL 55" 4K HDR con Google TV integrado. 18 cuotas sin interés y envío gratis.',
     stock: 6,
@@ -117,6 +125,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/tv4.png"],
     line: "electrodomesticos",
     category: "TV y Audio",
+    brand: "Samsung",
     description:
       'Televisor Samsung 55" Crystal UHD U8000F, modelo 2025. 6 cuotas sin interés y envío gratis.',
     stock: 5,
@@ -130,6 +139,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/tv5.png"],
     line: "electrodomesticos",
     category: "TV y Audio",
+    brand: "Samsung",
     description:
       'Televisor Samsung 43" Neo QLED 4K, serie QN90D. 9 cuotas sin interés y envío gratis.',
     stock: 4,
@@ -143,6 +153,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/heladera1.png"],
     line: "electrodomesticos",
     category: "Heladeras y Freezers",
+    brand: "Samsung",
     description:
       "Heladera Samsung Side by Side de 685 litros, con dispenser de agua/hielo y Family Hub. 9 cuotas sin interés.",
     stock: 3,
@@ -156,6 +167,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/lavasec1.png"],
     line: "electrodomesticos",
     category: "Lavado y Secado",
+    brand: "Samsung",
     description:
       "Lavasecarropas Samsung Bespoke AI, 22kg de lavado y 15kg de secado. 18 cuotas sin interés y envío gratis.",
     stock: 3,
@@ -169,6 +181,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/heladera2.png"],
     line: "electrodomesticos",
     category: "Heladeras y Freezers",
+    brand: "Samsung",
     description:
       "Heladera Samsung French Door de 836 litros, Inverter, conectividad WiFi. 9 cuotas sin interés.",
     stock: 3,
@@ -182,6 +195,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/lavasec2.png"],
     line: "electrodomesticos",
     category: "Lavado y Secado",
+    brand: "Samsung",
     description:
       "Lavasecarropas Samsung 9,5kg con tecnología Ecobubble. 18 cuotas sin interés y envío gratis.",
     stock: 5,
@@ -195,6 +209,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/heladera3.png"],
     line: "electrodomesticos",
     category: "Heladeras y Freezers",
+    brand: "Samsung",
     description:
       "Heladera Samsung French Door de 431 litros con tecnología Twin Cooling. 9 cuotas sin interés.",
     stock: 4,
@@ -208,6 +223,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/heladera4.png"],
     line: "electrodomesticos",
     category: "Heladeras y Freezers",
+    brand: "Samsung",
     description:
       "Heladera Samsung Bespoke de 328 litros, color blanco. Diseño minimalista.",
     stock: 4,
@@ -221,6 +237,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/heladera5.png"],
     line: "electrodomesticos",
     category: "Heladeras y Freezers",
+    brand: "Samsung",
     description:
       "Heladera Samsung Bespoke de 328 litros, color gris satinado.",
     stock: 4,
@@ -234,6 +251,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/lavarropas3.png"],
     line: "electrodomesticos",
     category: "Lavado y Secado",
+    brand: "Samsung",
     description:
       "Lavarropas Samsung Inverter de 9,5kg con tecnología Ecobubble. 18 cuotas sin interés y envío gratis.",
     stock: 6,
@@ -247,6 +265,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/heladera6.png"],
     line: "electrodomesticos",
     category: "Heladeras y Freezers",
+    brand: "TCL",
     description:
       "Heladera TCL Cross Door de 428 litros, No Frost Inverter. 18 cuotas sin interés.",
     stock: 3,
@@ -260,6 +279,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/heladera7.png"],
     line: "electrodomesticos",
     category: "Heladeras y Freezers",
+    brand: "Samsung",
     description:
       "Heladera Samsung 517 litros, freezer superior, con AI Energy Mode para ahorro de energía.",
     stock: 4,
@@ -273,6 +293,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/heladera8.png"],
     line: "electrodomesticos",
     category: "Heladeras y Freezers",
+    brand: "Samsung",
     description:
       "Heladera Samsung 382 litros, freezer superior, tecnología Twin Cooling Plus.",
     stock: 5,
@@ -286,6 +307,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/heladera9.png"],
     line: "electrodomesticos",
     category: "Heladeras y Freezers",
+    brand: "Samsung",
     description:
       "Heladera Samsung 362 litros, freezer superior, tecnología Twin Cooling Plus.",
     stock: 5,
@@ -299,6 +321,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/lavarropas4.png"],
     line: "electrodomesticos",
     category: "Lavado y Secado",
+    brand: "Samsung",
     description:
       "Lavarropas Samsung Inverter de carga superior, 7,5kg, con Ecobubble. 18 cuotas sin interés y envío gratis.",
     stock: 6,
@@ -312,6 +335,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/heladera10.png"],
     line: "electrodomesticos",
     category: "Heladeras y Freezers",
+    brand: "Samsung",
     description:
       "Heladera Samsung 321 litros, freezer superior, tecnología Twin Cooling Plus.",
     stock: 6,
@@ -325,6 +349,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/freezer1.png"],
     line: "electrodomesticos",
     category: "Heladeras y Freezers",
+    brand: "Samsung",
     description:
       "Freezer horizontal Samsung de 287 litros, tecnología Inverter. 9 cuotas sin interés.",
     stock: 5,
@@ -338,6 +363,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/freezer2.png"],
     line: "electrodomesticos",
     category: "Heladeras y Freezers",
+    brand: "Samsung",
     description:
       "Freezer horizontal Samsung de 198 litros, tecnología Inverter. 9 cuotas sin interés.",
     stock: 5,
@@ -351,6 +377,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/micro1.png"],
     line: "cumbre-home",
     category: "Microondas",
+    brand: "Samsung",
     description:
       "Microondas Samsung de 22 litros con grill, 850W/1100W. 6 cuotas sin interés y envío gratis.",
     stock: 8,
@@ -364,6 +391,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/micro2.png"],
     line: "cumbre-home",
     category: "Microondas",
+    brand: "Samsung",
     description:
       "Microondas Samsung de 22 litros con grill, 850W/1100W, acabado inox. 9 cuotas sin interés y envío gratis.",
     stock: 8,
@@ -377,6 +405,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/campana1.png"],
     line: "cumbre-home",
     category: "Campanas y Extractores",
+    brand: "Samsung",
     description:
       "Campana extractora Samsung de 60cm, filtro lavable de aluminio, luces LED y control táctil. 12 cuotas sin interés y envío gratis.",
     stock: 4,
@@ -390,6 +419,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/lavarropas5.png"],
     line: "electrodomesticos",
     category: "Lavado y Secado",
+    brand: "TCL",
     description:
       "Lavarropas TCL de carga frontal, 6kg, tecnología Inverter.",
     stock: 6,
@@ -403,6 +433,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/micro3.png"],
     line: "cumbre-home",
     category: "Microondas",
+    brand: "Samsung",
     description:
       "Microondas Samsung Bespoke con función Grill Fry, 30 litros, color gris. Envío gratis.",
     stock: 6,
@@ -416,6 +447,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/micro4.png"],
     line: "cumbre-home",
     category: "Microondas",
+    brand: "Samsung",
     description:
       "Microondas Samsung Bespoke con función Grill Fry, 30 litros, color blanco. Envío gratis.",
     stock: 6,
@@ -429,6 +461,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/anafe2.png"],
     line: "cumbre-home",
     category: "Hornos y Anafes",
+    brand: "Longvie",
     description:
       "Anafe a gas Longvie Multigas de 4 hornallas, color blanco. 18 cuotas sin interés y envío gratis.",
     stock: 5,
@@ -442,6 +475,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/micro5.png"],
     line: "cumbre-home",
     category: "Microondas",
+    brand: "Samsung",
     description:
       "Microondas Samsung Bespoke con grill, 32 litros, color silver. Envío gratis.",
     stock: 5,
@@ -455,6 +489,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/anafe3.png"],
     line: "cumbre-home",
     category: "Hornos y Anafes",
+    brand: "Samsung",
     description:
       "Anafe a gas Samsung empotrable, 4 hornallas, 60cm, acabado acero. 9 cuotas sin interés y envío gratis.",
     stock: 5,
@@ -468,6 +503,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/anafe4.png"],
     line: "cumbre-home",
     category: "Hornos y Anafes",
+    brand: "Samsung",
     description:
       "Anafe a gas Samsung empotrable, 4 hornallas, 60cm, acabado negro. 9 cuotas sin interés y envío gratis.",
     stock: 5,
@@ -481,6 +517,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/anafe5.png"],
     line: "cumbre-home",
     category: "Hornos y Anafes",
+    brand: "Longvie",
     description:
       "Anafe multigas Longvie A2600BF, color blanco. 18 cuotas sin interés y envío gratis.",
     stock: 5,
@@ -494,6 +531,7 @@ export const PRODUCTS: Product[] = [
     images: ["/products/anafe6.png"],
     line: "cumbre-home",
     category: "Hornos y Anafes",
+    brand: "Samsung",
     description:
       "Anafe eléctrico vitrocerámico Samsung, 2 zonas de cocción. 9 cuotas sin interés y envío gratis.",
     stock: 6,

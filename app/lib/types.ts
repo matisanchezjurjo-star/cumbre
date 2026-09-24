@@ -7,6 +7,7 @@ export type Product = {
   images: string[];
   line: "cumbre-home" | "electrodomesticos";
   category: string;
+  brand: string;
   description: string;
   stock: number;
 };
