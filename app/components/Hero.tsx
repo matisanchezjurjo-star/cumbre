@@ -47,9 +47,9 @@ export function Hero() {
   }, []);
 
   useEffect(() => {
-    const id = setInterval(next, 6000);
+    const id = setInterval(next, 8000);
     return () => clearInterval(id);
-  }, [next]);
+  }, [next, index]);
 
   const slide = SLIDES[index];
 
