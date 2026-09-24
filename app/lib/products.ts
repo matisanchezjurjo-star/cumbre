@@ -124,6 +124,54 @@ export const PRODUCTS: Product[] = [
       'Televisor Samsung 43" Neo QLED 4K, serie QN90D. 9 cuotas sin interés y envío gratis.',
     stock: 4,
   },
+  {
+    id: "heladera-samsung-side-by-side-rs27t5561b1",
+    slug: "heladera-samsung-side-by-side-rs27t5561b1-685l",
+    name: "Heladera Samsung Side by Side RS27T5561B1/ED de 685L",
+    price: 4809999,
+    images: ["/products/heladera1.png"],
+    line: "electrodomesticos",
+    category: "Heladeras y Freezers",
+    description:
+      "Heladera Samsung Side by Side de 685 litros, con dispenser de agua/hielo y Family Hub. 9 cuotas sin interés.",
+    stock: 3,
+  },
+  {
+    id: "lavasecarropas-samsung-bespoke-ai",
+    slug: "lavasecarropas-samsung-bespoke-ai-22kg-15kg",
+    name: "Lavasecarropas Samsung Bespoke AI de 22Kg de lavado y 15Kg de secado",
+    price: 5999999,
+    images: ["/products/lavasec1.png"],
+    line: "electrodomesticos",
+    category: "Lavado y Secado",
+    description:
+      "Lavasecarropas Samsung Bespoke AI, 22kg de lavado y 15kg de secado. 18 cuotas sin interés y envío gratis.",
+    stock: 3,
+  },
+  {
+    id: "heladera-samsung-french-door-836l",
+    slug: "heladera-samsung-french-door-view-836l-inverter",
+    name: "Heladera Samsung French Door View 836L Inverter WiFi Silver",
+    price: 4799999,
+    images: ["/products/heladera2.png"],
+    line: "electrodomesticos",
+    category: "Heladeras y Freezers",
+    description:
+      "Heladera Samsung French Door de 836 litros, Inverter, conectividad WiFi. 9 cuotas sin interés.",
+    stock: 3,
+  },
+  {
+    id: "lavasecarropas-samsung-wd4000t",
+    slug: "lavasecarropas-samsung-9-5kg-ecobubble-wd4000t",
+    name: "Lavasecarropas Samsung 9,5kg con Ecobubble WD4000T Blanco",
+    price: 2999999,
+    images: ["/products/lavasec2.png"],
+    line: "electrodomesticos",
+    category: "Lavado y Secado",
+    description:
+      "Lavasecarropas Samsung 9,5kg con tecnología Ecobubble. 18 cuotas sin interés y envío gratis.",
+    stock: 5,
+  },
 ];
 
 export function getProductsByLine(line: Product["line"]) {
