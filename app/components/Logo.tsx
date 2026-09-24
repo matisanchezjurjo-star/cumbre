@@ -30,12 +30,20 @@ export function LogoLockup({
   return (
     <div className={`flex items-center gap-3 ${className}`}>
       <LogoMark className="h-8 w-8 shrink-0" color={color} />
-      <span
-        className="font-serif tracking-[0.15em] text-xl leading-none"
-        style={{ color }}
-      >
-        CUMBRE
-      </span>
+      <div className="flex flex-col leading-none">
+        <span
+          className="font-serif tracking-[0.15em] text-xl leading-none"
+          style={{ color }}
+        >
+          CUMBRE
+        </span>
+        <span
+          className="text-[9px] tracking-[0.25em] mt-1 uppercase whitespace-nowrap"
+          style={{ color, opacity: 0.65 }}
+        >
+          Technology Equipment
+        </span>
+      </div>
     </div>
   );
 }
