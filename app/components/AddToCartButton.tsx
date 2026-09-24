@@ -18,7 +18,7 @@ export function AddToCartButton({ product }: { product: Product }) {
           setAdded(true);
           setTimeout(() => setAdded(false), 1500);
         }}
-        className="rounded-full bg-wine text-cream font-medium px-7 py-3 hover:bg-wine-dark transition-colors"
+        className="rounded-full bg-wine text-cream font-medium px-7 py-3 hover:bg-wine-dark hover:scale-105 active:scale-95 transition-all duration-200"
       >
         {added ? "¡Agregado!" : "Agregar al carrito"}
       </button>
@@ -27,7 +27,7 @@ export function AddToCartButton({ product }: { product: Product }) {
           addItem(product);
           router.push("/carrito");
         }}
-        className="rounded-full border border-wine/30 text-wine font-medium px-7 py-3 hover:bg-wine/5 transition-colors"
+        className="rounded-full border border-wine/30 text-wine font-medium px-7 py-3 hover:bg-wine/5 hover:scale-105 active:scale-95 transition-all duration-200"
       >
         Comprar ahora
       </button>

@@ -88,7 +88,7 @@ export function Footer() {
             <button
               type="submit"
               disabled={sent}
-              className="rounded-r-full bg-cream text-wine text-sm font-medium px-5 disabled:opacity-60"
+              className="rounded-r-full bg-cream text-wine text-sm font-medium px-5 hover:scale-105 active:scale-95 transition-transform disabled:opacity-60 disabled:hover:scale-100"
             >
               {sent ? "¡Listo!" : "Suscribirme"}
             </button>

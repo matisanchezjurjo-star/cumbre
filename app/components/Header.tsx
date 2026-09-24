@@ -47,7 +47,7 @@ export function Header() {
             <button
               type="submit"
               aria-label="Buscar"
-              className="absolute right-1.5 top-1/2 -translate-y-1/2 h-8 w-8 flex items-center justify-center rounded-full bg-wine text-cream"
+              className="absolute right-1.5 top-1/2 -translate-y-1/2 h-8 w-8 flex items-center justify-center rounded-full bg-wine text-cream hover:scale-110 active:scale-95 transition-transform"
             >
               <Search size={15} />
             </button>
@@ -57,7 +57,7 @@ export function Header() {
         <div className="ml-auto flex items-center gap-5">
           <Link
             href="/carrito"
-            className="relative flex items-center text-cream/90 hover:text-cream"
+            className="relative flex items-center text-cream/90 hover:text-cream hover:scale-110 transition-transform"
             aria-label="Carrito"
           >
             <ShoppingCart size={20} />

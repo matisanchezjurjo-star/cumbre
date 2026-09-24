@@ -35,11 +35,3 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-
-@media (pointer: fine) {
-  body,
-  a,
-  button {
-    cursor: none;
-  }
-}

@@ -24,7 +24,7 @@ export default function CarritoPage() {
               <p className="text-ink/60">Todavía no agregaste productos.</p>
               <Link
                 href="/productos"
-                className="mt-5 inline-block rounded-full bg-wine text-cream font-medium px-6 py-2.5"
+                className="mt-5 inline-block rounded-full bg-wine text-cream font-medium px-6 py-2.5 hover:scale-105 active:scale-95 transition-transform"
               >
                 Ver catálogo
               </Link>
@@ -95,7 +95,7 @@ export default function CarritoPage() {
                 </p>
                 <Link
                   href="/checkout"
-                  className="mt-5 block text-center rounded-full bg-wine text-cream font-medium px-6 py-3 hover:bg-wine-dark transition-colors"
+                  className="mt-5 block text-center rounded-full bg-wine text-cream font-medium px-6 py-3 hover:bg-wine-dark hover:scale-105 active:scale-95 transition-all duration-200"
                 >
                   Ir a pagar
                 </Link>
