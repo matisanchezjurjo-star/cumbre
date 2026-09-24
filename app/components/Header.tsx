@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, Search, ShoppingCart } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
 import { LogoLockup } from "./Logo";
 import { CategoryDrawer } from "./CategoryDrawer";
+import { SearchAutocomplete } from "./SearchAutocomplete";
 import { useCart } from "../lib/cart-context";
 
 const LINKS = [
@@ -17,8 +17,6 @@ const LINKS = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [query, setQuery] = useState("");
-  const router = useRouter();
   const { count } = useCart();
 
   return (
@@ -28,32 +26,7 @@ export function Header() {
           <LogoLockup color="var(--cream)" />
         </Link>
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            router.push(
-              query ? `/productos?q=${encodeURIComponent(query)}` : "/productos"
-            );
-          }}
-          className="hidden sm:flex flex-1 max-w-xl"
-        >
-          <div className="relative w-full">
-            <input
-              type="text"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar productos"
-              className="w-full rounded-full bg-cream text-ink placeholder:text-ink/40 pl-4 pr-11 py-2.5 text-sm outline-none"
-            />
-            <button
-              type="submit"
-              aria-label="Buscar"
-              className="absolute right-1.5 top-1/2 -translate-y-1/2 h-8 w-8 flex items-center justify-center rounded-full bg-wine text-cream hover:scale-110 active:scale-95 transition-transform"
-            >
-              <Search size={15} />
-            </button>
-          </div>
-        </form>
+        <SearchAutocomplete className="hidden sm:block flex-1 max-w-xl" />
 
         <div className="ml-auto flex items-center gap-5">
           <Link
@@ -98,6 +71,7 @@ export function Header() {
 
       {open && (
         <div className="md:hidden border-t border-cream/10 px-5 py-4 flex flex-col gap-4 bg-wine-dark">
+          <SearchAutocomplete />
           <button
             onClick={() => {
               setOpen(false);
