@@ -64,6 +64,66 @@ export const PRODUCTS: Product[] = [
       "Microondas Samsung Smart de 32 litros con función Air Fry y convección — cocina, gratina y fríe con aire. 6 cuotas sin interés y envío gratis.",
     stock: 12,
   },
+  {
+    id: "tv-samsung-55-crystal-uhd",
+    slug: "smart-tv-samsung-55-crystal-uhd-4k",
+    name: 'Smart TV Samsung 55" Crystal UHD 4K',
+    price: 1099999,
+    images: ["/products/tv1.png"],
+    line: "electrodomesticos",
+    category: "TV y Audio",
+    description:
+      'Smart TV Samsung 55" Crystal UHD 4K. 9 cuotas sin interés y envío gratis.',
+    stock: 7,
+  },
+  {
+    id: "tv-samsung-50-u8000f",
+    slug: "televisor-samsung-50-crystal-uhd-u8000f-2025",
+    name: 'Televisor Samsung 50" Crystal UHD U8000F 4K Smart TV 2025',
+    price: 917999,
+    images: ["/products/tv2.png"],
+    line: "electrodomesticos",
+    category: "TV y Audio",
+    description:
+      'Televisor Samsung 50" Crystal UHD U8000F, modelo 2025. 6 cuotas sin interés y envío gratis.',
+    stock: 7,
+  },
+  {
+    id: "tv-tcl-55-v6c",
+    slug: "televisor-tcl-55-v6c-4k-hdr-google-tv",
+    name: 'Televisor TCL 55" V6C 4K HDR Google TV',
+    price: 1114999,
+    images: ["/products/tv3.png"],
+    line: "electrodomesticos",
+    category: "TV y Audio",
+    description:
+      'Televisor TCL 55" 4K HDR con Google TV integrado. 18 cuotas sin interés y envío gratis.',
+    stock: 6,
+  },
+  {
+    id: "tv-samsung-55-u8000f",
+    slug: "televisor-samsung-55-crystal-uhd-u8000f-2025",
+    name: 'Televisor Samsung 55" Crystal UHD U8000F 4K Smart TV 2025',
+    price: 1039999,
+    images: ["/products/tv4.png"],
+    line: "electrodomesticos",
+    category: "TV y Audio",
+    description:
+      'Televisor Samsung 55" Crystal UHD U8000F, modelo 2025. 6 cuotas sin interés y envío gratis.',
+    stock: 5,
+  },
+  {
+    id: "tv-samsung-43-neo-qled",
+    slug: "televisor-samsung-43-neo-qled-4k-qn90d",
+    name: 'Televisor Samsung 43" Neo QLED 4K QN90D',
+    price: 1999999,
+    images: ["/products/tv5.png"],
+    line: "electrodomesticos",
+    category: "TV y Audio",
+    description:
+      'Televisor Samsung 43" Neo QLED 4K, serie QN90D. 9 cuotas sin interés y envío gratis.',
+    stock: 4,
+  },
 ];
 
 export function getProductsByLine(line: Product["line"]) {
