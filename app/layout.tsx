@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./lib/cart-context";
+import { SITE_URL } from "./lib/constants";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -15,7 +16,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Cumbre Home — Electrodomésticos",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Cumbre — Electrodomésticos y Tecnología",
+    template: "%s",
+  },
   description:
     "Electrodomésticos premium para tus espacios, hogares y empresas. Cumbre Home (cocina) y línea general. Cuotas sin interés y envíos a todo el país.",
 };

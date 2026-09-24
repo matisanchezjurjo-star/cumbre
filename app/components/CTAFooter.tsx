@@ -5,7 +5,12 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Mail, AtSign } from "lucide-react";
 import { LogoLockup } from "./Logo";
-import { INSTAGRAM_URL, WHATSAPP_URL, COUPON_CODE } from "../lib/constants";
+import {
+  INSTAGRAM_URL,
+  WHATSAPP_URL,
+  COUPON_CODE,
+  BUSINESS_INFO,
+} from "../lib/constants";
 
 export function CTASection() {
   return (
@@ -48,12 +53,16 @@ const COLUMNS = [
     title: "Servicio al Cliente",
     links: [
       { label: "Estado de mi pedido", href: WHATSAPP_URL },
-      { label: "Cambios y devoluciones", href: WHATSAPP_URL },
+      { label: "Cambios y devoluciones", href: "/cambios-y-devoluciones" },
     ],
   },
   {
-    title: "Nosotros",
-    links: [{ label: "Comunicate por WhatsApp", href: WHATSAPP_URL }],
+    title: "Legal",
+    links: [
+      { label: "Términos y Condiciones", href: "/terminos" },
+      { label: "Política de Privacidad", href: "/privacidad" },
+      { label: "Comunicate por WhatsApp", href: WHATSAPP_URL },
+    ],
   },
 ];
 
@@ -136,9 +145,19 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-cream/10 py-5 px-5 sm:px-8 text-center text-xs text-cream/50">
-        © {new Date().getFullYear()} Cumbre — Las imágenes son ilustrativas y
-        pueden variar, los precios y stock pueden variar sin previo aviso.
+      <div className="border-t border-cream/10 py-5 px-5 sm:px-8 text-center text-xs text-cream/50 space-y-1">
+        {BUSINESS_INFO.legalName && (
+          <p>
+            {BUSINESS_INFO.legalName}
+            {BUSINESS_INFO.cuit && ` — CUIT ${BUSINESS_INFO.cuit}`}
+            {BUSINESS_INFO.address && ` — ${BUSINESS_INFO.address}`}
+          </p>
+        )}
+        <p>
+          © {new Date().getFullYear()} Cumbre — Las imágenes son
+          ilustrativas y pueden variar, los precios y stock pueden variar
+          sin previo aviso.
+        </p>
       </div>
     </footer>
   );

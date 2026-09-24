@@ -1,11 +1,36 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Header } from "../../components/Header";
 import { AnnouncementBar } from "../../components/AnnouncementBar";
 import { Footer } from "../../components/CTAFooter";
 import { WhatsAppButton } from "../../components/WhatsAppButton";
 import { AddToCartButton } from "../../components/AddToCartButton";
-import { getProductBySlug } from "../../lib/products";
+import { getProductBySlug, PRODUCTS } from "../../lib/products";
+
+export function generateStaticParams() {
+  return PRODUCTS.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const product = getProductBySlug(slug);
+  if (!product) return { title: "Producto no encontrado | Cumbre" };
+
+  return {
+    title: `${product.name} | Cumbre`,
+    description: product.description,
+    openGraph: {
+      title: product.name,
+      description: product.description,
+      images: product.images[0] ? [{ url: product.images[0] }] : undefined,
+    },
+  };
+}
 
 export default async function ProductPage({
   params,
