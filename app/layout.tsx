@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./lib/cart-context";
+import { CustomCursor } from "./components/CustomCursor";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink">
+        <CustomCursor />
         <CartProvider>{children}</CartProvider>
       </body>
     </html>
