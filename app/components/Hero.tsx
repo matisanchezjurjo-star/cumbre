@@ -40,7 +40,17 @@ const SLIDES = [
   },
 ];
 
+// Posición de la cerradura dentro de /hero-door-v1.webp, en % de la imagen.
+const LOCK_ORIGIN = "51% 62%";
+
 type Phase = "door" | "zoom" | "opening" | "logo" | "carousel";
+
+const TIMINGS: Record<Exclude<Phase, "door">, number> = {
+  zoom: 1800,
+  opening: 4300,
+  logo: 5500,
+  carousel: 7500,
+};
 
 export function Hero() {
   const [phase, setPhase] = useState<Phase>("door");
@@ -48,10 +58,10 @@ export function Hero() {
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase("zoom"), 1000),
-      setTimeout(() => setPhase("opening"), 2400),
-      setTimeout(() => setPhase("logo"), 3300),
-      setTimeout(() => setPhase("carousel"), 5100),
+      setTimeout(() => setPhase("zoom"), TIMINGS.zoom),
+      setTimeout(() => setPhase("opening"), TIMINGS.opening),
+      setTimeout(() => setPhase("logo"), TIMINGS.logo),
+      setTimeout(() => setPhase("carousel"), TIMINGS.carousel),
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
@@ -71,55 +81,83 @@ export function Hero() {
 
   const slide = SLIDES[index];
   const introDone = phase === "carousel";
+  const doorSliding = phase === "opening" || phase === "logo";
 
   return (
     <section id="top" className="relative">
-      <div className="relative h-[420px] sm:h-[520px] w-full overflow-hidden bg-wine-dark">
+      <div className="relative h-[560px] sm:h-[680px] w-full overflow-hidden bg-wine-dark">
         {!introDone && (
           <>
-            {/* door, static then zooming into the lock */}
-            <motion.div
-              className="absolute inset-0"
-              animate={
-                phase === "zoom" || phase === "opening" || phase === "logo"
-                  ? { scale: 1.9, x: "9%", y: "4%" }
-                  : { scale: 1, x: 0, y: 0 }
-              }
-              transition={{ duration: 1.3, ease: "easeInOut" }}
-              style={{
-                opacity: phase === "opening" || phase === "logo" ? 0 : 1,
-                transition: "opacity 0.5s ease-in-out",
-              }}
-            >
-              <Image
-                src="/hero-door-v1.webp"
-                alt="Puerta principal con cerradura inteligente"
-                fill
-                priority
-                className="object-cover"
-              />
-            </motion.div>
+            {/* living room revealed behind the doors */}
+            {doorSliding && (
+              <div className="absolute inset-0">
+                <Image
+                  src="/hero-smart-living-v1.webp"
+                  alt="Living inteligente"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-wine-dark/35" />
+              </div>
+            )}
 
-            {/* door "opens" revealing the living room */}
-            <AnimatePresence>
-              {(phase === "opening" || phase === "logo") && (
+            {/* door, static then zooming into the lock */}
+            {!doorSliding && (
+              <motion.div
+                className="absolute inset-0"
+                style={{ transformOrigin: LOCK_ORIGIN }}
+                animate={phase === "zoom" ? { scale: 3.2 } : { scale: 1 }}
+                transition={{ duration: 2, ease: "easeInOut" }}
+              >
+                <Image
+                  src="/hero-door-v1.webp"
+                  alt="Puerta principal con cerradura inteligente"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+              </motion.div>
+            )}
+
+            {/* door panels sliding open like real double doors */}
+            {doorSliding && (
+              <>
                 <motion.div
-                  key="living-reveal"
-                  initial={{ clipPath: "inset(0% 50% 0% 50%)" }}
-                  animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                  transition={{ duration: 0.9, ease: "easeInOut" }}
                   className="absolute inset-0"
+                  style={{
+                    transformOrigin: LOCK_ORIGIN,
+                    clipPath: "inset(0 50% 0 0)",
+                  }}
+                  initial={{ scale: 3.2, x: 0 }}
+                  animate={{ scale: 3.2, x: "-45%" }}
+                  transition={{ duration: 1, ease: "easeInOut" }}
                 >
                   <Image
-                    src="/hero-smart-living-v1.webp"
-                    alt="Living inteligente"
+                    src="/hero-door-v1.webp"
+                    alt=""
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-wine-dark/35" />
                 </motion.div>
-              )}
-            </AnimatePresence>
+                <motion.div
+                  className="absolute inset-0"
+                  style={{
+                    transformOrigin: LOCK_ORIGIN,
+                    clipPath: "inset(0 0 0 50%)",
+                  }}
+                  initial={{ scale: 3.2, x: 0 }}
+                  animate={{ scale: 3.2, x: "45%" }}
+                  transition={{ duration: 1, ease: "easeInOut" }}
+                >
+                  <Image
+                    src="/hero-door-v1.webp"
+                    alt=""
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
+              </>
+            )}
 
             {/* logo reveal */}
             <AnimatePresence>
@@ -131,8 +169,8 @@ export function Hero() {
                   transition={{ duration: 0.6, ease: "easeOut" }}
                   className="absolute inset-0 flex flex-col items-center justify-center gap-3 z-10"
                 >
-                  <LogoMark className="h-14 w-14 sm:h-16 sm:w-16" color="var(--cream)" />
-                  <span className="font-serif text-3xl sm:text-4xl text-cream tracking-[0.2em]">
+                  <LogoMark className="h-14 w-14 sm:h-20 sm:w-20" color="var(--cream)" />
+                  <span className="font-serif text-3xl sm:text-5xl text-cream tracking-[0.2em]">
                     CUMBRE
                   </span>
                 </motion.div>
