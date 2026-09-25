@@ -52,6 +52,13 @@ export function Header() {
       </div>
 
       <nav className="hidden md:flex items-center gap-6 border-t border-cream/10 px-5 sm:px-8 h-11 text-xs tracking-wide">
+        <Link
+          href="/proyectos"
+          className="font-semibold text-cream hover:text-cream/80 transition-colors"
+        >
+          Proyectos y Empresas
+        </Link>
+        <span className="text-cream/20">|</span>
         <button
           onClick={() => setDrawerOpen(true)}
           className="text-cream/75 hover:text-cream transition-colors"
@@ -72,6 +79,13 @@ export function Header() {
       {open && (
         <div className="md:hidden border-t border-cream/10 px-5 py-4 flex flex-col gap-4 bg-wine-dark">
           <SearchAutocomplete />
+          <Link
+            href="/proyectos"
+            onClick={() => setOpen(false)}
+            className="font-semibold text-cream text-sm"
+          >
+            Proyectos y Empresas
+          </Link>
           <button
             onClick={() => {
               setOpen(false);

@@ -27,6 +27,15 @@ const MotionLink = motion.create(Link);
 export function Categories() {
   return (
     <section id="categorias" className="py-16 sm:py-20">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 text-center mb-10">
+        <p className="text-wine tracking-[0.2em] text-xs font-medium">
+          TAMBIÉN VENDEMOS AL PÚBLICO
+        </p>
+        <h2 className="mt-3 font-serif text-2xl sm:text-3xl text-ink">
+          Catálogo de productos
+        </h2>
+      </div>
+
       {/* appliance type icon row */}
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="flex justify-center gap-8 sm:gap-12 overflow-x-auto pb-2 no-scrollbar">

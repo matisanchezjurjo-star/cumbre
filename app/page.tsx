@@ -1,6 +1,7 @@
 import { AnnouncementBar } from "./components/AnnouncementBar";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
+import { ServicesSection } from "./components/ServicesSection";
 import { Categories } from "./components/Categories";
 import { FeaturedProducts } from "./components/FeaturedProducts";
 import { Trust } from "./components/Trust";
@@ -14,6 +15,7 @@ export default function Home() {
       <AnnouncementBar />
       <main className="flex-1">
         <Hero />
+        <ServicesSection />
         <Categories />
         <FeaturedProducts />
         <Trust />
