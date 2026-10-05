@@ -92,7 +92,7 @@ export function Footer() {
               required
               placeholder="Email"
               disabled={sent}
-              className="flex-1 rounded-l-full bg-cream/10 border border-cream/20 px-4 py-2.5 text-sm placeholder:text-cream/50 outline-none disabled:opacity-60"
+              className="flex-1 rounded-l-full bg-cream/10 border border-cream/20 px-4 py-2.5 text-sm placeholder:text-cream/60 outline-none disabled:opacity-60"
             />
             <button
               type="submit"
@@ -153,7 +153,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-cream/10 py-5 px-5 sm:px-8 text-center text-xs text-cream/50 space-y-1">
+      <div className="border-t border-cream/10 py-5 px-5 sm:px-8 text-center text-xs text-cream/60 space-y-1">
         {BUSINESS_INFO.legalName && (
           <p>
             {BUSINESS_INFO.legalName}

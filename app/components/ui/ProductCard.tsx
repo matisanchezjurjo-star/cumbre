@@ -37,7 +37,7 @@ export function ProductCard({
             ${product.price.toLocaleString("es-AR")}
           </span>
           {product.compareAtPrice && (
-            <span className="text-xs text-ink/40 line-through">
+            <span className="text-xs text-ink/70 line-through">
               ${product.compareAtPrice.toLocaleString("es-AR")}
             </span>
           )}

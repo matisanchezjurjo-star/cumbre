@@ -19,7 +19,7 @@ export default function PrivacidadPage() {
           <h1 className="font-serif text-3xl sm:text-4xl text-wine">
             Política de Privacidad
           </h1>
-          <p className="mt-2 text-sm text-ink/50">
+          <p className="mt-2 text-sm text-ink/70">
             Última actualización: septiembre de 2026
           </p>
 

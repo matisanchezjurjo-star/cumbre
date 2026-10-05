@@ -36,7 +36,7 @@ export function Categories() {
               <h3 className="font-serif text-2xl text-wine group-hover:text-cream transition-colors">
                 {line.name}
               </h3>
-              <p className="mt-2 text-sm text-ink/60 group-hover:text-cream/80 transition-colors">
+              <p className="mt-2 text-sm text-ink/70 group-hover:text-cream/80 transition-colors">
                 {line.blurb}
               </p>
               <span className="mt-4 inline-block text-sm font-medium text-wine group-hover:text-cream transition-colors">

@@ -35,7 +35,7 @@ export default function CheckoutPage() {
         <AnnouncementBar />
         <main className="flex-1">
           <div className="mx-auto max-w-2xl px-5 sm:px-8 py-20 text-center">
-            <p className="text-ink/60">Tu carrito está vacío.</p>
+            <p className="text-ink/70">Tu carrito está vacío.</p>
             <Link
               href="/productos"
               className="mt-5 inline-block rounded-full bg-wine text-cream font-medium px-6 py-2.5"
@@ -59,7 +59,7 @@ export default function CheckoutPage() {
             <h1 className="font-serif text-3xl text-wine">
               ¡Gracias por tu compra!
             </h1>
-            <p className="mt-3 text-ink/60">
+            <p className="mt-3 text-ink/70">
               Te vamos a contactar por WhatsApp para coordinar la entrega.
             </p>
             <a
@@ -123,7 +123,7 @@ export default function CheckoutPage() {
             <h2 className="font-serif text-2xl text-wine mb-4">Pago</h2>
             {!PUBLIC_KEY ? (
               <div className="rounded-xl border border-dashed border-wine/25 bg-cream-soft p-6 text-center">
-                <p className="text-ink/60 text-sm">
+                <p className="text-ink/70 text-sm">
                   El pago con tarjeta todavía se está configurando.
                 </p>
                 <a
@@ -136,7 +136,7 @@ export default function CheckoutPage() {
                 </a>
               </div>
             ) : !name || !email ? (
-              <p className="text-sm text-ink/50">
+              <p className="text-sm text-ink/70">
                 Completá tus datos para continuar con el pago.
               </p>
             ) : (

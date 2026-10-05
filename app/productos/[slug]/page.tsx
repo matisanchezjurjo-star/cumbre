@@ -87,7 +87,7 @@ export default async function ProductPage({
           {/* breadcrumb */}
           <nav
             aria-label="Breadcrumb"
-            className="flex items-center flex-wrap gap-1.5 text-xs text-ink/50 mb-8"
+            className="flex items-center flex-wrap gap-1.5 text-xs text-ink/70 mb-8"
           >
             <Link href="/productos" className="hover:text-wine transition-colors">
               Catálogo
@@ -145,14 +145,14 @@ export default async function ProductPage({
                   ${product.price.toLocaleString("es-AR")}
                 </span>
                 {product.compareAtPrice && (
-                  <span className="text-lg text-ink/40 line-through">
+                  <span className="text-lg text-ink/70 line-through">
                     ${product.compareAtPrice.toLocaleString("es-AR")}
                   </span>
                 )}
               </div>
 
               <p
-                className={`mt-2 text-sm font-medium ${lowStock ? "text-wine" : "text-ink/60"}`}
+                className={`mt-2 text-sm font-medium ${lowStock ? "text-wine" : "text-ink/70"}`}
               >
                 {lowStock
                   ? `¡Últimas unidades! Quedan ${product.stock} en stock.`
@@ -186,7 +186,7 @@ export default async function ProductPage({
                       <p className="text-sm font-medium text-ink">
                         {item.label}
                       </p>
-                      <p className="text-xs text-ink/50">{item.sub}</p>
+                      <p className="text-xs text-ink/70">{item.sub}</p>
                     </div>
                   </div>
                 ))}

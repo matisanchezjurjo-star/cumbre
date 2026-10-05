@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -25,6 +26,9 @@ const ICONS: Record<string, LucideIcon> = {
   Wind,
 };
 
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 export function CategoryDrawer({
   open,
   onClose,
@@ -32,6 +36,52 @@ export function CategoryDrawer({
   open: boolean;
   onClose: () => void;
 }) {
+  const panelRef = useRef<HTMLElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previouslyFocused = useRef<HTMLElement | null>(null);
+
+  // Escape to close, Tab trapped inside the panel while open.
+  useEffect(() => {
+    if (!open) return;
+
+    previouslyFocused.current = document.activeElement as HTMLElement | null;
+    closeButtonRef.current?.focus();
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        onClose();
+        return;
+      }
+      if (e.key !== "Tab" || !panelRef.current) return;
+
+      const focusable = Array.from(
+        panelRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+      );
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = originalOverflow;
+      previouslyFocused.current?.focus();
+    };
+  }, [open, onClose]);
+
   return (
     <AnimatePresence>
       {open && (
@@ -44,6 +94,10 @@ export function CategoryDrawer({
             onClick={onClose}
           />
           <motion.aside
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Categorías"
             className="fixed left-0 top-0 z-[70] h-full w-[85vw] max-w-sm bg-cream text-ink shadow-2xl overflow-y-auto"
             initial={{ x: "-100%" }}
             animate={{ x: 0 }}
@@ -53,6 +107,7 @@ export function CategoryDrawer({
             <div className="flex items-center justify-between px-5 h-16 border-b border-cream/10 bg-wine-dark text-cream sticky top-0 z-10">
               <span className="font-serif text-lg">Categorías</span>
               <button
+                ref={closeButtonRef}
                 onClick={onClose}
                 aria-label="Cerrar"
                 className="hover:scale-110 transition-transform"

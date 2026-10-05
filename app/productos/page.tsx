@@ -84,7 +84,7 @@ export default async function ProductosPage({
           </div>
 
           <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
-            <span className="text-ink/50">Marca:</span>
+            <span className="text-ink/70">Marca:</span>
             {BRANDS.map((b) => (
               <Link
                 key={b}
@@ -113,7 +113,7 @@ export default async function ProductosPage({
               <H3 as="p" className="text-wine">
                 Estamos cargando el catálogo
               </H3>
-              <p className="mt-3 text-ink/60 max-w-md mx-auto">
+              <p className="mt-3 text-ink/70 max-w-md mx-auto">
                 Muy pronto vas a poder comprar acá mismo. Mientras tanto,
                 escribinos por WhatsApp y te contamos qué tenemos disponible.
               </p>

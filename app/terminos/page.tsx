@@ -19,7 +19,7 @@ export default function TerminosPage() {
           <h1 className="font-serif text-3xl sm:text-4xl text-wine">
             Términos y Condiciones
           </h1>
-          <p className="mt-2 text-sm text-ink/50">
+          <p className="mt-2 text-sm text-ink/70">
             Última actualización: septiembre de 2026
           </p>
 
@@ -40,7 +40,7 @@ export default function TerminosPage() {
                 y equipamiento tecnológico para hogares y empresas en
                 Argentina.
               </p>
-              <p className="mt-2 text-ink/50 italic">
+              <p className="mt-2 text-ink/70 italic">
                 Razón social / CUIT / domicilio fiscal: [a completar por el
                 titular del negocio].
               </p>

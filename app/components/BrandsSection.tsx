@@ -121,7 +121,7 @@ export function BrandsSection() {
                   <H4 className="text-ink group-hover:text-wine transition-colors">
                     {cat.label}
                   </H4>
-                  <p className="mt-1.5 text-sm text-ink/60 leading-relaxed">
+                  <p className="mt-1.5 text-sm text-ink/70 leading-relaxed">
                     {cat.description}
                   </p>
                   <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-wine opacity-0 group-hover:opacity-100 transition-opacity">

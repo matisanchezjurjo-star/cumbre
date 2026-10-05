@@ -60,7 +60,7 @@ export function SearchAutocomplete({
             }}
             onFocus={() => query && setOpen(true)}
             placeholder="Buscar productos"
-            className="w-full rounded-full bg-cream text-ink placeholder:text-ink/40 pl-4 pr-11 py-2.5 text-sm outline-none"
+            className="w-full rounded-full bg-cream text-ink placeholder:text-ink/70 pl-4 pr-11 py-2.5 text-sm outline-none"
           />
           <button
             type="submit"
@@ -75,7 +75,7 @@ export function SearchAutocomplete({
       {open && needle && (
         <div className="absolute left-0 right-0 top-full mt-2 rounded-xl bg-white shadow-xl border border-wine/10 overflow-hidden z-50 text-ink">
           {results.length === 0 ? (
-            <p className="px-4 py-4 text-sm text-ink/50">
+            <p className="px-4 py-4 text-sm text-ink/70">
               Sin resultados para &quot;{query}&quot;
             </p>
           ) : (

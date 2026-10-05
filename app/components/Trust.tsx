@@ -84,7 +84,7 @@ export function Trust() {
                 </span>
                 <div>
                   <p className="font-medium text-ink">{item.title}</p>
-                  <p className="mt-0.5 text-sm text-ink/60 leading-relaxed">
+                  <p className="mt-0.5 text-sm text-ink/70 leading-relaxed">
                     {item.description}
                   </p>
                 </div>

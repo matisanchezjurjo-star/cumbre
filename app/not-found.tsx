@@ -12,7 +12,7 @@ export default function NotFound() {
           <h1 className="mt-4 font-serif text-2xl sm:text-3xl text-ink">
             Esta página no existe
           </h1>
-          <p className="mt-3 text-ink/60 max-w-md mx-auto">
+          <p className="mt-3 text-ink/70 max-w-md mx-auto">
             El producto o la página que buscás no está disponible. Puede que
             se haya movido o que el link esté mal escrito.
           </p>

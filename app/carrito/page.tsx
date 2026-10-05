@@ -21,7 +21,7 @@ export default function CarritoPage() {
 
           {items.length === 0 ? (
             <div className="mt-10 rounded-2xl border border-dashed border-wine/25 bg-cream-soft py-16 text-center">
-              <p className="text-ink/60">Todavía no agregaste productos.</p>
+              <p className="text-ink/70">Todavía no agregaste productos.</p>
               <Link
                 href="/productos"
                 className="mt-5 inline-block rounded-full bg-wine text-cream font-medium px-6 py-2.5 hover:scale-105 active:scale-95 transition-transform"
@@ -78,7 +78,7 @@ export default function CarritoPage() {
                     <button
                       onClick={() => removeItem(item.slug)}
                       aria-label="Quitar"
-                      className="text-ink/40 hover:text-wine"
+                      className="text-ink/70 hover:text-wine"
                     >
                       <X size={18} />
                     </button>
@@ -91,7 +91,7 @@ export default function CarritoPage() {
                   <span>Subtotal</span>
                   <span>${subtotal.toLocaleString("es-AR")}</span>
                 </div>
-                <p className="mt-1 text-xs text-ink/50">
+                <p className="mt-1 text-xs text-ink/70">
                   El envío se calcula en el siguiente paso.
                 </p>
                 <Link

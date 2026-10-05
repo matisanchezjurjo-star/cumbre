@@ -86,7 +86,7 @@ export function FAQ() {
           })}
         </div>
 
-        <p className="mt-8 text-center text-sm text-ink/60">
+        <p className="mt-8 text-center text-sm text-ink/70">
           ¿Tenés otra consulta?{" "}
           <a
             href={WHATSAPP_URL}

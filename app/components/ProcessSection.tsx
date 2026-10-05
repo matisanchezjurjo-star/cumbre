@@ -52,7 +52,7 @@ export function ProcessSection() {
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-wine text-cream">
                   <Icon size={26} strokeWidth={1.75} />
                 </div>
-                <span className="mt-4 block text-xs font-medium tracking-[0.2em] text-wine/60">
+                <span className="mt-4 block text-xs font-medium tracking-[0.2em] text-wine/75">
                   PASO {i + 1}
                 </span>
                 <H3 className="mt-2 text-wine">{step.title}</H3>

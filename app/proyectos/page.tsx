@@ -110,7 +110,7 @@ export default function ProyectosPage() {
                   <p className="text-sm font-semibold text-ink">
                     Garantía oficial
                   </p>
-                  <p className="text-xs text-ink/60">en todos los productos</p>
+                  <p className="text-xs text-ink/70">en todos los productos</p>
                 </div>
               </div>
             </div>

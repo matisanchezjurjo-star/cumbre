@@ -40,13 +40,13 @@ export function QuoteForm() {
     >
       <div className="sm:col-span-2">
         <h3 className="font-serif text-2xl text-wine">Solicitá tu cotización</h3>
-        <p className="mt-1 text-sm text-ink/60">
+        <p className="mt-1 text-sm text-ink/70">
           Contanos sobre tu proyecto y te contactamos por WhatsApp.
         </p>
       </div>
 
       <div>
-        <label className="text-xs text-ink/60">Nombre y apellido *</label>
+        <label className="text-xs text-ink/70">Nombre y apellido *</label>
         <input
           required
           value={name}
@@ -55,7 +55,7 @@ export function QuoteForm() {
         />
       </div>
       <div>
-        <label className="text-xs text-ink/60">Empresa / Estudio (opcional)</label>
+        <label className="text-xs text-ink/70">Empresa / Estudio (opcional)</label>
         <input
           value={company}
           onChange={(e) => setCompany(e.target.value)}
@@ -63,7 +63,7 @@ export function QuoteForm() {
         />
       </div>
       <div>
-        <label className="text-xs text-ink/60">Email</label>
+        <label className="text-xs text-ink/70">Email</label>
         <input
           type="email"
           value={email}
@@ -72,7 +72,7 @@ export function QuoteForm() {
         />
       </div>
       <div>
-        <label className="text-xs text-ink/60">Teléfono</label>
+        <label className="text-xs text-ink/70">Teléfono</label>
         <input
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
@@ -80,7 +80,7 @@ export function QuoteForm() {
         />
       </div>
       <div className="sm:col-span-2">
-        <label className="text-xs text-ink/60">Tipo de proyecto *</label>
+        <label className="text-xs text-ink/70">Tipo de proyecto *</label>
         <select
           required
           value={projectType}
@@ -95,7 +95,7 @@ export function QuoteForm() {
         </select>
       </div>
       <div className="sm:col-span-2">
-        <label className="text-xs text-ink/60">
+        <label className="text-xs text-ink/70">
           Contanos sobre tu proyecto (opcional)
         </label>
         <textarea
