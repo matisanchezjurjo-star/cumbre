@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 import { WHATSAPP_URL } from "../lib/constants";
+import { SectionHeading } from "./ui/SectionHeading";
 
 const ITEMS = [
   {
@@ -38,20 +39,11 @@ export function FAQ() {
   return (
     <section className="py-16 sm:py-20">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <p className="text-wine tracking-[0.2em] text-xs font-medium">
-            PREGUNTAS FRECUENTES
-          </p>
-          <h2 className="mt-3 font-serif text-3xl sm:text-4xl text-ink">
-            Lo que más nos preguntan
-          </h2>
-        </motion.div>
+        <SectionHeading
+          align="center"
+          eyebrow="PREGUNTAS FRECUENTES"
+          title="Lo que más nos preguntan"
+        />
 
         <div className="mt-10 divide-y divide-wine/10 border-y border-wine/10">
           {ITEMS.map((item, i) => {

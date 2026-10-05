@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionWave } from "./SectionWave";
 import { Button } from "./ui/Button";
+import { SectionHeading } from "./ui/SectionHeading";
+import { H3 } from "./ui/Typography";
 
 const SERVICES = [
   {
@@ -31,26 +33,11 @@ export function ServicesSection() {
   return (
     <section className="pt-16 sm:pt-20 bg-cream-soft">
       <div className="mx-auto max-w-6xl px-5 sm:px-8 pb-16 sm:pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl"
-        >
-          <p className="text-wine tracking-[0.2em] text-xs font-medium">
-            NUESTRO SERVICIO
-          </p>
-          <h2 className="mt-3 font-serif text-3xl sm:text-4xl text-wine">
-            Equipamiento tecnológico para cada proyecto
-          </h2>
-          <p className="mt-4 text-ink/70 leading-relaxed">
-            Más que una tienda: diseñamos, asesoramos y equipamos con
-            tecnología — para hogares que se vuelven inteligentes, obras que
-            necesitan integración desde el día uno, y empresas que buscan un
-            espacio de trabajo a la altura.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="NUESTRO SERVICIO"
+          title="Equipamiento tecnológico para cada proyecto"
+          description="Más que una tienda: diseñamos, asesoramos y equipamos con tecnología — para hogares que se vuelven inteligentes, obras que necesitan integración desde el día uno, y empresas que buscan un espacio de trabajo a la altura."
+        />
 
         <div className="mt-10 grid sm:grid-cols-3 gap-5">
           {SERVICES.map((s, i) => (
@@ -72,9 +59,7 @@ export function ServicesSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-wine-dark/50 to-transparent" />
                 </div>
-                <h3 className="mt-4 font-serif text-xl text-wine">
-                  {s.title}
-                </h3>
+                <H3 className="mt-4 text-wine">{s.title}</H3>
                 <p className="mt-2 text-sm text-ink/70 leading-relaxed">
                   {s.description}
                 </p>

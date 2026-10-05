@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, Briefcase, UtensilsCrossed } from "lucide-react";
 import { Button } from "./ui/Button";
+import { SectionHeading } from "./ui/SectionHeading";
 
 const CATEGORIES = [
   {
@@ -51,24 +52,11 @@ export function ProjectsGallery() {
   return (
     <section className="py-16 sm:py-20 bg-cream-soft">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl"
-        >
-          <p className="text-wine tracking-[0.2em] text-xs font-medium">
-            NUESTROS PROYECTOS
-          </p>
-          <h2 className="mt-3 font-serif text-3xl sm:text-4xl text-wine">
-            Así equipamos cada tipo de espacio
-          </h2>
-          <p className="mt-4 text-ink/70 leading-relaxed">
-            Ejemplos del tipo de trabajo que hacemos en cada categoría de
-            proyecto.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="NUESTROS PROYECTOS"
+          title="Así equipamos cada tipo de espacio"
+          description="Ejemplos del tipo de trabajo que hacemos en cada categoría de proyecto."
+        />
 
         {/* tabs */}
         <div className="mt-8 flex flex-wrap gap-3">

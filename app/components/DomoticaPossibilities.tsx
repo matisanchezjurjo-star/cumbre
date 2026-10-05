@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { Film, Music, BellRing, Lightbulb, Thermometer, type LucideIcon } from "lucide-react";
 import { SectionWave } from "./SectionWave";
+import { SectionHeading } from "./ui/SectionHeading";
+import { H3 } from "./ui/Typography";
 
 const ITEMS: { icon: LucideIcon; title: string; description: string }[] = [
   {
@@ -41,24 +43,12 @@ export function DomoticaPossibilities() {
   return (
     <section className="pt-16 sm:pt-20 bg-wine-dark text-cream">
       <div className="mx-auto max-w-6xl px-5 sm:px-8 pb-16 sm:pb-20">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl"
-        >
-          <p className="tracking-[0.2em] text-xs font-medium text-cream/70">
-            DOMÓTICA PARA TU HOGAR
-          </p>
-          <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
-            Posibilidades de la domótica
-          </h2>
-          <p className="mt-4 text-cream/75 leading-relaxed">
-            Brindamos servicios totalmente personalizados para cada proyecto.
-            Esto es lo que tu casa puede hacer por vos.
-          </p>
-        </motion.div>
+        <SectionHeading
+          tone="inverted"
+          eyebrow="DOMÓTICA PARA TU HOGAR"
+          title="Posibilidades de la domótica"
+          description="Brindamos servicios totalmente personalizados para cada proyecto. Esto es lo que tu casa puede hacer por vos."
+        />
 
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {ITEMS.map((item, i) => {
@@ -76,7 +66,7 @@ export function DomoticaPossibilities() {
                 <span className="flex h-11 w-11 items-center justify-center rounded-full bg-cream/10 text-cream">
                   <Icon size={20} strokeWidth={1.75} />
                 </span>
-                <h3 className="mt-4 font-serif text-xl">{item.title}</h3>
+                <H3 className="mt-4">{item.title}</H3>
                 <p className="mt-2 text-sm text-cream/70 leading-relaxed">
                   {item.description}
                 </p>

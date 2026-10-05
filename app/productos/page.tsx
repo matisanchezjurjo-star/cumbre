@@ -1,9 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Header } from "../components/Header";
 import { AnnouncementBar } from "../components/AnnouncementBar";
 import { Footer } from "../components/CTAFooter";
 import { WhatsAppButton } from "../components/WhatsAppButton";
+import { ProductCard } from "../components/ui/ProductCard";
+import { H1, H3 } from "../components/ui/Typography";
 import { PRODUCTS } from "../lib/products";
 import { LINES, BRANDS } from "../lib/constants";
 
@@ -44,9 +45,9 @@ export default async function ProductosPage({
       <AnnouncementBar />
       <main className="flex-1">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 py-12">
-          <h1 className="font-serif text-3xl sm:text-4xl text-wine">
+          <H1 className="text-wine">
             {categoria ?? (activeLine ? activeLine.name : "Todos los productos")}
-          </h1>
+          </H1>
 
           <div className="mt-4 flex flex-wrap gap-3 text-sm">
             <Link
@@ -109,9 +110,9 @@ export default async function ProductosPage({
 
           {products.length === 0 ? (
             <div className="mt-16 rounded-2xl border border-dashed border-wine/25 bg-cream-soft py-20 text-center">
-              <p className="font-serif text-2xl text-wine">
+              <H3 as="p" className="text-wine">
                 Estamos cargando el catálogo
-              </p>
+              </H3>
               <p className="mt-3 text-ink/60 max-w-md mx-auto">
                 Muy pronto vas a poder comprar acá mismo. Mientras tanto,
                 escribinos por WhatsApp y te contamos qué tenemos disponible.
@@ -120,38 +121,7 @@ export default async function ProductosPage({
           ) : (
             <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
               {products.map((p) => (
-                <Link
-                  key={p.slug}
-                  href={`/productos/${p.slug}`}
-                  className="group rounded-2xl overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
-                >
-                  <div className="relative aspect-square bg-cream">
-                    {p.images[0] && (
-                      <Image
-                        src={p.images[0]}
-                        alt={p.name}
-                        fill
-                        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                        className="object-cover group-hover:scale-[1.04] transition-transform duration-300"
-                      />
-                    )}
-                  </div>
-                  <div className="p-4">
-                    <p className="text-sm text-ink/90 line-clamp-2 leading-snug">
-                      {p.name}
-                    </p>
-                    <div className="mt-2 flex items-baseline gap-2">
-                      <span className="font-medium text-wine">
-                        ${p.price.toLocaleString("es-AR")}
-                      </span>
-                      {p.compareAtPrice && (
-                        <span className="text-xs text-ink/40 line-through">
-                          ${p.compareAtPrice.toLocaleString("es-AR")}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </Link>
+                <ProductCard key={p.slug} product={p} />
               ))}
             </div>
           )}

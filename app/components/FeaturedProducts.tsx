@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { PRODUCTS } from "../lib/products";
+import { ProductCard } from "./ui/ProductCard";
+import { H2 } from "./ui/Typography";
 
 const FEATURED_IDS = [
   "anafe-samsung-ctr264",
@@ -23,9 +24,7 @@ export function FeaturedProducts() {
     <section className="pb-20 sm:pb-28">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="flex items-end justify-between mb-8">
-          <h2 className="font-serif text-2xl sm:text-3xl text-ink">
-            Algunos de nuestros productos
-          </h2>
+          <H2 className="text-ink">Algunos de nuestros productos</H2>
           <Link
             href="/productos"
             className="text-sm font-medium text-wine hover:underline whitespace-nowrap ml-4"
@@ -43,28 +42,7 @@ export function FeaturedProducts() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
             >
-              <Link
-                href={`/productos/${p.slug}`}
-                className="group block rounded-2xl overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
-              >
-                <div className="relative aspect-square bg-cream">
-                  <Image
-                    src={p.images[0]}
-                    alt={p.name}
-                    fill
-                    sizes="(min-width: 640px) 25vw, 50vw"
-                    className="object-cover group-hover:scale-[1.04] transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-4">
-                  <p className="text-sm text-ink/90 line-clamp-2 leading-snug">
-                    {p.name}
-                  </p>
-                  <p className="mt-2 font-medium text-wine">
-                    ${p.price.toLocaleString("es-AR")}
-                  </p>
-                </div>
-              </Link>
+              <ProductCard product={p} sizes="(min-width: 640px) 25vw, 50vw" />
             </motion.div>
           ))}
         </div>

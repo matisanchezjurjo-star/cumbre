@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ClipboardList, Wrench, HeadphonesIcon, type LucideIcon } from "lucide-react";
+import { SectionHeading } from "./ui/SectionHeading";
+import { H3 } from "./ui/Typography";
 
 const STEPS: { icon: LucideIcon; title: string; description: string }[] = [
   {
@@ -28,24 +30,12 @@ export function ProcessSection() {
   return (
     <section className="py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto"
-        >
-          <p className="text-wine tracking-[0.2em] text-xs font-medium">
-            CÓMO TRABAJAMOS
-          </p>
-          <h2 className="mt-3 font-serif text-3xl sm:text-4xl text-ink">
-            De la idea a la puesta en marcha
-          </h2>
-          <p className="mt-4 text-ink/70 leading-relaxed">
-            Nos encargamos de la instalación y configuración, como también del
-            asesoramiento y la ingeniería de cada proyecto.
-          </p>
-        </motion.div>
+        <SectionHeading
+          align="center"
+          eyebrow="CÓMO TRABAJAMOS"
+          title="De la idea a la puesta en marcha"
+          description="Nos encargamos de la instalación y configuración, como también del asesoramiento y la ingeniería de cada proyecto."
+        />
 
         <div className="mt-10 grid sm:grid-cols-3 gap-8">
           {STEPS.map((step, i) => {
@@ -65,9 +55,7 @@ export function ProcessSection() {
                 <span className="mt-4 block text-xs font-medium tracking-[0.2em] text-wine/60">
                   PASO {i + 1}
                 </span>
-                <h3 className="mt-2 font-serif text-xl text-wine">
-                  {step.title}
-                </h3>
+                <H3 className="mt-2 text-wine">{step.title}</H3>
                 <p className="mt-2 text-sm text-ink/70 leading-relaxed">
                   {step.description}
                 </p>

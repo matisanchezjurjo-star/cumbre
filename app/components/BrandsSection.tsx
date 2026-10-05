@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { BRANDS } from "../lib/constants";
 import { Button } from "./ui/Button";
+import { SectionHeading } from "./ui/SectionHeading";
+import { H4 } from "./ui/Typography";
 
 const CATEGORY_CARDS = [
   {
@@ -67,24 +69,11 @@ export function BrandsSection() {
   return (
     <section className="py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="max-w-2xl"
-        >
-          <p className="text-wine tracking-[0.2em] text-xs font-medium">
-            PRODUCTOS Y MARCAS
-          </p>
-          <h2 className="mt-3 font-serif text-3xl sm:text-4xl text-ink">
-            Lo que equipamos, y con quién
-          </h2>
-          <p className="mt-4 text-ink/70 leading-relaxed">
-            Trabajamos con marcas líderes en electrodomésticos y
-            equipamiento tecnológico para cada categoría de producto.
-          </p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="PRODUCTOS Y MARCAS"
+          title="Lo que equipamos, y con quién"
+          description="Trabajamos con marcas líderes en electrodomésticos y equipamiento tecnológico para cada categoría de producto."
+        />
 
         {/* brand chips */}
         <div className="mt-8 flex flex-wrap gap-3">
@@ -129,9 +118,9 @@ export function BrandsSection() {
                   />
                 </div>
                 <div className="p-5">
-                  <h3 className="font-serif text-lg text-ink group-hover:text-wine transition-colors">
+                  <H4 className="text-ink group-hover:text-wine transition-colors">
                     {cat.label}
-                  </h3>
+                  </H4>
                   <p className="mt-1.5 text-sm text-ink/60 leading-relaxed">
                     {cat.description}
                   </p>
