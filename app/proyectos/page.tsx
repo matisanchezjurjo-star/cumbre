@@ -38,7 +38,7 @@ const SERVICES = [
   {
     icon: Building2,
     title: "Constructoras y Obra",
-    image: "/hero-door-v1.webp",
+    image: "/hero-domotica-fence-v1.webp",
     description:
       "Nos integramos al equipo de obra desde el plano eléctrico hasta la entrega, para que cada unidad salga con la tecnología ya prevista — no como un agregado de último momento.",
     points: [

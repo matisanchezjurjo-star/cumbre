@@ -8,7 +8,14 @@ import { Button } from "./ui/Button";
 import { SectionHeading } from "./ui/SectionHeading";
 import { H3 } from "./ui/Typography";
 
-const SERVICES = [
+type Service = {
+  title: string;
+  description: string;
+  image: string;
+  badge?: string;
+};
+
+const SERVICES: Service[] = [
   {
     title: "Domótica para tu Hogar",
     description:
@@ -19,7 +26,8 @@ const SERVICES = [
     title: "Constructoras y Obra",
     description:
       "Trabajamos junto a constructoras y desarrolladores para equipar edificios y viviendas con tecnología desde la etapa de obra.",
-    image: "/hero-door-v1.webp",
+    image: "/hero-domotica-fence-v1.webp",
+    badge: "Cercos perimetrales inteligentes",
   },
   {
     title: "Empresas y Oficinas",
@@ -58,6 +66,11 @@ export function ServicesSection() {
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-wine-dark/50 to-transparent" />
+                  {s.badge && (
+                    <span className="absolute bottom-3 left-3 right-3 inline-block w-fit max-w-[calc(100%-1.5rem)] rounded-full bg-cream/95 px-3 py-1.5 text-xs font-medium text-wine shadow-sm">
+                      {s.badge}
+                    </span>
+                  )}
                 </div>
                 <H3 className="mt-4 text-wine">{s.title}</H3>
                 <p className="mt-2 text-sm text-ink/70 leading-relaxed">
