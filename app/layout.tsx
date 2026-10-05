@@ -18,14 +18,36 @@ const inter = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
+const SITE_TITLE = "Cumbre — Equipamiento Tecnológico y Domótica";
+const SITE_DESCRIPTION =
+  "Diseñamos, asesoramos y equipamos casas inteligentes, obras y empresas con tecnología de punta a punta. También vendemos electrodomésticos premium para tu hogar.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Cumbre — Electrodomésticos y Tecnología",
+    default: SITE_TITLE,
     template: "%s",
   },
-  description:
-    "Electrodomésticos premium para tus espacios, hogares y empresas. Cumbre Home (cocina) y línea general. Cuotas sin interés y envíos a todo el país.",
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    siteName: "Cumbre",
+    locale: "es_AR",
+    type: "website",
+    images: [
+      {
+        url: "/hero-smart-living-v1.webp",
+        alt: "Living inteligente equipado por Cumbre",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ["/hero-smart-living-v1.webp"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
