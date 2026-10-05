@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const SERVICES = [
   {
-    title: "Casas Inteligentes",
+    title: "Domótica para tu Hogar",
     description:
       "Automatización de luces, climatización, seguridad y entretenimiento — proyectamos e instalamos sistemas inteligentes integrados a tu hogar.",
     image: "/hero-smart-living-v1.webp",

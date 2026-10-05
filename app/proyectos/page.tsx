@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const SERVICES = [
   {
     icon: Home,
-    title: "Casas Inteligentes",
+    title: "Domótica para tu Hogar",
     image: "/hero-smart-living-v1.webp",
     description:
       "Automatizamos luces, climatización, cortinas, seguridad y audio/video en un solo sistema que controlás desde tu celular o un panel integrado en la pared.",

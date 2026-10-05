@@ -2,6 +2,10 @@ import { AnnouncementBar } from "./components/AnnouncementBar";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { ServicesSection } from "./components/ServicesSection";
+import { DomoticaPossibilities } from "./components/DomoticaPossibilities";
+import { ProcessSection } from "./components/ProcessSection";
+import { ProjectsGallery } from "./components/ProjectsGallery";
+import { BrandsSection } from "./components/BrandsSection";
 import { Categories } from "./components/Categories";
 import { FeaturedProducts } from "./components/FeaturedProducts";
 import { Trust } from "./components/Trust";
@@ -16,6 +20,10 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <ServicesSection />
+        <DomoticaPossibilities />
+        <ProcessSection />
+        <ProjectsGallery />
+        <BrandsSection />
         <Categories />
         <FeaturedProducts />
         <Trust />

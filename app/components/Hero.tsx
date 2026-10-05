@@ -11,7 +11,7 @@ const SLIDES = [
   {
     image: "/hero-smart-living-v1.webp",
     alt: "Living inteligente con panel de control integrado",
-    eyebrow: "CASAS INTELIGENTES",
+    eyebrow: "DOMÓTICA PARA TU HOGAR",
     title: "Convertimos tu casa en un hogar inteligente",
     subtitle:
       "Automatización, climatización y equipamiento tecnológico integrado — proyectamos e instalamos de punta a punta.",
@@ -40,30 +40,17 @@ const SLIDES = [
   },
 ];
 
-// Posición de la cerradura dentro de /hero-door-v1.webp, en % de la imagen.
-const LOCK_ORIGIN = "51% 62%";
+type Phase = "logo" | "carousel";
 
-type Phase = "door" | "zoom" | "opening" | "logo" | "carousel";
-
-const TIMINGS: Record<Exclude<Phase, "door">, number> = {
-  zoom: 1800,
-  opening: 4300,
-  logo: 5500,
-  carousel: 7500,
-};
+const LOGO_DURATION = 1600;
 
 export function Hero() {
-  const [phase, setPhase] = useState<Phase>("door");
+  const [phase, setPhase] = useState<Phase>("logo");
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const timers = [
-      setTimeout(() => setPhase("zoom"), TIMINGS.zoom),
-      setTimeout(() => setPhase("opening"), TIMINGS.opening),
-      setTimeout(() => setPhase("logo"), TIMINGS.logo),
-      setTimeout(() => setPhase("carousel"), TIMINGS.carousel),
-    ];
-    return () => timers.forEach(clearTimeout);
+    const timer = setTimeout(() => setPhase("carousel"), LOGO_DURATION);
+    return () => clearTimeout(timer);
   }, []);
 
   const next = useCallback(() => {
@@ -81,103 +68,32 @@ export function Hero() {
 
   const slide = SLIDES[index];
   const introDone = phase === "carousel";
-  const doorSliding = phase === "opening" || phase === "logo";
 
   return (
     <section id="top" className="relative">
-      <div className="relative h-[560px] sm:h-[680px] w-full overflow-hidden bg-wine-dark">
-        {!introDone && (
-          <>
-            {/* living room revealed behind the doors */}
-            {doorSliding && (
-              <div className="absolute inset-0">
-                <Image
-                  src="/hero-smart-living-v1.webp"
-                  alt="Living inteligente"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-wine-dark/35" />
-              </div>
-            )}
-
-            {/* door, static then zooming into the lock */}
-            {!doorSliding && (
+      <div className="relative h-[520px] sm:h-[620px] w-full overflow-hidden bg-wine-dark">
+        <AnimatePresence>
+          {!introDone && (
+            <motion.div
+              key="logo-intro"
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="absolute inset-0 flex flex-col items-center justify-center gap-3 z-20 bg-wine-dark"
+            >
               <motion.div
-                className="absolute inset-0"
-                style={{ transformOrigin: LOCK_ORIGIN }}
-                animate={phase === "zoom" ? { scale: 3.2 } : { scale: 1 }}
-                transition={{ duration: 2, ease: "easeInOut" }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="flex flex-col items-center gap-3"
               >
-                <Image
-                  src="/hero-door-v1.webp"
-                  alt="Puerta principal con cerradura inteligente"
-                  fill
-                  priority
-                  className="object-cover"
-                />
+                <LogoMark className="h-14 w-14 sm:h-20 sm:w-20" color="var(--cream)" />
+                <span className="font-serif text-3xl sm:text-5xl text-cream tracking-[0.2em]">
+                  CUMBRE
+                </span>
               </motion.div>
-            )}
-
-            {/* door panels sliding open like real double doors */}
-            {doorSliding && (
-              <>
-                <motion.div
-                  className="absolute inset-0"
-                  style={{
-                    transformOrigin: LOCK_ORIGIN,
-                    clipPath: "inset(0 50% 0 0)",
-                  }}
-                  initial={{ scale: 3.2, x: 0 }}
-                  animate={{ scale: 3.2, x: "-45%" }}
-                  transition={{ duration: 1, ease: "easeInOut" }}
-                >
-                  <Image
-                    src="/hero-door-v1.webp"
-                    alt=""
-                    fill
-                    className="object-cover"
-                  />
-                </motion.div>
-                <motion.div
-                  className="absolute inset-0"
-                  style={{
-                    transformOrigin: LOCK_ORIGIN,
-                    clipPath: "inset(0 0 0 50%)",
-                  }}
-                  initial={{ scale: 3.2, x: 0 }}
-                  animate={{ scale: 3.2, x: "45%" }}
-                  transition={{ duration: 1, ease: "easeInOut" }}
-                >
-                  <Image
-                    src="/hero-door-v1.webp"
-                    alt=""
-                    fill
-                    className="object-cover"
-                  />
-                </motion.div>
-              </>
-            )}
-
-            {/* logo reveal */}
-            <AnimatePresence>
-              {phase === "logo" && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.75 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 1.08 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="absolute inset-0 flex flex-col items-center justify-center gap-3 z-10"
-                >
-                  <LogoMark className="h-14 w-14 sm:h-20 sm:w-20" color="var(--cream)" />
-                  <span className="font-serif text-3xl sm:text-5xl text-cream tracking-[0.2em]">
-                    CUMBRE
-                  </span>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {introDone && (
           <>
@@ -194,6 +110,7 @@ export function Hero() {
                   src={slide.image}
                   alt={slide.alt}
                   fill
+                  priority
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-wine-dark/85 via-wine-dark/40 to-transparent" />
