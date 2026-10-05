@@ -13,7 +13,7 @@ const SERVICES = [
     title: "Domótica para tu Hogar",
     description:
       "Automatización de luces, climatización, seguridad y entretenimiento — proyectamos e instalamos sistemas inteligentes integrados a tu hogar.",
-    image: "/hero-smart-living-v1.webp",
+    image: "/hero-domotica-panel-v1.webp",
   },
   {
     title: "Constructoras y Obra",
