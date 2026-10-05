@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Mail, AtSign } from "lucide-react";
 import { LogoLockup } from "./Logo";
+import { SectionWave } from "./SectionWave";
 import {
   INSTAGRAM_URL,
   WHATSAPP_URL,
@@ -14,13 +15,13 @@ import {
 
 export function CTASection() {
   return (
-    <section className="px-5 sm:px-8 py-20 sm:py-28 bg-wine text-cream">
+    <section className="pt-20 sm:pt-28 bg-wine text-cream">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6 }}
-        className="mx-auto max-w-2xl text-center"
+        className="mx-auto max-w-2xl text-center px-5 sm:px-8 pb-20 sm:pb-28"
       >
         <h2 className="font-serif text-3xl sm:text-4xl">
           Tu primer pedido, con 10% OFF
@@ -36,6 +37,7 @@ export function CTASection() {
           Ver catálogo
         </Link>
       </motion.div>
+      <SectionWave fill="#4e1620" />
     </section>
   );
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Film, Music, BellRing, Lightbulb, Thermometer, type LucideIcon } from "lucide-react";
+import { SectionWave } from "./SectionWave";
 
 const ITEMS: { icon: LucideIcon; title: string; description: string }[] = [
   {
@@ -38,8 +39,8 @@ const ITEMS: { icon: LucideIcon; title: string; description: string }[] = [
 
 export function DomoticaPossibilities() {
   return (
-    <section className="py-16 sm:py-20 bg-wine-dark text-cream">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+    <section className="pt-16 sm:pt-20 bg-wine-dark text-cream">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 pb-16 sm:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -84,6 +85,7 @@ export function DomoticaPossibilities() {
           })}
         </div>
       </div>
+      <SectionWave fill="#f3e9da" />
     </section>
   );
 }

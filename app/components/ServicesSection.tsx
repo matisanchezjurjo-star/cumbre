@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { SectionWave } from "./SectionWave";
 
 const SERVICES = [
   {
@@ -27,8 +28,8 @@ const SERVICES = [
 
 export function ServicesSection() {
   return (
-    <section className="py-16 sm:py-20 bg-cream-soft">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+    <section className="pt-16 sm:pt-20 bg-cream-soft">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 pb-16 sm:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -89,6 +90,7 @@ export function ServicesSection() {
           </Link>
         </div>
       </div>
+      <SectionWave fill="#4e1620" />
     </section>
   );
 }

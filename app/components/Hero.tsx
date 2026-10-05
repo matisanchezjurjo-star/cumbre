@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { LogoMark } from "./Logo";
+import { SectionWave } from "./SectionWave";
 
 const SLIDES = [
   {
@@ -183,6 +184,9 @@ export function Hero() {
             </div>
           </>
         )}
+      </div>
+      <div className="relative z-10 -mt-[46px] sm:-mt-[70px]">
+        <SectionWave fill="#faf5ec" />
       </div>
     </section>
   );
