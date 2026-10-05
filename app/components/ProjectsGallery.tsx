@@ -15,7 +15,7 @@ const CATEGORIES = [
     description:
       "Living y ambientes principales con iluminación, climatización y control integrado desde un solo panel o app.",
     images: [
-      { src: "/hero-smart-living-v1.webp", alt: "Living con domótica integrada" },
+      { src: "/hero-domotica-living-v1.webp", alt: "Control de domótica desde tablet en el living" },
       { src: "/hero-door-v1.webp", alt: "Entrada con cerradura inteligente" },
     ],
   },
