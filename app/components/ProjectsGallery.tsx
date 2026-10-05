@@ -26,7 +26,7 @@ const CATEGORIES = [
     description:
       "Cocinas equipadas de punta a punta: heladeras conectadas, anafes, hornos y electrodomésticos premium.",
     images: [
-      { src: "/hero-smart-kitchen-v1.webp", alt: "Cocina inteligente equipada" },
+      { src: "/hero-domotica-kitchen-v1.webp", alt: "Control de cocina inteligente desde panel integrado" },
       { src: "/hero-kitchen-v3.webp", alt: "Cocina premium con heladera conectada" },
     ],
   },

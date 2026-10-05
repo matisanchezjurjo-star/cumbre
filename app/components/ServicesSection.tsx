@@ -25,7 +25,7 @@ const SERVICES = [
     title: "Empresas y Oficinas",
     description:
       "Equipamiento tecnológico en volumen para oficinas, locales y espacios de trabajo, con asesoramiento técnico de principio a fin.",
-    image: "/hero-smart-office-v1.webp",
+    image: "/hero-domotica-office-v1.webp",
   },
 ];
 

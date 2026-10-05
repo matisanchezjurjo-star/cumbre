@@ -20,8 +20,8 @@ const SLIDES = [
     ctaLabel: "Cotizá tu proyecto",
   },
   {
-    image: "/hero-smart-kitchen-v1.webp",
-    alt: "Cocina totalmente inteligente",
+    image: "/hero-domotica-oven-v1.webp",
+    alt: "Panel táctil de horno inteligente con recetas integradas",
     eyebrow: "EQUIPAMIENTO PARA EL HOGAR",
     title: "Cocinas equipadas con la última tecnología",
     subtitle:
