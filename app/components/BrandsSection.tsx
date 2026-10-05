@@ -1,73 +1,25 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { BRANDS } from "../lib/constants";
+import { PRODUCTS } from "../lib/products";
 import { Button } from "./ui/Button";
 import { SectionHeading } from "./ui/SectionHeading";
-import { H4 } from "./ui/Typography";
+import { ProductCard } from "./ui/ProductCard";
 
-const CATEGORY_CARDS = [
-  {
-    label: "Climatización",
-    line: "electrodomesticos",
-    category: "Aire Acondicionado y Climatización",
-    image: "/products/ac1.png",
-    description:
-      "Equipos inverter para todo tipo de ambientes, con bajo consumo y alto rendimiento.",
-  },
-  {
-    label: "Hornos y Anafes",
-    line: "cumbre-home",
-    category: "Hornos y Anafes",
-    image: "/products/horno-dual.png",
-    description:
-      "Hornos y anafes integrables, con diseño sofisticado y eficiencia energética.",
-  },
-  {
-    label: "Heladeras y Freezers",
-    line: "electrodomesticos",
-    category: "Heladeras y Freezers",
-    image: "/products/heladera2.png",
-    description:
-      "Tecnología inverter de última generación para conservar alimentos por más tiempo.",
-  },
-  {
-    label: "Lavado y Secado",
-    line: "electrodomesticos",
-    category: "Lavado y Secado",
-    image: "/products/lavasec1.png",
-    description:
-      "Soluciones de gran capacidad para equipar hogares y espacios de trabajo modernos.",
-  },
-  {
-    label: "TV y Audio",
-    line: "electrodomesticos",
-    category: "TV y Audio",
-    image: "/products/tv1.png",
-    description:
-      "Pantallas y sistemas de audio para sumar confort y tecnología a cada ambiente.",
-  },
-  {
-    label: "Microondas",
-    line: "cumbre-home",
-    category: "Microondas",
-    image: "/products/microondas.png",
-    description: "Potencia y funciones smart para una cocina más ágil.",
-  },
-  {
-    label: "Campanas y Extractores",
-    line: "cumbre-home",
-    category: "Campanas y Extractores",
-    image: "/products/campana1.png",
-    description: "Diseño e integración total con tu cocina.",
-  },
-] as const;
+// One or two real products per category, pulled straight from the
+// catalog — if a category is added or a product goes out of stock,
+// this stays accurate without anyone having to remember to update it.
+const MARQUEE_PRODUCTS = Object.values(
+  PRODUCTS.reduce<Record<string, (typeof PRODUCTS)[number][]>>((acc, p) => {
+    (acc[p.category] ??= []).push(p);
+    return acc;
+  }, {})
+).flatMap((group) => group.slice(0, 2));
 
 export function BrandsSection() {
   return (
-    <section className="py-16 sm:py-20">
+    <section className="py-16 sm:py-20 overflow-hidden">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="PRODUCTOS Y MARCAS"
@@ -93,46 +45,27 @@ export function BrandsSection() {
             </motion.div>
           ))}
         </div>
+      </div>
 
-        {/* category cards with real product photos */}
-        <div className="mt-10 grid sm:grid-cols-2 gap-5">
-          {CATEGORY_CARDS.map((cat, i) => (
-            <motion.div
-              key={cat.label}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.45, delay: (i % 4) * 0.07 }}
-            >
-              <Link
-                href={`/productos?linea=${cat.line}&categoria=${encodeURIComponent(cat.category)}`}
-                className="group block rounded-2xl border border-wine/10 bg-white overflow-hidden hover:border-wine/30 hover:shadow-lg transition-all duration-300"
-              >
-                <div className="relative aspect-[16/10] bg-cream-soft overflow-hidden">
-                  <Image
-                    src={cat.image}
-                    alt={cat.label}
-                    fill
-                    sizes="(min-width: 640px) 50vw, 100vw"
-                    className="object-contain p-6 group-hover:scale-110 transition-transform duration-400"
-                  />
-                </div>
-                <div className="p-5">
-                  <H4 className="text-ink group-hover:text-wine transition-colors">
-                    {cat.label}
-                  </H4>
-                  <p className="mt-1.5 text-sm text-ink/70 leading-relaxed">
-                    {cat.description}
-                  </p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-wine opacity-0 group-hover:opacity-100 transition-opacity">
-                    Ver productos →
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
+      {/* continuous product marquee */}
+      <div className="mt-10 relative">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-24 bg-gradient-to-r from-cream to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-24 bg-gradient-to-l from-cream to-transparent z-10" />
+
+        <motion.div
+          className="flex w-max gap-5 px-5 sm:px-8"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 42, repeat: Infinity, ease: "linear" }}
+        >
+          {[...MARQUEE_PRODUCTS, ...MARQUEE_PRODUCTS].map((p, i) => (
+            <div key={`${p.slug}-${i}`} className="w-44 sm:w-52 shrink-0">
+              <ProductCard product={p} sizes="208px" />
+            </div>
           ))}
-        </div>
+        </motion.div>
+      </div>
 
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <div className="mt-10 text-center">
           <Button href="/productos" variant="secondary" size="lg">
             Ver catálogo completo
