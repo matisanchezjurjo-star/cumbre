@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { BadgeCheck, Truck, HeartHandshake, CreditCard } from "lucide-react";
 
@@ -12,6 +12,8 @@ const ITEMS = [
 ];
 
 export function Trust() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section id="nosotros" className="px-5 sm:px-8 py-20 sm:py-28">
       <div className="mx-auto max-w-5xl grid sm:grid-cols-[auto_1fr] gap-12 items-center">
@@ -23,14 +25,15 @@ export function Trust() {
           className="mx-auto sm:mx-0"
         >
           <motion.div
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            animate={reduceMotion ? {} : { y: [0, -6, 0] }}
+            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
             className="relative h-36 w-36 sm:h-44 sm:w-44"
           >
             <Image
               src="/pico-mascot-v2.webp"
               alt="Pico, la mascota de Cumbre"
               fill
+              sizes="176px"
               className="object-contain"
             />
           </motion.div>

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Mail, AtSign } from "lucide-react";
 import { LogoLockup } from "./Logo";
 import { SectionWave } from "./SectionWave";
+import { Button } from "./ui/Button";
 import {
   INSTAGRAM_URL,
   WHATSAPP_URL,
@@ -30,12 +31,9 @@ export function CTASection() {
           Usá el código <span className="font-semibold">{COUPON_CODE}</span>{" "}
           en el checkout de tu primera compra.
         </p>
-        <Link
-          href="/productos"
-          className="mt-8 inline-block rounded-full bg-cream text-wine font-medium px-8 py-3.5 hover:bg-cream-soft transition-colors hover:scale-[1.03] active:scale-[0.98] duration-200"
-        >
+        <Button href="/productos" variant="invert" size="lg" className="mt-8">
           Ver catálogo
-        </Link>
+        </Button>
       </motion.div>
       <SectionWave fill="#4e1620" />
     </section>
@@ -128,16 +126,24 @@ export function Footer() {
               <ul className="space-y-2">
                 {col.links.map((l) => {
                   const external = l.href.startsWith("http");
+                  const linkClassName =
+                    "text-cream/70 hover:text-cream text-sm transition-colors";
                   return (
                     <li key={l.label}>
-                      <a
-                        href={l.href}
-                        target={external ? "_blank" : undefined}
-                        rel={external ? "noopener noreferrer" : undefined}
-                        className="text-cream/70 hover:text-cream text-sm transition-colors"
-                      >
-                        {l.label}
-                      </a>
+                      {external ? (
+                        <a
+                          href={l.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={linkClassName}
+                        >
+                          {l.label}
+                        </a>
+                      ) : (
+                        <Link href={l.href} className={linkClassName}>
+                          {l.label}
+                        </Link>
+                      )}
                     </li>
                   );
                 })}

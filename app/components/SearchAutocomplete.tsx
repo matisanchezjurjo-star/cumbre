@@ -93,6 +93,7 @@ export function SearchAutocomplete({
                         src={p.images[0]}
                         alt={p.name}
                         fill
+                        sizes="44px"
                         className="object-cover"
                       />
                     )}

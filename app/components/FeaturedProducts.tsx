@@ -45,21 +45,22 @@ export function FeaturedProducts() {
             >
               <Link
                 href={`/productos/${p.slug}`}
-                className="group block rounded-xl overflow-hidden border border-wine/10 bg-cream-soft"
+                className="group block rounded-2xl overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
               >
                 <div className="relative aspect-square bg-cream">
                   <Image
                     src={p.images[0]}
                     alt={p.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(min-width: 640px) 25vw, 50vw"
+                    className="object-cover group-hover:scale-[1.04] transition-transform duration-300"
                   />
                 </div>
-                <div className="p-3">
-                  <p className="text-sm text-ink/90 line-clamp-2">
+                <div className="p-4">
+                  <p className="text-sm text-ink/90 line-clamp-2 leading-snug">
                     {p.name}
                   </p>
-                  <p className="mt-1.5 font-medium text-wine">
+                  <p className="mt-2 font-medium text-wine">
                     ${p.price.toLocaleString("es-AR")}
                   </p>
                 </div>

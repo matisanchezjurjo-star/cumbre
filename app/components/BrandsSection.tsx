@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { BRANDS } from "../lib/constants";
+import { Button } from "./ui/Button";
 
 const CATEGORY_CARDS = [
   {
@@ -123,6 +124,7 @@ export function BrandsSection() {
                     src={cat.image}
                     alt={cat.label}
                     fill
+                    sizes="(min-width: 640px) 50vw, 100vw"
                     className="object-contain p-6 group-hover:scale-110 transition-transform duration-400"
                   />
                 </div>
@@ -143,12 +145,9 @@ export function BrandsSection() {
         </div>
 
         <div className="mt-10 text-center">
-          <Link
-            href="/productos"
-            className="inline-block rounded-full border border-wine text-wine font-medium px-8 py-3.5 hover:bg-wine hover:text-cream transition-all duration-200"
-          >
+          <Button href="/productos" variant="secondary" size="lg">
             Ver catálogo completo
-          </Link>
+          </Button>
         </div>
       </div>
     </section>

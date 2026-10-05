@@ -6,6 +6,7 @@ import { Menu, X, ShoppingCart } from "lucide-react";
 import { LogoLockup } from "./Logo";
 import { CategoryDrawer } from "./CategoryDrawer";
 import { SearchAutocomplete } from "./SearchAutocomplete";
+import { Button } from "./ui/Button";
 import { useCart } from "../lib/cart-context";
 
 const LINKS = [
@@ -66,13 +67,13 @@ export function Header() {
           Categorías
         </button>
         {LINKS.map((l) => (
-          <a
+          <Link
             key={l.label}
             href={l.href}
             className="text-cream/75 hover:text-cream transition-colors"
           >
             {l.label}
-          </a>
+          </Link>
         ))}
       </nav>
 
@@ -96,22 +97,23 @@ export function Header() {
             Categorías
           </button>
           {LINKS.map((l) => (
-            <a
+            <Link
               key={l.label}
               href={l.href}
               onClick={() => setOpen(false)}
               className="text-cream/90 text-sm"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
-          <Link
+          <Button
             href="/productos"
+            variant="invert"
             onClick={() => setOpen(false)}
-            className="rounded-full bg-cream text-wine text-sm font-medium px-5 py-2.5 text-center"
+            className="text-center"
           >
             Ver catálogo
-          </Link>
+          </Button>
         </div>
       )}
 

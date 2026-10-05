@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Home, Briefcase, UtensilsCrossed } from "lucide-react";
+import { Button } from "./ui/Button";
 
 const CATEGORIES = [
   {
@@ -115,6 +115,7 @@ export function ProjectsGallery() {
                     src={img.src}
                     alt={img.alt}
                     fill
+                    sizes="(min-width: 640px) 50vw, 100vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-wine-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -122,12 +123,9 @@ export function ProjectsGallery() {
               ))}
             </div>
             <div className="mt-6">
-              <Link
-                href="/proyectos"
-                className="inline-block rounded-full bg-wine text-cream font-medium px-7 py-3 hover:bg-wine-dark hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
-              >
+              <Button href="/proyectos" variant="primary">
                 Cotizá un proyecto así
-              </Link>
+              </Button>
             </div>
           </motion.div>
         </AnimatePresence>

@@ -3,10 +3,10 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { LogoMark } from "./Logo";
 import { SectionWave } from "./SectionWave";
+import { Button } from "./ui/Button";
 
 const SLIDES = [
   {
@@ -112,6 +112,7 @@ export function Hero() {
                   alt={slide.alt}
                   fill
                   priority
+                  sizes="100vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-wine-dark/85 via-wine-dark/40 to-transparent" />
@@ -138,18 +139,12 @@ export function Hero() {
                     {slide.subtitle}
                   </p>
                   <div className="mt-8 flex flex-wrap gap-4">
-                    <Link
-                      href={slide.href}
-                      className="rounded-full bg-cream text-wine font-medium px-7 py-3 hover:bg-cream-soft transition-colors hover:scale-[1.03] active:scale-[0.98] duration-200"
-                    >
+                    <Button href={slide.href} variant="invert" size="lg">
                       {slide.ctaLabel}
-                    </Link>
-                    <Link
-                      href="/productos"
-                      className="rounded-full border border-cream/50 text-cream font-medium px-7 py-3 hover:bg-cream/10 transition-colors"
-                    >
+                    </Button>
+                    <Button href="/productos" variant="outline-invert" size="lg">
                       Ver catálogo
-                    </Link>
+                    </Button>
                   </div>
                 </motion.div>
               </AnimatePresence>
@@ -158,14 +153,14 @@ export function Hero() {
             <button
               onClick={prev}
               aria-label="Anterior"
-              className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 flex items-center justify-center rounded-full bg-cream/15 text-cream hover:bg-cream/30 transition-colors backdrop-blur-sm"
+              className="hidden sm:flex absolute left-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 items-center justify-center rounded-full bg-cream/15 text-cream hover:bg-cream/30 transition-colors backdrop-blur-sm"
             >
               <ChevronLeft size={22} />
             </button>
             <button
               onClick={next}
               aria-label="Siguiente"
-              className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 flex items-center justify-center rounded-full bg-cream/15 text-cream hover:bg-cream/30 transition-colors backdrop-blur-sm"
+              className="hidden sm:flex absolute right-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 items-center justify-center rounded-full bg-cream/15 text-cream hover:bg-cream/30 transition-colors backdrop-blur-sm"
             >
               <ChevronRight size={22} />
             </button>

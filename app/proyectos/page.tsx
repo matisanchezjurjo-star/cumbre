@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import {
   Home,
   Building2,
@@ -9,6 +8,7 @@ import {
   ShieldCheck,
   ArrowRight,
 } from "lucide-react";
+import { Button } from "../components/ui/Button";
 import { Header } from "../components/Header";
 import { AnnouncementBar } from "../components/AnnouncementBar";
 import { Footer } from "../components/CTAFooter";
@@ -85,13 +85,10 @@ export default function ProyectosPage() {
                 Casas inteligentes, obras y empresas. Un solo interlocutor
                 para todo el equipamiento tecnológico, de punta a punta.
               </p>
-              <Link
-                href="#cotizar"
-                className="mt-7 inline-flex items-center gap-2 rounded-full bg-wine text-cream font-medium px-7 py-3.5 hover:bg-wine-dark hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
-              >
+              <Button href="#cotizar" variant="primary" size="lg" className="mt-7">
                 Cotizá tu proyecto
                 <ArrowRight size={16} />
-              </Link>
+              </Button>
             </div>
 
             <div className="relative">
@@ -101,6 +98,7 @@ export default function ProyectosPage() {
                   alt="Entrada de proyecto equipado por Cumbre"
                   fill
                   priority
+                  sizes="(min-width: 640px) 50vw, 100vw"
                   className="object-cover"
                 />
               </div>
@@ -136,6 +134,7 @@ export default function ProyectosPage() {
                       src={s.image}
                       alt={s.title}
                       fill
+                      sizes="(min-width: 640px) 50vw, 100vw"
                       className="object-cover"
                     />
                   </div>

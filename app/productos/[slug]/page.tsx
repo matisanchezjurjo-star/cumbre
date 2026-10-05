@@ -53,6 +53,8 @@ export default async function ProductPage({
                 src={product.images[0]}
                 alt={product.name}
                 fill
+                sizes="(min-width: 640px) 50vw, 100vw"
+                priority
                 className="object-cover"
               />
             )}

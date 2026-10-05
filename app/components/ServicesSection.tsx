@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionWave } from "./SectionWave";
+import { Button } from "./ui/Button";
 
 const SERVICES = [
   {
@@ -66,6 +67,7 @@ export function ServicesSection() {
                     src={s.image}
                     alt={s.title}
                     fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-wine-dark/50 to-transparent" />
@@ -82,12 +84,9 @@ export function ServicesSection() {
         </div>
 
         <div className="mt-10 text-center">
-          <Link
-            href="/proyectos"
-            className="inline-block rounded-full bg-wine text-cream font-medium px-8 py-3.5 hover:bg-wine-dark hover:scale-105 active:scale-95 transition-all duration-200"
-          >
+          <Button href="/proyectos" variant="primary" size="lg">
             Conocé el servicio y cotizá tu proyecto
-          </Link>
+          </Button>
         </div>
       </div>
       <SectionWave fill="#4e1620" />
