@@ -2,18 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ShoppingCart } from "lucide-react";
+import { Menu, X, ShoppingCart, LayoutGrid } from "lucide-react";
 import { LogoLockup } from "./Logo";
 import { CategoryDrawer } from "./CategoryDrawer";
 import { SearchAutocomplete } from "./SearchAutocomplete";
 import { Button } from "./ui/Button";
 import { useCart } from "../lib/cart-context";
-
-const LINKS = [
-  { label: "Todos los productos", href: "/productos" },
-  { label: "Cumbre Home", href: "/productos?linea=cumbre-home" },
-  { label: "Electrodomésticos", href: "/productos?linea=electrodomesticos" },
-];
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -22,12 +16,28 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 bg-wine-dark text-cream">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 h-16 flex items-center gap-4">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 h-20 flex items-center gap-6 lg:gap-8">
         <Link href="/" className="shrink-0">
           <LogoLockup color="var(--cream)" />
         </Link>
 
-        <SearchAutocomplete className="hidden sm:block flex-1 max-w-xl" />
+        <nav className="hidden md:flex items-center gap-5 lg:gap-7 text-sm">
+          <Link
+            href="/proyectos"
+            className="rounded-full bg-cream/10 px-4 py-2 font-medium text-cream hover:bg-cream/15 transition-colors"
+          >
+            Proyectos y Empresas
+          </Link>
+          <button
+            onClick={() => setDrawerOpen(true)}
+            className="group flex items-center gap-1.5 text-cream/75 hover:text-cream transition-colors"
+          >
+            <LayoutGrid size={15} className="opacity-70" />
+            Categorías
+          </button>
+        </nav>
+
+        <SearchAutocomplete className="hidden md:block flex-1 max-w-sm" />
 
         <div className="ml-auto flex items-center gap-5">
           <Link
@@ -44,38 +54,13 @@ export function Header() {
           </Link>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="sm:hidden text-cream"
+            className="md:hidden text-cream"
             aria-label="Abrir menú"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
-
-      <nav className="hidden md:flex items-center gap-6 border-t border-cream/10 px-5 sm:px-8 h-11 text-xs tracking-wide">
-        <Link
-          href="/proyectos"
-          className="font-semibold text-cream hover:text-cream/80 transition-colors"
-        >
-          Proyectos y Empresas
-        </Link>
-        <span className="text-cream/20">|</span>
-        <button
-          onClick={() => setDrawerOpen(true)}
-          className="text-cream/75 hover:text-cream transition-colors"
-        >
-          Categorías
-        </button>
-        {LINKS.map((l) => (
-          <Link
-            key={l.label}
-            href={l.href}
-            className="text-cream/75 hover:text-cream transition-colors"
-          >
-            {l.label}
-          </Link>
-        ))}
-      </nav>
 
       {open && (
         <div className="md:hidden border-t border-cream/10 px-5 py-4 flex flex-col gap-4 bg-wine-dark">
@@ -92,20 +77,11 @@ export function Header() {
               setOpen(false);
               setDrawerOpen(true);
             }}
-            className="text-cream/90 text-sm text-left"
+            className="flex items-center gap-1.5 text-cream/90 text-sm text-left"
           >
+            <LayoutGrid size={15} className="opacity-70" />
             Categorías
           </button>
-          {LINKS.map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="text-cream/90 text-sm"
-            >
-              {l.label}
-            </Link>
-          ))}
           <Button
             href="/productos"
             variant="invert"

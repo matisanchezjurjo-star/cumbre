@@ -36,6 +36,19 @@ body {
   display: none;
 }
 
+/*
+ * Spacing conventions (Tailwind utility classes, not CSS tokens — kept
+ * here as the written reference so future sections stay consistent):
+ *
+ *   Section container   mx-auto max-w-6xl px-5 sm:px-8
+ *   Standard section     py-16 sm:py-20    (most content sections)
+ *   Bookend section       py-20 sm:py-28    (Hero-weight: Trust, CTA,
+ *                                            the /proyectos intro)
+ *   Heading -> content    mt-10             (eyebrow+h2+p block to the
+ *                                            grid/list below it)
+ *   Card grid gap        gap-5              (image/photo card grids)
+ */
+
 /* Consistent, visible focus state for keyboard navigation. */
 a:focus-visible,
 button:focus-visible,

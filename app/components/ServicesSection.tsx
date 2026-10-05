@@ -52,7 +52,7 @@ export function ServicesSection() {
           </p>
         </motion.div>
 
-        <div className="mt-10 grid sm:grid-cols-3 gap-6">
+        <div className="mt-10 grid sm:grid-cols-3 gap-5">
           {SERVICES.map((s, i) => (
             <motion.div
               key={s.title}

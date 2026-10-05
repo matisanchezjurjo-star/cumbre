@@ -69,7 +69,7 @@ export default function ProyectosPage() {
       <Header />
       <AnnouncementBar />
       <main className="flex-1">
-        <section className="bg-cream-soft py-16 sm:py-24">
+        <section className="bg-cream-soft py-20 sm:py-28">
           <div className="mx-auto max-w-6xl px-5 sm:px-8 grid sm:grid-cols-2 gap-10 sm:gap-12 items-center">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-wine/10 text-wine px-4 py-2 text-xs font-medium tracking-wide">

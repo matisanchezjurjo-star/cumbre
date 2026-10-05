@@ -47,7 +47,7 @@ export function ProcessSection() {
           </p>
         </motion.div>
 
-        <div className="mt-12 grid sm:grid-cols-3 gap-8">
+        <div className="mt-10 grid sm:grid-cols-3 gap-8">
           {STEPS.map((step, i) => {
             const Icon = step.icon;
             return (

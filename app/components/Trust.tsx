@@ -50,7 +50,7 @@ export function Trust() {
             Por qué comprar en Cumbre
           </motion.h2>
 
-          <div className="mt-8 grid sm:grid-cols-2 gap-5">
+          <div className="mt-10 grid sm:grid-cols-2 gap-5">
             {ITEMS.map((item, i) => (
               <motion.div
                 key={item.text}
