@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Home, Building2, Briefcase, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import {
+  Home,
+  Building2,
+  Briefcase,
+  CheckCircle2,
+  ShieldCheck,
+  ArrowRight,
+} from "lucide-react";
 import { Header } from "../components/Header";
 import { AnnouncementBar } from "../components/AnnouncementBar";
 import { Footer } from "../components/CTAFooter";
@@ -61,18 +69,53 @@ export default function ProyectosPage() {
       <Header />
       <AnnouncementBar />
       <main className="flex-1">
-        <section className="bg-wine-dark text-cream py-16 sm:py-24">
-          <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center">
-            <p className="tracking-[0.2em] text-xs sm:text-sm font-medium text-cream/80">
-              EQUIPAMIENTO TECNOLÓGICO
-            </p>
-            <h1 className="mt-4 font-serif text-4xl sm:text-5xl leading-tight">
-              Diseñamos, asesoramos y equipamos tu proyecto
-            </h1>
-            <p className="mt-5 text-cream/85 text-base sm:text-lg max-w-2xl mx-auto">
-              Casas inteligentes, obras y empresas. Un solo interlocutor para
-              todo el equipamiento tecnológico, de punta a punta.
-            </p>
+        <section className="bg-cream-soft py-16 sm:py-24">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8 grid sm:grid-cols-2 gap-10 sm:gap-12 items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full bg-wine/10 text-wine px-4 py-2 text-xs font-medium tracking-wide">
+                <Building2 size={14} />
+                EQUIPAMIENTO TECNOLÓGICO PARA CADA PROYECTO
+              </span>
+              <h1 className="mt-5 font-serif text-4xl sm:text-5xl leading-tight">
+                <span className="text-wine">Equipamiento tecnológico</span>
+                <br />
+                <span className="text-ink">para cada tipo de proyecto</span>
+              </h1>
+              <p className="mt-5 text-ink/70 text-base sm:text-lg max-w-lg">
+                Casas inteligentes, obras y empresas. Un solo interlocutor
+                para todo el equipamiento tecnológico, de punta a punta.
+              </p>
+              <Link
+                href="#cotizar"
+                className="mt-7 inline-flex items-center gap-2 rounded-full bg-wine text-cream font-medium px-7 py-3.5 hover:bg-wine-dark hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
+              >
+                Cotizá tu proyecto
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            <div className="relative">
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
+                <Image
+                  src="/hero-door-v1.webp"
+                  alt="Entrada de proyecto equipado por Cumbre"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 left-6 sm:left-8 flex items-center gap-3 rounded-2xl bg-white shadow-lg px-5 py-4 max-w-[260px]">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-wine text-cream">
+                  <ShieldCheck size={20} />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-ink">
+                    Garantía oficial
+                  </p>
+                  <p className="text-xs text-ink/60">en todos los productos</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -127,7 +170,7 @@ export default function ProyectosPage() {
           </div>
         </section>
 
-        <section className="py-16 sm:py-20 bg-cream-soft">
+        <section id="cotizar" className="py-16 sm:py-20 bg-cream-soft scroll-mt-20">
           <div className="mx-auto max-w-2xl px-5 sm:px-8">
             <QuoteForm />
           </div>
