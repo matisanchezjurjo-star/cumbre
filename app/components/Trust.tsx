@@ -2,13 +2,32 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import { BadgeCheck, Truck, HeartHandshake, CreditCard } from "lucide-react";
+import { BadgeCheck, Truck, HeartHandshake, ShieldCheck } from "lucide-react";
 
 const ITEMS = [
-  { icon: BadgeCheck, text: "Productos 100% originales" },
-  { icon: Truck, text: "Envíos a todo el país" },
-  { icon: HeartHandshake, text: "Atención personalizada" },
-  { icon: CreditCard, text: "Múltiples medios de pago" },
+  {
+    icon: BadgeCheck,
+    title: "Productos 100% originales",
+    description: "Con garantía oficial de fábrica en todos los artículos.",
+  },
+  {
+    icon: Truck,
+    title: "Envíos a todo el país",
+    description:
+      "Coordinamos transportista y plazo por WhatsApp apenas confirmás tu compra.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Garantía legal de 6 meses",
+    description:
+      "Mínimo según la Ley 24.240. Ante una falla, coordinamos la reparación o el cambio.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Atención directa, sin bots",
+    description:
+      "Te acompañamos antes y después de la compra por WhatsApp, con una persona real.",
+  },
 ];
 
 export function Trust() {
@@ -53,17 +72,22 @@ export function Trust() {
           <div className="mt-10 grid sm:grid-cols-2 gap-5">
             {ITEMS.map((item, i) => (
               <motion.div
-                key={item.text}
+                key={item.title}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="flex items-center gap-3"
+                className="flex items-start gap-3"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-wine text-cream">
                   <item.icon size={18} />
                 </span>
-                <span className="text-ink/80">{item.text}</span>
+                <div>
+                  <p className="font-medium text-ink">{item.title}</p>
+                  <p className="mt-0.5 text-sm text-ink/60 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>

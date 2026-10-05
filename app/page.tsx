@@ -9,6 +9,7 @@ import { BrandsSection } from "./components/BrandsSection";
 import { Categories } from "./components/Categories";
 import { FeaturedProducts } from "./components/FeaturedProducts";
 import { Trust } from "./components/Trust";
+import { FAQ } from "./components/FAQ";
 import { CTASection, Footer } from "./components/CTAFooter";
 import { WhatsAppButton } from "./components/WhatsAppButton";
 
@@ -27,6 +28,7 @@ export default function Home() {
         <Categories />
         <FeaturedProducts />
         <Trust />
+        <FAQ />
         <CTASection />
       </main>
       <Footer />

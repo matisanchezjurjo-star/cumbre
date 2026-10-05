@@ -21,7 +21,7 @@ export function Header() {
           <LogoLockup color="var(--cream)" />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-5 lg:gap-7 text-sm">
+        <nav className="hidden lg:flex items-center gap-5 lg:gap-7 text-sm">
           <Link
             href="/proyectos"
             className="rounded-full bg-cream/10 px-4 py-2 font-medium text-cream hover:bg-cream/15 transition-colors"
@@ -37,7 +37,7 @@ export function Header() {
           </button>
         </nav>
 
-        <SearchAutocomplete className="hidden md:block flex-1 max-w-sm" />
+        <SearchAutocomplete className="hidden lg:block flex-1 max-w-sm" />
 
         <div className="ml-auto flex items-center gap-5">
           <Link
@@ -54,7 +54,7 @@ export function Header() {
           </Link>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden text-cream"
+            className="lg:hidden text-cream"
             aria-label="Abrir menú"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
@@ -63,7 +63,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-cream/10 px-5 py-4 flex flex-col gap-4 bg-wine-dark">
+        <div className="lg:hidden border-t border-cream/10 px-5 py-4 flex flex-col gap-4 bg-wine-dark">
           <SearchAutocomplete />
           <Link
             href="/proyectos"
