@@ -5,7 +5,7 @@ export type Product = {
   price: number;
   compareAtPrice?: number;
   images: string[];
-  line: "cumbre-home" | "electrodomesticos";
+  line: "cumbre-home" | "cumbre-domotica" | "cumbre-constructoras";
   category: string;
   brand: string;
   description: string;

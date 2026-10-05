@@ -18,12 +18,20 @@ export const LINES = [
   {
     name: "Cumbre Home",
     slug: "cumbre-home",
-    blurb: "Tecnología de cocina para tus espacios: hornos, anafes, microondas y más. Para el hogar y para tu negocio.",
+    blurb:
+      "Equipamiento para tu hogar, living, cocina y empresa: hornos, anafes, microondas, heladeras, climatización, lavado, TV y audio.",
   },
   {
-    name: "Electrodomésticos",
-    slug: "electrodomesticos",
-    blurb: "Climatización, lavado y todo lo que necesitan tus espacios, sean un hogar o una empresa.",
+    name: "Cumbre Domótica",
+    slug: "cumbre-domotica",
+    blurb:
+      "Automatización e integración inteligente para tu casa, obra o empresa: luces, climatización, seguridad y control centralizado.",
+  },
+  {
+    name: "Cumbre Constructoras",
+    slug: "cumbre-constructoras",
+    blurb:
+      "Equipamiento técnico para constructoras y desarrollos: cercos perimetrales eléctricos e inteligentes, y provisión en volumen.",
   },
 ] as const;
 
@@ -33,13 +41,13 @@ export const APPLIANCE_TYPES = [
   {
     label: "Heladeras",
     icon: "Refrigerator",
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
   },
   {
     label: "Aire Acondicionado",
     icon: "AirVent",
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Aire Acondicionado y Climatización",
   },
   {
@@ -51,13 +59,13 @@ export const APPLIANCE_TYPES = [
   {
     label: "Lavado",
     icon: "WashingMachine",
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Lavado y Secado",
   },
   {
     label: "TV y Audio",
     icon: "Tv",
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "TV y Audio",
   },
   {
@@ -68,49 +76,58 @@ export const APPLIANCE_TYPES = [
   },
 ] as const;
 
-// Todas las categorías (para el panel lateral), agrupadas por línea.
+// Todas las categorías (para el panel lateral y la página de cada línea),
+// agrupadas por línea. `image` es una foto real de un producto de esa
+// categoría, usada como miniatura en /cumbre-home.
 export const CATEGORIES = [
   {
     label: "Hornos y Anafes",
     icon: "Flame",
     line: "cumbre-home",
     category: "Hornos y Anafes",
+    image: "/products/anafe.webp",
   },
   {
     label: "Microondas",
     icon: "Microwave",
     line: "cumbre-home",
     category: "Microondas",
+    image: "/products/microondas.webp",
   },
   {
     label: "Campanas y Extractores",
     icon: "Wind",
     line: "cumbre-home",
     category: "Campanas y Extractores",
+    image: "/products/campana1.webp",
   },
   {
     label: "Heladeras y Freezers",
     icon: "Refrigerator",
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
+    image: "/products/heladera1.webp",
   },
   {
     label: "Aire Acondicionado y Climatización",
     icon: "AirVent",
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Aire Acondicionado y Climatización",
+    image: "/products/ac1.webp",
   },
   {
     label: "Lavado y Secado",
     icon: "WashingMachine",
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Lavado y Secado",
+    image: "/products/lavasec1.webp",
   },
   {
     label: "TV y Audio",
     icon: "Tv",
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "TV y Audio",
+    image: "/products/tv1.webp",
   },
 ] as const;
 

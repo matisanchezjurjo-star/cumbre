@@ -45,8 +45,9 @@ const COLUMNS = [
     title: "Más Buscados",
     links: [
       { label: "Inicio", href: "/" },
-      { label: "Cumbre Home", href: "/productos?linea=cumbre-home" },
-      { label: "Electrodomésticos", href: "/productos?linea=electrodomesticos" },
+      { label: "Cumbre Home", href: "/cumbre-home" },
+      { label: "Cumbre Domótica", href: "/cumbre-domotica" },
+      { label: "Cumbre Constructoras", href: "/cumbre-constructoras" },
     ],
   },
   {

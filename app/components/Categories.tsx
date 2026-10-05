@@ -9,7 +9,7 @@ const MotionLink = motion.create(Link);
 export function Categories() {
   return (
     <section id="categorias" className="py-16 sm:py-20">
-      {/* the two lines */}
+      {/* the three lines */}
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 16 }}
@@ -21,11 +21,11 @@ export function Categories() {
           Nuestras líneas
         </motion.h2>
 
-        <div className="mt-10 grid sm:grid-cols-2 gap-5">
+        <div className="mt-10 grid sm:grid-cols-3 gap-5">
           {LINES.map((line, i) => (
             <MotionLink
               key={line.slug}
-              href={`/productos?linea=${line.slug}`}
+              href={`/${line.slug}`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}

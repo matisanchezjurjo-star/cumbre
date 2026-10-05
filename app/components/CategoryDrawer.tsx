@@ -128,7 +128,7 @@ export function CategoryDrawer({
               {LINES.map((line) => (
                 <div key={line.slug} className="mt-5">
                   <Link
-                    href={`/productos?linea=${line.slug}`}
+                    href={`/${line.slug}`}
                     onClick={onClose}
                     className="block font-serif text-lg text-wine"
                   >

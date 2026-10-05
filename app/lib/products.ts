@@ -25,7 +25,7 @@ export const PRODUCTS: Product[] = [
     price: 1349999,
     compareAtPrice: 1620000,
     images: ["/products/ac1.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Aire Acondicionado y Climatización",
     brand: "Samsung",
     description:
@@ -53,7 +53,7 @@ export const PRODUCTS: Product[] = [
     price: 2999999,
     compareAtPrice: 3900000,
     images: ["/products/ac2.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Aire Acondicionado y Climatización",
     brand: "Samsung",
     description:
@@ -81,7 +81,7 @@ export const PRODUCTS: Product[] = [
     price: 1099999,
     compareAtPrice: 1320000,
     images: ["/products/tv1.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "TV y Audio",
     brand: "Samsung",
     description:
@@ -95,7 +95,7 @@ export const PRODUCTS: Product[] = [
     price: 917999,
     compareAtPrice: 1147000,
     images: ["/products/tv2.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "TV y Audio",
     brand: "Samsung",
     description:
@@ -109,7 +109,7 @@ export const PRODUCTS: Product[] = [
     price: 1114999,
     compareAtPrice: 1449000,
     images: ["/products/tv3.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "TV y Audio",
     brand: "TCL",
     description:
@@ -123,7 +123,7 @@ export const PRODUCTS: Product[] = [
     price: 1039999,
     compareAtPrice: 1196000,
     images: ["/products/tv4.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "TV y Audio",
     brand: "Samsung",
     description:
@@ -137,7 +137,7 @@ export const PRODUCTS: Product[] = [
     price: 1999999,
     compareAtPrice: 2400000,
     images: ["/products/tv5.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "TV y Audio",
     brand: "Samsung",
     description:
@@ -151,7 +151,7 @@ export const PRODUCTS: Product[] = [
     price: 4809999,
     compareAtPrice: 6012000,
     images: ["/products/heladera1.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
     brand: "Samsung",
     description:
@@ -165,7 +165,7 @@ export const PRODUCTS: Product[] = [
     price: 5999999,
     compareAtPrice: 7800000,
     images: ["/products/lavasec1.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Lavado y Secado",
     brand: "Samsung",
     description:
@@ -179,7 +179,7 @@ export const PRODUCTS: Product[] = [
     price: 4799999,
     compareAtPrice: 5520000,
     images: ["/products/heladera2.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
     brand: "Samsung",
     description:
@@ -193,7 +193,7 @@ export const PRODUCTS: Product[] = [
     price: 2999999,
     compareAtPrice: 3600000,
     images: ["/products/lavasec2.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Lavado y Secado",
     brand: "Samsung",
     description:
@@ -207,7 +207,7 @@ export const PRODUCTS: Product[] = [
     price: 2849999,
     compareAtPrice: 3562000,
     images: ["/products/heladera3.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
     brand: "Samsung",
     description:
@@ -221,7 +221,7 @@ export const PRODUCTS: Product[] = [
     price: 2549999,
     compareAtPrice: 3315000,
     images: ["/products/heladera4.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
     brand: "Samsung",
     description:
@@ -235,7 +235,7 @@ export const PRODUCTS: Product[] = [
     price: 2549999,
     compareAtPrice: 2932000,
     images: ["/products/heladera5.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
     brand: "Samsung",
     description:
@@ -249,7 +249,7 @@ export const PRODUCTS: Product[] = [
     price: 2499999,
     compareAtPrice: 3000000,
     images: ["/products/lavarropas3.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Lavado y Secado",
     brand: "Samsung",
     description:
@@ -263,7 +263,7 @@ export const PRODUCTS: Product[] = [
     price: 2289999,
     compareAtPrice: 2862000,
     images: ["/products/heladera6.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
     brand: "TCL",
     description:
@@ -277,7 +277,7 @@ export const PRODUCTS: Product[] = [
     price: 2149999,
     compareAtPrice: 2795000,
     images: ["/products/heladera7.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
     brand: "Samsung",
     description:
@@ -291,7 +291,7 @@ export const PRODUCTS: Product[] = [
     price: 1678999,
     compareAtPrice: 1931000,
     images: ["/products/heladera8.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
     brand: "Samsung",
     description:
@@ -305,7 +305,7 @@ export const PRODUCTS: Product[] = [
     price: 1554999,
     compareAtPrice: 1866000,
     images: ["/products/heladera9.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
     brand: "Samsung",
     description:
@@ -319,7 +319,7 @@ export const PRODUCTS: Product[] = [
     price: 1499999,
     compareAtPrice: 1875000,
     images: ["/products/lavarropas4.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Lavado y Secado",
     brand: "Samsung",
     description:
@@ -333,7 +333,7 @@ export const PRODUCTS: Product[] = [
     price: 1289999,
     compareAtPrice: 1677000,
     images: ["/products/heladera10.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
     brand: "Samsung",
     description:
@@ -347,7 +347,7 @@ export const PRODUCTS: Product[] = [
     price: 1009999,
     compareAtPrice: 1161000,
     images: ["/products/freezer1.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
     brand: "Samsung",
     description:
@@ -361,7 +361,7 @@ export const PRODUCTS: Product[] = [
     price: 839999,
     compareAtPrice: 1008000,
     images: ["/products/freezer2.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Heladeras y Freezers",
     brand: "Samsung",
     description:
@@ -417,7 +417,7 @@ export const PRODUCTS: Product[] = [
     price: 694999,
     compareAtPrice: 834000,
     images: ["/products/lavarropas5.webp"],
-    line: "electrodomesticos",
+    line: "cumbre-home",
     category: "Lavado y Secado",
     brand: "TCL",
     description:

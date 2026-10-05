@@ -6,6 +6,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "",
     "/productos",
+    "/cumbre-home",
+    "/cumbre-domotica",
+    "/cumbre-constructoras",
     "/terminos",
     "/privacidad",
     "/cambios-y-devoluciones",
