@@ -43,6 +43,7 @@ const SERVICES = [
       "Nos integramos al equipo de obra desde el plano eléctrico hasta la entrega, para que cada unidad salga con la tecnología ya prevista — no como un agregado de último momento.",
     points: [
       "Cableado y pre-instalación en obra",
+      "Cercos perimetrales eléctricos e inteligentes",
       "Equipamiento en volumen para desarrollos",
       "Asesoramiento técnico junto al equipo de arquitectura",
       "Entrega llave en mano por unidad",
