@@ -5,9 +5,8 @@ import { ServicesSection } from "./components/ServicesSection";
 import { DomoticaPossibilities } from "./components/DomoticaPossibilities";
 import { ProcessSection } from "./components/ProcessSection";
 import { ProjectsGallery } from "./components/ProjectsGallery";
-import { BrandsSection } from "./components/BrandsSection";
+import { CatalogCTA } from "./components/CatalogCTA";
 import { Categories } from "./components/Categories";
-import { FeaturedProducts } from "./components/FeaturedProducts";
 import { Trust } from "./components/Trust";
 import { FAQ } from "./components/FAQ";
 import { CTASection, Footer } from "./components/CTAFooter";
@@ -24,9 +23,8 @@ export default function Home() {
         <DomoticaPossibilities />
         <ProcessSection />
         <ProjectsGallery />
-        <BrandsSection />
+        <CatalogCTA />
         <Categories />
-        <FeaturedProducts />
         <Trust />
         <FAQ />
         <CTASection />
