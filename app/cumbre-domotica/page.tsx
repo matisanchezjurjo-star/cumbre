@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Header } from "../components/Header";
 import { AnnouncementBar } from "../components/AnnouncementBar";
@@ -7,6 +8,7 @@ import { Footer } from "../components/CTAFooter";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import { Button } from "../components/ui/Button";
 import { Eyebrow, H1, H3 } from "../components/ui/Typography";
+import { DOMOTICA_EQUIPMENT } from "../lib/domotica-equipment";
 
 export const metadata: Metadata = {
   title: "Cumbre Domótica — Automatización para tu Hogar y Empresa | Cumbre",
@@ -30,59 +32,6 @@ const GALLERY = [
   {
     src: "/hero-domotica-office-v1.webp",
     alt: "Sala de reunión equipada con panel de control integrado",
-  },
-];
-
-// Equipamiento de domótica que instalamos. Sin precio ni stock todavía —
-// se suman como productos reales a products.ts cuando estén cargados.
-const EQUIPMENT = [
-  {
-    images: [
-      {
-        src: "/domotica-cerradura-v1.webp",
-        alt: "Cerradura inteligente con teclado táctil y sensor de huella en puerta de entrada",
-      },
-    ],
-    title: "Cerradura inteligente",
-    description:
-      "Acceso sin llave con teclado táctil, sensor de huella y apertura remota desde la app. Asigná códigos temporales para visitas o personal de limpieza, y recibí notificaciones cada vez que se abre la puerta.",
-  },
-  {
-    images: [
-      {
-        src: "/domotica-videoportero-v1.webp",
-        alt: "Videoportero inteligente con cámara en la entrada y pantalla de video en el living",
-      },
-    ],
-    title: "Videoportero inteligente",
-    description:
-      "Cámara con visión nocturna en la entrada, con video en vivo desde el panel de la casa o tu celular. Atendé, hablá y abrile la puerta a quien toque timbre estés donde estés.",
-  },
-  {
-    images: [
-      {
-        src: "/domotica-camara-v1.webp",
-        alt: "Cámara de seguridad inteligente para exterior instalada bajo el alero de una casa",
-      },
-    ],
-    title: "Cámara de seguridad exterior",
-    description:
-      "Cámara resistente a la intemperie con detección de movimiento y grabación en la nube. Mirá el patio, el acceso o el perímetro de tu casa en vivo desde la app, de día o de noche.",
-  },
-  {
-    images: [
-      {
-        src: "/domotica-iluminacion-switch-v1.webp",
-        alt: "Panel de control de iluminación inteligente en la pared",
-      },
-      {
-        src: "/domotica-iluminacion-ambiente-v1.webp",
-        alt: "Living y cocina con iluminación inteligente integrada, luz cálida en toda la escena",
-      },
-    ],
-    title: "Iluminación inteligente integral",
-    description:
-      "Controlá la intensidad y el color de cada ambiente desde un panel en la pared o la app, con escenas predefinidas para cada momento del día. Integrá luminarias de techo, tiras LED y lámparas en un solo sistema.",
   },
 ];
 
@@ -128,14 +77,15 @@ export default function CumbreDomoticaPage() {
             <div className="mt-16">
               <H3 className="text-wine">Equipamiento que instalamos</H3>
               <p className="mt-2 text-ink/70 max-w-2xl">
-                Algunos de los dispositivos que sumamos a cada proyecto de
-                domótica.
+                Hacé click en cada producto para ver qué es y cómo lo
+                instalamos.
               </p>
               <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {EQUIPMENT.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-2xl overflow-hidden border border-wine/10 bg-cream-soft"
+                {DOMOTICA_EQUIPMENT.map((item) => (
+                  <Link
+                    key={item.slug}
+                    href={`/cumbre-domotica/${item.slug}`}
+                    className="group rounded-2xl overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
                   >
                     <div
                       className={`grid gap-0.5 ${item.images.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}
@@ -147,7 +97,7 @@ export default function CumbreDomoticaPage() {
                             alt={img.alt}
                             fill
                             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                            className="object-cover"
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
                           />
                         </div>
                       ))}
@@ -159,8 +109,11 @@ export default function CumbreDomoticaPage() {
                       <p className="mt-2 text-sm text-ink/70 leading-relaxed">
                         {item.description}
                       </p>
+                      <span className="mt-3 inline-block text-sm font-medium text-wine">
+                        Ver detalle e instalación →
+                      </span>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
