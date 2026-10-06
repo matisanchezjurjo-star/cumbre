@@ -114,4 +114,24 @@ export const DOMOTICA_EQUIPMENT: DomoticaEquipment[] = [
       "Te mostramos cómo ajustar todo de forma remota desde el celular.",
     ],
   },
+  {
+    slug: "central-de-domotica",
+    title: "Central de domótica",
+    images: [
+      {
+        src: "/domotica-hub-v1.webp",
+        alt: "Central de domótica montada en la pared con íconos de casa, luces, seguridad y WiFi",
+      },
+    ],
+    description:
+      "El cerebro que une todos los dispositivos en un solo sistema: luces, cerraduras, cámaras y climatización, controlados desde un panel en la pared o la app.",
+    details:
+      "Es el equipo central que conecta y coordina todos los demás dispositivos de domótica de tu casa — cerraduras, luces, cámaras, climatización — para que funcionen como un solo sistema en vez de apps sueltas sin relación entre sí. Desde el panel en la pared o la app armás escenas que combinan varios dispositivos a la vez (por ejemplo, 'salgo de casa': apaga luces, baja la climatización y activa las cámaras) y controlás todo desde un solo lugar.",
+    installation: [
+      "Instalamos la central en un punto accesible de la casa, cableada o conectada a tu red WiFi según el modelo.",
+      "Vinculamos ahí todos los dispositivos de domótica que ya tengas instalados.",
+      "Armamos las escenas y automatizaciones que combinan varios dispositivos a la vez.",
+      "Configuramos el acceso desde la app para vos y el resto de tu familia.",
+    ],
+  },
 ];
