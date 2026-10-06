@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { LogoMark } from "./Logo";
@@ -44,10 +44,12 @@ const SLIDES = [
 type Phase = "logo" | "carousel";
 
 const LOGO_DURATION = 1600;
+const SLIDE_DURATION = 8000;
 
 export function Hero() {
   const [phase, setPhase] = useState<Phase>("logo");
   const [index, setIndex] = useState(0);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const timer = setTimeout(() => setPhase("carousel"), LOGO_DURATION);
@@ -63,7 +65,7 @@ export function Hero() {
 
   useEffect(() => {
     if (phase !== "carousel") return;
-    const id = setInterval(next, 8000);
+    const id = setInterval(next, SLIDE_DURATION);
     return () => clearInterval(id);
   }, [phase, next, index]);
 
@@ -105,16 +107,23 @@ export function Hero() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.7, ease: "easeInOut" }}
-                className="absolute inset-0"
+                className="absolute inset-0 overflow-hidden"
               >
-                <Image
-                  src={slide.image}
-                  alt={slide.alt}
-                  fill
-                  priority
-                  sizes="100vw"
-                  className="object-cover"
-                />
+                <motion.div
+                  initial={{ scale: 1 }}
+                  animate={{ scale: reduceMotion ? 1 : 1.08 }}
+                  transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={slide.image}
+                    alt={slide.alt}
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover"
+                  />
+                </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-r from-wine-dark/85 via-wine-dark/40 to-transparent" />
               </motion.div>
             </AnimatePresence>
