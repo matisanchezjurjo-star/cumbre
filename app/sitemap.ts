@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { PRODUCTS } from "./lib/products";
+import { DOMOTICA_EQUIPMENT } from "./lib/domotica-equipment";
 import { SITE_URL } from "./lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -22,5 +23,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  return [...staticRoutes, ...productRoutes];
+  const domoticaEquipmentRoutes = DOMOTICA_EQUIPMENT.map((e) => ({
+    url: `${SITE_URL}/cumbre-domotica/${e.slug}`,
+    lastModified: new Date(),
+  }));
+
+  return [...staticRoutes, ...productRoutes, ...domoticaEquipmentRoutes];
 }
