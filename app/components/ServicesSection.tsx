@@ -12,6 +12,7 @@ type Service = {
   title: string;
   description: string;
   image: string;
+  href: string;
   badge?: string;
 };
 
@@ -21,12 +22,14 @@ const SERVICES: Service[] = [
     description:
       "Automatización de luces, climatización, seguridad y entretenimiento — proyectamos e instalamos sistemas inteligentes integrados a tu hogar.",
     image: "/hero-domotica-panel-v1.webp",
+    href: "/cumbre-domotica",
   },
   {
     title: "Constructoras y Obra",
     description:
       "Trabajamos junto a constructoras y desarrolladores para equipar edificios y viviendas con tecnología desde la etapa de obra.",
     image: "/hero-domotica-fence-v1.webp",
+    href: "/cumbre-constructoras",
     badge: "Cercos perimetrales inteligentes",
   },
   {
@@ -34,6 +37,7 @@ const SERVICES: Service[] = [
     description:
       "Equipamiento tecnológico en volumen para oficinas, locales y espacios de trabajo, con asesoramiento técnico de principio a fin.",
     image: "/hero-domotica-office-v1.webp",
+    href: "/cumbre-home#empresas-y-oficinas",
   },
 ];
 
@@ -56,7 +60,7 @@ export function ServicesSection() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <Link href="/proyectos" className="group block">
+              <Link href={s.href} className="group block">
                 <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
                   <Image
                     src={s.image}
