@@ -60,7 +60,7 @@ export function SearchAutocomplete({
             }}
             onFocus={() => query && setOpen(true)}
             placeholder="Buscar productos"
-            className="w-full rounded-full bg-cream text-ink placeholder:text-ink-soft pl-4 pr-11 py-2.5 text-sm outline-none"
+            className="w-full rounded-sm border border-border bg-cream-soft text-ink placeholder:text-ink-soft pl-4 pr-11 py-2.5 text-sm outline-none focus:border-wine/40 transition-colors"
           />
           <button
             type="submit"
