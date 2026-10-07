@@ -28,6 +28,8 @@ const BASE =
 
 export function Button({
   href,
+  target,
+  rel,
   variant = "primary",
   size = "md",
   className = "",
@@ -36,6 +38,8 @@ export function Button({
   ...rest
 }: {
   href?: string;
+  target?: string;
+  rel?: string;
   variant?: Variant;
   size?: Size;
   className?: string;
@@ -46,7 +50,7 @@ export function Button({
 
   if (href) {
     return (
-      <Link href={href} className={classes} onClick={onClick}>
+      <Link href={href} target={target} rel={rel} className={classes} onClick={onClick}>
         {children}
       </Link>
     );

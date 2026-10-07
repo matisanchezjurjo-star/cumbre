@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { Header } from "./components/Header";
 import { Footer } from "./components/CTAFooter";
+import { Button } from "./components/ui/Button";
 
 export default function NotFound() {
   return (
@@ -16,12 +16,9 @@ export default function NotFound() {
             El producto o la página que buscás no está disponible. Puede que
             se haya movido o que el link esté mal escrito.
           </p>
-          <Link
-            href="/productos"
-            className="mt-8 inline-block rounded-full bg-wine text-cream font-medium px-7 py-3 hover:bg-wine-dark hover:scale-105 active:scale-95 transition-all duration-200"
-          >
+          <Button href="/productos" variant="primary" size="lg" className="mt-8">
             Ver catálogo
-          </Link>
+          </Button>
         </div>
       </main>
       <Footer />

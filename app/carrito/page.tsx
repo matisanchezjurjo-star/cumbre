@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { Minus, Plus, X } from "lucide-react";
 import { Header } from "../components/Header";
 import { AnnouncementBar } from "../components/AnnouncementBar";
 import { Footer } from "../components/CTAFooter";
+import { Button } from "../components/ui/Button";
 import { useCart } from "../lib/cart-context";
 
 export default function CarritoPage() {
@@ -22,12 +22,9 @@ export default function CarritoPage() {
           {items.length === 0 ? (
             <div className="mt-10 rounded-sm border border-dashed border-wine/25 bg-cream-soft py-16 text-center">
               <p className="text-ink-soft">Todavía no agregaste productos.</p>
-              <Link
-                href="/productos"
-                className="mt-5 inline-block rounded-full bg-wine text-cream font-medium px-6 py-2.5 hover:scale-105 active:scale-95 transition-transform"
-              >
+              <Button href="/productos" variant="primary" className="mt-5">
                 Ver catálogo
-              </Link>
+              </Button>
             </div>
           ) : (
             <div className="mt-8 grid sm:grid-cols-3 gap-10">
@@ -37,7 +34,7 @@ export default function CarritoPage() {
                     key={item.slug}
                     className="flex items-center gap-4 rounded-sm border border-border bg-cream-soft p-3"
                   >
-                    <div className="relative h-20 w-20 shrink-0 rounded-lg overflow-hidden bg-cream">
+                    <div className="relative h-20 w-20 shrink-0 rounded-sm overflow-hidden bg-cream">
                       {item.image && (
                         <Image
                           src={item.image}
@@ -56,7 +53,7 @@ export default function CarritoPage() {
                         ${item.price.toLocaleString("es-AR")}
                       </p>
                     </div>
-                    <div className="flex items-center gap-2 border border-wine/20 rounded-full px-1">
+                    <div className="flex items-center gap-2 border border-border rounded-sm px-1">
                       <button
                         onClick={() => setQty(item.slug, item.qty - 1)}
                         className="h-7 w-7 flex items-center justify-center text-wine"
@@ -94,12 +91,14 @@ export default function CarritoPage() {
                 <p className="mt-1 text-xs text-ink-soft">
                   El envío se calcula en el siguiente paso.
                 </p>
-                <Link
+                <Button
                   href="/checkout"
-                  className="mt-5 block text-center rounded-full bg-wine text-cream font-medium px-6 py-3 hover:bg-wine-dark hover:scale-105 active:scale-95 transition-all duration-200"
+                  variant="primary"
+                  size="lg"
+                  className="mt-5 w-full"
                 >
                   Ir a pagar
-                </Link>
+                </Button>
               </div>
             </div>
           )}

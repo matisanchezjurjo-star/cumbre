@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { initMercadoPago, Payment } from "@mercadopago/sdk-react";
 import { Header } from "../components/Header";
 import { AnnouncementBar } from "../components/AnnouncementBar";
 import { Footer } from "../components/CTAFooter";
+import { Button } from "../components/ui/Button";
 import { useCart } from "../lib/cart-context";
 import { WHATSAPP_URL } from "../lib/constants";
 
@@ -36,12 +36,9 @@ export default function CheckoutPage() {
         <main className="flex-1">
           <div className="mx-auto max-w-2xl px-5 sm:px-8 py-20 text-center">
             <p className="text-ink-soft">Tu carrito está vacío.</p>
-            <Link
-              href="/productos"
-              className="mt-5 inline-block rounded-full bg-wine text-cream font-medium px-6 py-2.5"
-            >
+            <Button href="/productos" variant="primary" className="mt-5">
               Ver catálogo
-            </Link>
+            </Button>
           </div>
         </main>
         <Footer />
@@ -62,14 +59,15 @@ export default function CheckoutPage() {
             <p className="mt-3 text-ink-soft">
               Te vamos a contactar por WhatsApp para coordinar la entrega.
             </p>
-            <a
+            <Button
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-block rounded-full bg-wine text-cream font-medium px-6 py-2.5"
+              variant="primary"
+              className="mt-6"
             >
               Escribinos por WhatsApp
-            </a>
+            </Button>
           </div>
         </main>
         <Footer />
@@ -90,20 +88,20 @@ export default function CheckoutPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Nombre y apellido"
-                className="rounded-lg border border-wine/20 px-4 py-2.5 text-sm outline-none focus:border-wine/50"
+                className="rounded-sm border border-border px-4 py-2.5 text-sm outline-none focus:border-wine/50"
               />
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 placeholder="Email"
-                className="rounded-lg border border-wine/20 px-4 py-2.5 text-sm outline-none focus:border-wine/50"
+                className="rounded-sm border border-border px-4 py-2.5 text-sm outline-none focus:border-wine/50"
               />
               <input
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 placeholder="Dirección de envío"
-                className="rounded-lg border border-wine/20 px-4 py-2.5 text-sm outline-none focus:border-wine/50"
+                className="rounded-sm border border-border px-4 py-2.5 text-sm outline-none focus:border-wine/50"
               />
             </div>
 
@@ -126,14 +124,15 @@ export default function CheckoutPage() {
                 <p className="text-ink-soft text-sm">
                   El pago con tarjeta todavía se está configurando.
                 </p>
-                <a
+                <Button
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-block rounded-full bg-wine text-cream font-medium px-6 py-2.5 text-sm"
+                  variant="primary"
+                  className="mt-4"
                 >
                   Coordinar por WhatsApp
-                </a>
+                </Button>
               </div>
             ) : !name || !email ? (
               <p className="text-sm text-ink-soft">

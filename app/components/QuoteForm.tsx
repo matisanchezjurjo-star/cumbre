@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Button } from "./ui/Button";
 import { WHATSAPP_URL } from "../lib/constants";
 
 const PROJECT_TYPES = [
@@ -51,7 +52,7 @@ export function QuoteForm() {
           required
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="mt-1 w-full rounded-lg border border-wine/20 px-3 py-2.5 text-sm outline-none focus:border-wine/50 bg-white"
+          className="mt-1 w-full rounded-sm border border-border px-3 py-2.5 text-sm outline-none focus:border-wine/50 bg-cream-soft"
         />
       </div>
       <div>
@@ -59,7 +60,7 @@ export function QuoteForm() {
         <input
           value={company}
           onChange={(e) => setCompany(e.target.value)}
-          className="mt-1 w-full rounded-lg border border-wine/20 px-3 py-2.5 text-sm outline-none focus:border-wine/50 bg-white"
+          className="mt-1 w-full rounded-sm border border-border px-3 py-2.5 text-sm outline-none focus:border-wine/50 bg-cream-soft"
         />
       </div>
       <div>
@@ -68,7 +69,7 @@ export function QuoteForm() {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="mt-1 w-full rounded-lg border border-wine/20 px-3 py-2.5 text-sm outline-none focus:border-wine/50 bg-white"
+          className="mt-1 w-full rounded-sm border border-border px-3 py-2.5 text-sm outline-none focus:border-wine/50 bg-cream-soft"
         />
       </div>
       <div>
@@ -76,7 +77,7 @@ export function QuoteForm() {
         <input
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className="mt-1 w-full rounded-lg border border-wine/20 px-3 py-2.5 text-sm outline-none focus:border-wine/50 bg-white"
+          className="mt-1 w-full rounded-sm border border-border px-3 py-2.5 text-sm outline-none focus:border-wine/50 bg-cream-soft"
         />
       </div>
       <div className="sm:col-span-2">
@@ -85,7 +86,7 @@ export function QuoteForm() {
           required
           value={projectType}
           onChange={(e) => setProjectType(e.target.value)}
-          className="mt-1 w-full rounded-lg border border-wine/20 px-3 py-2.5 text-sm outline-none focus:border-wine/50 bg-white"
+          className="mt-1 w-full rounded-sm border border-border px-3 py-2.5 text-sm outline-none focus:border-wine/50 bg-cream-soft"
         >
           {PROJECT_TYPES.map((t) => (
             <option key={t} value={t}>
@@ -102,17 +103,14 @@ export function QuoteForm() {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           rows={3}
-          className="mt-1 w-full rounded-lg border border-wine/20 px-3 py-2.5 text-sm outline-none focus:border-wine/50 bg-white resize-none"
+          className="mt-1 w-full rounded-sm border border-border px-3 py-2.5 text-sm outline-none focus:border-wine/50 bg-cream-soft resize-none"
         />
       </div>
 
       <div className="sm:col-span-2">
-        <button
-          type="submit"
-          className="rounded-full bg-wine text-cream font-medium px-7 py-3 hover:bg-wine-dark hover:scale-105 active:scale-95 transition-all duration-200"
-        >
+        <Button type="submit" variant="primary" size="lg">
           Enviar por WhatsApp
-        </button>
+        </Button>
       </div>
     </form>
   );
