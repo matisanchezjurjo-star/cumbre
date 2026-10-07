@@ -62,7 +62,7 @@ export default function ProyectosPage() {
       <AnnouncementBar />
       <main className="flex-1">
         <section className="bg-cream-soft py-20 sm:py-28">
-          <div className="mx-auto max-w-6xl px-5 sm:px-8 grid sm:grid-cols-2 gap-10 sm:gap-12 items-center">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
             <div>
               <Eyebrow>EQUIPAMIENTO TECNOLÓGICO PARA CADA PROYECTO</Eyebrow>
               <H1 className="mt-5">
@@ -87,7 +87,7 @@ export default function ProyectosPage() {
                   alt="Entrada de proyecto equipado por Cumbre"
                   fill
                   priority
-                  sizes="(min-width: 640px) 50vw, 100vw"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
                 />
               </div>
