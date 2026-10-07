@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Mail, AtSign } from "lucide-react";
 import { LogoLockup } from "./Logo";
-import { SectionWave } from "./SectionWave";
 import { Button } from "./ui/Button";
 import {
   INSTAGRAM_URL,
@@ -16,13 +15,13 @@ import {
 
 export function CTASection() {
   return (
-    <section className="pt-20 sm:pt-28 bg-wine text-cream">
+    <section className="py-20 sm:py-28 bg-wine text-cream border-y border-wine-dark">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.6 }}
-        className="mx-auto max-w-2xl text-center px-5 sm:px-8 pb-20 sm:pb-28"
+        className="mx-auto max-w-2xl text-center px-5 sm:px-8"
       >
         <h2 className="font-serif text-3xl sm:text-4xl">
           Tu primer pedido, con 10% OFF
@@ -35,7 +34,6 @@ export function CTASection() {
           Ver catálogo
         </Button>
       </motion.div>
-      <SectionWave fill="#4e1620" />
     </section>
   );
 }
@@ -73,7 +71,7 @@ export function Footer() {
   return (
     <footer className="bg-wine-dark text-cream">
       <div className="mx-auto max-w-6xl px-5 sm:px-8 py-14">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-14">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 pb-12 mb-14 border-b border-cream/10">
           <div className="flex items-center gap-2 text-cream/90">
             <Mail size={18} />
             <span className="font-medium">Newsletter</span>
@@ -86,19 +84,19 @@ export function Footer() {
               e.preventDefault();
               setSent(true);
             }}
-            className="flex w-full max-w-sm ml-0 sm:ml-auto"
+            className="flex w-full max-w-sm ml-0 sm:ml-auto border border-cream/20"
           >
             <input
               type="email"
               required
               placeholder="Email"
               disabled={sent}
-              className="flex-1 rounded-l-full bg-cream/10 border border-cream/20 px-4 py-2.5 text-sm placeholder:text-cream/60 outline-none disabled:opacity-60"
+              className="flex-1 bg-transparent px-4 py-2.5 text-sm placeholder:text-cream/60 outline-none disabled:opacity-60"
             />
             <button
               type="submit"
               disabled={sent}
-              className="rounded-r-full bg-cream text-wine text-sm font-medium px-5 hover:scale-105 active:scale-95 transition-transform disabled:opacity-60 disabled:hover:scale-100"
+              className="border-l border-cream/20 bg-cream text-wine text-sm font-medium px-5 hover:bg-cream/90 transition-colors disabled:opacity-60"
             >
               {sent ? "¡Listo!" : "Suscribirme"}
             </button>
@@ -121,10 +119,10 @@ export function Footer() {
 
           {COLUMNS.map((col) => (
             <div key={col.title}>
-              <h4 className="font-medium text-cream mb-3 text-sm">
+              <h4 className="text-[0.7rem] tracking-[0.12em] text-cream/50 font-medium mb-4 uppercase">
                 {col.title}
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {col.links.map((l) => {
                   const external = l.href.startsWith("http");
                   const linkClassName =

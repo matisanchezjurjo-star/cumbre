@@ -5,7 +5,6 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { LogoMark } from "./Logo";
-import { SectionWave } from "./SectionWave";
 import { Button } from "./ui/Button";
 
 const SLIDES = [
@@ -73,8 +72,8 @@ export function Hero() {
   const introDone = phase === "carousel";
 
   return (
-    <section id="top" className="relative">
-      <div className="relative h-[520px] sm:h-[620px] w-full overflow-hidden bg-wine-dark">
+    <section id="top" className="relative border-b border-wine-dark">
+      <div className="relative h-[560px] sm:h-[680px] lg:h-[760px] w-full overflow-hidden bg-wine-dark">
         <AnimatePresence>
           {!introDone && (
             <motion.div
@@ -136,18 +135,19 @@ export function Hero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.5 }}
-                  className="max-w-md"
+                  className="max-w-xl"
                 >
-                  <p className="text-cream/80 tracking-[0.2em] text-xs sm:text-sm font-medium mb-3">
+                  <p className="flex items-center gap-2.5 text-cream/70 tracking-[0.16em] text-[0.7rem] font-medium mb-4">
+                    <span className="h-px w-5 bg-brass-soft" aria-hidden="true" />
                     {slide.eyebrow}
                   </p>
-                  <h1 className="font-serif text-3xl sm:text-5xl leading-tight text-cream">
+                  <h1 className="font-serif text-4xl sm:text-6xl lg:text-[4.25rem] leading-[1.03] tracking-[-0.01em] text-cream">
                     {slide.title}
                   </h1>
-                  <p className="mt-4 text-cream/85 text-base sm:text-lg">
+                  <p className="mt-5 text-cream/80 text-base sm:text-lg max-w-sm">
                     {slide.subtitle}
                   </p>
-                  <div className="mt-8 flex flex-wrap gap-4">
+                  <div className="mt-9 flex flex-wrap gap-4">
                     <Button href={slide.href} variant="invert" size="lg">
                       {slide.ctaLabel}
                     </Button>
@@ -162,35 +162,32 @@ export function Hero() {
             <button
               onClick={prev}
               aria-label="Anterior"
-              className="hidden sm:flex absolute left-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 items-center justify-center rounded-full bg-cream/15 text-cream hover:bg-cream/30 transition-colors backdrop-blur-sm"
+              className="hidden sm:flex absolute left-6 lg:left-10 top-1/2 -translate-y-1/2 z-20 h-9 w-9 items-center justify-center text-cream/70 hover:text-cream transition-colors"
             >
-              <ChevronLeft size={22} />
+              <ChevronLeft size={26} strokeWidth={1.5} />
             </button>
             <button
               onClick={next}
               aria-label="Siguiente"
-              className="hidden sm:flex absolute right-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 items-center justify-center rounded-full bg-cream/15 text-cream hover:bg-cream/30 transition-colors backdrop-blur-sm"
+              className="hidden sm:flex absolute right-6 lg:right-10 top-1/2 -translate-y-1/2 z-20 h-9 w-9 items-center justify-center text-cream/70 hover:text-cream transition-colors"
             >
-              <ChevronRight size={22} />
+              <ChevronRight size={26} strokeWidth={1.5} />
             </button>
 
-            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+            <div className="absolute bottom-8 left-5 sm:left-10 z-20 flex gap-2.5">
               {SLIDES.map((s, i) => (
                 <button
                   key={s.image}
                   onClick={() => setIndex(i)}
                   aria-label={`Ir a la diapositiva ${i + 1}`}
-                  className={`h-2 rounded-full transition-all ${
-                    i === index ? "w-6 bg-cream" : "w-2 bg-cream/40"
+                  className={`h-[2px] transition-all ${
+                    i === index ? "w-8 bg-cream" : "w-4 bg-cream/35"
                   }`}
                 />
               ))}
             </div>
           </>
         )}
-      </div>
-      <div className="relative z-10 -mt-[46px] sm:-mt-[70px]">
-        <SectionWave fill="#faf5ec" />
       </div>
     </section>
   );

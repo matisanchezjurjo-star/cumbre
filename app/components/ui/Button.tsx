@@ -24,7 +24,7 @@ const SIZE_CLASSES: Record<Size, string> = {
 };
 
 const BASE =
-  "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-all duration-200 whitespace-nowrap";
+  "inline-flex items-center justify-center gap-2.5 rounded-[2px] font-medium tracking-[0.01em] transition-all duration-200 whitespace-nowrap";
 
 export function Button({
   href,

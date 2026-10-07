@@ -1,38 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Film, Music, BellRing, Lightbulb, Thermometer, type LucideIcon } from "lucide-react";
-import { SectionWave } from "./SectionWave";
-import { SectionHeading } from "./ui/SectionHeading";
-import { H3 } from "./ui/Typography";
+import { Eyebrow, H2 } from "./ui/Typography";
 
-const ITEMS: { icon: LucideIcon; title: string; description: string }[] = [
+const ITEMS = [
   {
-    icon: Film,
     title: "Ver",
     description:
       "Centralizá todas tus fuentes de video en un solo punto de control. Activá una escena y la sala se prepara sola: bajan las cortinas, se enciende la pantalla y arranca el proyector.",
   },
   {
-    icon: Music,
     title: "Escuchar",
     description:
       "Audio distribuido por ambientes o en toda la casa al mismo tiempo. Llevá lo que estás escuchando de una habitación a otra con un solo toque.",
   },
   {
-    icon: BellRing,
     title: "Cuidar",
     description:
       "Notificaciones al celular ante eventos de tu casa — una puerta que se abre, alguien que llega — para que estés al tanto estés donde estés.",
   },
   {
-    icon: Lightbulb,
     title: "Iluminar",
     description:
       "Creá escenas de iluminación a medida y tomá el control de toda la casa con un solo botón, sin recorrerla para apagar todo antes de salir.",
   },
   {
-    icon: Thermometer,
     title: "Climatizar",
     description:
       "Programá la temperatura antes de llegar y regulá el confort de tus equipos de frío o calor desde el celular, ambiente por ambiente.",
@@ -41,41 +33,40 @@ const ITEMS: { icon: LucideIcon; title: string; description: string }[] = [
 
 export function DomoticaPossibilities() {
   return (
-    <section className="pt-16 sm:pt-20 bg-wine-dark text-cream">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 pb-16 sm:pb-20">
-        <SectionHeading
-          tone="inverted"
-          eyebrow="DOMÓTICA PARA TU HOGAR"
-          title="Posibilidades de la domótica"
-          description="Brindamos servicios totalmente personalizados para cada proyecto. Esto es lo que tu casa puede hacer por vos."
-        />
+    <section className="py-20 sm:py-28 bg-wine-dark text-cream">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        <Eyebrow tone="inverted">DOMÓTICA PARA TU HOGAR</Eyebrow>
+        <H2 className="mt-4 max-w-xl text-cream">
+          Lo que tu casa puede hacer por vos
+        </H2>
+        <p className="mt-5 max-w-lg text-cream/70 leading-relaxed">
+          Brindamos servicios totalmente personalizados para cada proyecto.
+          Un solo sistema, cinco formas de vivirlo distinto.
+        </p>
 
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
-          {ITEMS.map((item, i) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{ y: -4 }}
-                className="rounded-2xl border border-cream/15 bg-cream/5 p-6 hover:bg-cream/10 hover:border-cream/30 transition-colors"
-              >
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-cream/10 text-cream">
-                  <Icon size={20} strokeWidth={1.75} />
-                </span>
-                <H3 className="mt-4">{item.title}</H3>
-                <p className="mt-2 text-sm text-cream/70 leading-relaxed">
-                  {item.description}
-                </p>
-              </motion.div>
-            );
-          })}
+        <div className="mt-16 divide-y divide-cream/10 border-t border-cream/10">
+          {ITEMS.map((item, i) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.06 }}
+              className="grid sm:grid-cols-12 gap-3 sm:gap-8 py-7 sm:py-8"
+            >
+              <span className="sm:col-span-1 text-sm text-cream/40 tabular-nums">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="sm:col-span-3 font-serif text-2xl text-cream">
+                {item.title}
+              </h3>
+              <p className="sm:col-span-8 text-cream/70 leading-relaxed max-w-xl">
+                {item.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
-      <SectionWave fill="#f3e9da" />
     </section>
   );
 }

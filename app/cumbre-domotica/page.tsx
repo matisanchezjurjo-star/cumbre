@@ -47,7 +47,7 @@ export default function CumbreDomoticaPage() {
             <H1 className="mt-3 text-wine max-w-2xl">
               Automatización e integración inteligente
             </H1>
-            <p className="mt-5 text-ink/70 text-base sm:text-lg max-w-2xl">
+            <p className="mt-5 text-ink-soft text-base sm:text-lg max-w-2xl">
               Luces, climatización, seguridad y audio/video controlados
               desde un solo panel o app — proyectamos e instalamos sistemas
               de domótica para casas, obras y oficinas de punta a punta.
@@ -61,7 +61,7 @@ export default function CumbreDomoticaPage() {
               {GALLERY.map((g) => (
                 <div
                   key={g.src}
-                  className="relative aspect-[4/3] rounded-2xl overflow-hidden"
+                  className="relative aspect-[4/3] rounded-md overflow-hidden"
                 >
                   <Image
                     src={g.src}
@@ -76,7 +76,7 @@ export default function CumbreDomoticaPage() {
 
             <div className="mt-16">
               <H3 className="text-wine">Equipamiento que instalamos</H3>
-              <p className="mt-2 text-ink/70 max-w-2xl">
+              <p className="mt-2 text-ink-soft max-w-2xl">
                 Hacé click en cada producto para ver qué es y cómo lo
                 instalamos.
               </p>
@@ -85,7 +85,7 @@ export default function CumbreDomoticaPage() {
                   <Link
                     key={item.slug}
                     href={`/cumbre-domotica/${item.slug}`}
-                    className="group rounded-2xl overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
+                    className="group rounded-md overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
                   >
                     <div
                       className={`grid gap-0.5 ${item.images.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}
@@ -106,7 +106,7 @@ export default function CumbreDomoticaPage() {
                       <p className="font-serif text-lg text-wine">
                         {item.title}
                       </p>
-                      <p className="mt-2 text-sm text-ink/70 leading-relaxed">
+                      <p className="mt-2 text-sm text-ink-soft leading-relaxed">
                         {item.description}
                       </p>
                       <span className="mt-3 inline-block text-sm font-medium text-wine">
@@ -118,11 +118,11 @@ export default function CumbreDomoticaPage() {
               </div>
             </div>
 
-            <div className="mt-12 rounded-2xl border border-dashed border-wine/25 bg-cream-soft px-6 py-10 text-center">
+            <div className="mt-12 rounded-md border border-dashed border-wine/25 bg-cream-soft px-6 py-10 text-center">
               <H3 as="p" className="text-wine">
                 Catálogo de productos en camino
               </H3>
-              <p className="mt-3 text-ink/70 max-w-lg mx-auto">
+              <p className="mt-3 text-ink-soft max-w-lg mx-auto">
                 Ya estamos cargando los productos de domótica para que los
                 compres directamente acá. Mientras tanto, contanos tu
                 proyecto y te asesoramos por WhatsApp o con una cotización.

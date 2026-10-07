@@ -55,7 +55,7 @@ export default async function ProductosPage({
               className={`rounded-full px-4 py-1.5 border transition-colors ${
                 !activeLine && !categoria
                   ? "bg-wine text-cream border-wine"
-                  : "border-wine/20 text-ink/70 hover:border-wine/40"
+                  : "border-wine/20 text-ink-soft hover:border-wine/40"
               }`}
             >
               Todos
@@ -67,7 +67,7 @@ export default async function ProductosPage({
                 className={`rounded-full px-4 py-1.5 border transition-colors ${
                   activeLine?.slug === l.slug && !categoria
                     ? "bg-wine text-cream border-wine"
-                    : "border-wine/20 text-ink/70 hover:border-wine/40"
+                    : "border-wine/20 text-ink-soft hover:border-wine/40"
                 }`}
               >
                 {l.name}
@@ -76,7 +76,7 @@ export default async function ProductosPage({
             {categoria && (
               <Link
                 href={activeLine ? `/productos?linea=${activeLine.slug}` : "/productos"}
-                className="rounded-full px-4 py-1.5 border border-wine/20 text-ink/70 hover:border-wine/40 transition-colors"
+                className="rounded-full px-4 py-1.5 border border-wine/20 text-ink-soft hover:border-wine/40 transition-colors"
               >
                 {categoria} ✕
               </Link>
@@ -84,7 +84,7 @@ export default async function ProductosPage({
           </div>
 
           <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
-            <span className="text-ink/70">Marca:</span>
+            <span className="text-ink-soft">Marca:</span>
             {BRANDS.map((b) => (
               <Link
                 key={b}
@@ -92,7 +92,7 @@ export default async function ProductosPage({
                 className={`rounded-full px-3 py-1 border transition-colors ${
                   marca === b
                     ? "bg-wine text-cream border-wine"
-                    : "border-wine/20 text-ink/70 hover:border-wine/40"
+                    : "border-wine/20 text-ink-soft hover:border-wine/40"
                 }`}
               >
                 {b}
@@ -109,11 +109,11 @@ export default async function ProductosPage({
           </div>
 
           {products.length === 0 ? (
-            <div className="mt-16 rounded-2xl border border-dashed border-wine/25 bg-cream-soft py-20 text-center">
+            <div className="mt-16 rounded-md border border-dashed border-wine/25 bg-cream-soft py-20 text-center">
               <H3 as="p" className="text-wine">
                 Estamos cargando el catálogo
               </H3>
-              <p className="mt-3 text-ink/70 max-w-md mx-auto">
+              <p className="mt-3 text-ink-soft max-w-md mx-auto">
                 Muy pronto vas a poder comprar acá mismo. Mientras tanto,
                 escribinos por WhatsApp y te contamos qué tenemos disponible.
               </p>

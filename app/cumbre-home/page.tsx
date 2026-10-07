@@ -47,7 +47,7 @@ function CategoryGrid({
           <Link
             key={c.category}
             href={`/productos?linea=cumbre-home&categoria=${encodeURIComponent(c.category)}`}
-            className="group block rounded-2xl overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
+            className="group block rounded-md overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
           >
             <div className="relative aspect-square bg-cream">
               <Image
@@ -88,7 +88,7 @@ export default function CumbreHomePage() {
             <H1 className="mt-3 text-wine max-w-2xl">
               Equipamiento para tu hogar, tu cocina y tu empresa
             </H1>
-            <p className="mt-5 text-ink/70 text-base sm:text-lg max-w-2xl">
+            <p className="mt-5 text-ink-soft text-base sm:text-lg max-w-2xl">
               Todo lo que necesitás para equipar un espacio, en un solo
               lugar: hornos, anafes, microondas, heladeras, climatización,
               lavado y TV. Elegí una categoría para ver los productos.
@@ -99,7 +99,7 @@ export default function CumbreHomePage() {
         <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <H2 className="text-wine">Equipamiento para tu hogar</H2>
-            <p className="mt-2 text-ink/70 max-w-2xl">
+            <p className="mt-2 text-ink-soft max-w-2xl">
               Cocina, climatización y electrodomésticos para equipar tu casa
               de punta a punta.
             </p>
@@ -126,7 +126,7 @@ export default function CumbreHomePage() {
         >
           <div className="mx-auto max-w-6xl px-5 sm:px-8">
             <H2 className="text-wine">Equipamiento para tu empresa y oficina</H2>
-            <p className="mt-2 text-ink/70 max-w-2xl">
+            <p className="mt-2 text-ink-soft max-w-2xl">
               Las categorías que más piden oficinas y locales: climatización
               de espacios de trabajo, pantallas para salas de reunión y
               electrodomésticos para el office. Mismo stock, provisión en

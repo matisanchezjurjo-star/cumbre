@@ -1,19 +1,37 @@
 @import "tailwindcss";
 
 :root {
+  /* Warm off-white backgrounds (never pure white) */
   --cream: #f3e9da;
   --cream-soft: #faf5ec;
+  /* Neutral surface — a shade more muted/stone than the page background,
+     for cards and panels that need to read as a distinct material. */
+  --stone: #ece1cd;
+  /* Primary / secondary brand */
   --wine: #6e1f2a;
   --wine-dark: #4e1620;
+  /* Accent — used sparingly: dividers, small labels, hover moments.
+     Never a section background. */
+  --brass: #a9803f;
+  --brass-soft: #c9a876;
+  /* Text */
   --ink: #2b211d;
+  --ink-soft: #6b5f54;
+  /* Hairline borders */
+  --border: #e2d2b4;
 }
 
 @theme inline {
   --color-cream: var(--cream);
   --color-cream-soft: var(--cream-soft);
+  --color-stone: var(--stone);
   --color-wine: var(--wine);
   --color-wine-dark: var(--wine-dark);
+  --color-brass: var(--brass);
+  --color-brass-soft: var(--brass-soft);
   --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-border: var(--border);
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-inter);
 }

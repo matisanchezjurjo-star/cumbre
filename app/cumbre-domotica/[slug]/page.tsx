@@ -62,7 +62,7 @@ export default async function DomoticaEquipmentPage({
         <div className="mx-auto max-w-6xl px-5 sm:px-8 py-10 sm:py-14">
           <nav
             aria-label="Breadcrumb"
-            className="flex items-center flex-wrap gap-1.5 text-xs text-ink/70 mb-8"
+            className="flex items-center flex-wrap gap-1.5 text-xs text-ink-soft mb-8"
           >
             <Link
               href="/cumbre-domotica"
@@ -81,7 +81,7 @@ export default async function DomoticaEquipmentPage({
               {item.images.map((img, i) => (
                 <div
                   key={img.src}
-                  className="relative aspect-square rounded-2xl overflow-hidden bg-cream-soft border border-wine/10"
+                  className="relative aspect-square rounded-md overflow-hidden bg-cream-soft border border-wine/10"
                 >
                   <Image
                     src={img.src}
@@ -104,7 +104,7 @@ export default async function DomoticaEquipmentPage({
                 {item.title}
               </H2>
 
-              <p className="mt-5 text-ink/70 leading-relaxed">
+              <p className="mt-5 text-ink-soft leading-relaxed">
                 {item.details}
               </p>
 
@@ -153,7 +153,7 @@ export default async function DomoticaEquipmentPage({
                   <Link
                     key={e.slug}
                     href={`/cumbre-domotica/${e.slug}`}
-                    className="group rounded-2xl overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
+                    className="group rounded-md overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
                   >
                     <div className="relative aspect-[4/3]">
                       <Image

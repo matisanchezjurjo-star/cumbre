@@ -15,7 +15,9 @@ type HeadingProps = {
 
 export function H1({ as: Tag = "h1", className = "", children }: HeadingProps) {
   return (
-    <Tag className={`font-serif text-4xl sm:text-5xl leading-tight ${className}`}>
+    <Tag
+      className={`font-serif text-[2.75rem] sm:text-6xl lg:text-7xl leading-[1.03] tracking-[-0.01em] ${className}`}
+    >
       {children}
     </Tag>
   );
@@ -23,7 +25,9 @@ export function H1({ as: Tag = "h1", className = "", children }: HeadingProps) {
 
 export function H2({ as: Tag = "h2", className = "", children }: HeadingProps) {
   return (
-    <Tag className={`font-serif text-3xl sm:text-4xl leading-tight ${className}`}>
+    <Tag
+      className={`font-serif text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.15] ${className}`}
+    >
       {children}
     </Tag>
   );
@@ -54,9 +58,15 @@ export function Eyebrow({
   className?: string;
   children: ReactNode;
 }) {
-  const color = tone === "inverted" ? "text-cream/70" : "text-wine";
+  const color = tone === "inverted" ? "text-cream/60" : "text-brass";
   return (
-    <p className={`tracking-[0.2em] text-xs font-medium ${color} ${className}`}>
+    <p
+      className={`flex items-center gap-2.5 tracking-[0.16em] text-[0.7rem] font-medium ${color} ${className}`}
+    >
+      <span
+        className={`h-px w-5 ${tone === "inverted" ? "bg-cream/40" : "bg-brass"}`}
+        aria-hidden="true"
+      />
       {children}
     </p>
   );

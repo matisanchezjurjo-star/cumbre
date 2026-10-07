@@ -16,42 +16,52 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 bg-wine-dark text-cream">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 h-20 flex items-center gap-6 lg:gap-8">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 h-[4.5rem] flex items-center gap-8 lg:gap-10">
         <Link href="/" className="shrink-0">
           <LogoLockup color="var(--cream)" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-5 lg:gap-7 text-sm">
+        <nav className="hidden lg:flex items-center gap-7 text-sm">
           <Link
             href="/proyectos"
-            className="rounded-full bg-cream/10 px-4 py-2 font-medium text-cream hover:bg-cream/15 transition-colors"
+            className="group relative py-1 text-cream/85 hover:text-cream transition-colors"
           >
             Proyectos y Empresas
+            <span className="absolute inset-x-0 -bottom-0.5 h-px bg-brass-soft scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
           </Link>
           <button
             onClick={() => setDrawerOpen(true)}
-            className="group flex items-center gap-1.5 text-cream/75 hover:text-cream transition-colors"
+            className="group relative flex items-center gap-1.5 py-1 text-cream/85 hover:text-cream transition-colors"
           >
-            <LayoutGrid size={15} className="opacity-70" />
+            <LayoutGrid size={14} className="opacity-70" />
             Categorías
+            <span className="absolute inset-x-0 -bottom-0.5 h-px bg-brass-soft scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
           </button>
         </nav>
 
         <SearchAutocomplete className="hidden lg:block flex-1 max-w-sm" />
 
-        <div className="ml-auto flex items-center gap-5">
+        <div className="ml-auto flex items-center gap-6">
           <Link
             href="/carrito"
-            className="relative flex items-center text-cream/90 hover:text-cream hover:scale-110 transition-transform"
+            className="relative flex items-center text-cream/90 hover:text-cream transition-colors"
             aria-label="Carrito"
           >
-            <ShoppingCart size={20} />
+            <ShoppingCart size={19} />
             {count > 0 && (
               <span className="absolute -top-2 -right-2 h-4 min-w-4 px-1 rounded-full bg-cream text-wine text-[10px] font-medium flex items-center justify-center">
                 {count}
               </span>
             )}
           </Link>
+          <Button
+            href="/proyectos#cotizar"
+            variant="invert"
+            size="md"
+            className="hidden lg:inline-flex"
+          >
+            Cotizá tu proyecto
+          </Button>
           <button
             onClick={() => setOpen((v) => !v)}
             className="lg:hidden text-cream"

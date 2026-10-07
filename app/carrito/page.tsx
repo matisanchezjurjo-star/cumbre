@@ -20,8 +20,8 @@ export default function CarritoPage() {
           <h1 className="font-serif text-3xl text-wine">Tu carrito</h1>
 
           {items.length === 0 ? (
-            <div className="mt-10 rounded-2xl border border-dashed border-wine/25 bg-cream-soft py-16 text-center">
-              <p className="text-ink/70">Todavía no agregaste productos.</p>
+            <div className="mt-10 rounded-md border border-dashed border-wine/25 bg-cream-soft py-16 text-center">
+              <p className="text-ink-soft">Todavía no agregaste productos.</p>
               <Link
                 href="/productos"
                 className="mt-5 inline-block rounded-full bg-wine text-cream font-medium px-6 py-2.5 hover:scale-105 active:scale-95 transition-transform"
@@ -35,7 +35,7 @@ export default function CarritoPage() {
                 {items.map((item) => (
                   <div
                     key={item.slug}
-                    className="flex items-center gap-4 rounded-xl border border-wine/10 bg-cream-soft p-3"
+                    className="flex items-center gap-4 rounded-sm border border-wine/10 bg-cream-soft p-3"
                   >
                     <div className="relative h-20 w-20 shrink-0 rounded-lg overflow-hidden bg-cream">
                       {item.image && (
@@ -78,7 +78,7 @@ export default function CarritoPage() {
                     <button
                       onClick={() => removeItem(item.slug)}
                       aria-label="Quitar"
-                      className="text-ink/70 hover:text-wine"
+                      className="text-ink-soft hover:text-wine"
                     >
                       <X size={18} />
                     </button>
@@ -86,12 +86,12 @@ export default function CarritoPage() {
                 ))}
               </div>
 
-              <div className="rounded-xl border border-wine/10 bg-cream-soft p-5 h-fit">
-                <div className="flex justify-between text-sm text-ink/70">
+              <div className="rounded-sm border border-wine/10 bg-cream-soft p-5 h-fit">
+                <div className="flex justify-between text-sm text-ink-soft">
                   <span>Subtotal</span>
                   <span>${subtotal.toLocaleString("es-AR")}</span>
                 </div>
-                <p className="mt-1 text-xs text-ink/70">
+                <p className="mt-1 text-xs text-ink-soft">
                   El envío se calcula en el siguiente paso.
                 </p>
                 <Link

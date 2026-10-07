@@ -37,7 +37,7 @@ export default function CumbreConstructorasPage() {
             <H1 className="mt-3 text-wine max-w-2xl">
               Equipamiento técnico para constructoras y desarrollos
             </H1>
-            <p className="mt-5 text-ink/70 text-base sm:text-lg max-w-2xl">
+            <p className="mt-5 text-ink-soft text-base sm:text-lg max-w-2xl">
               Trabajamos junto a constructoras y desarrolladores desde el
               plano eléctrico hasta la entrega: cercos perimetrales
               eléctricos e inteligentes, cableado y pre-instalación, y
@@ -52,7 +52,7 @@ export default function CumbreConstructorasPage() {
               {GALLERY.map((g) => (
                 <div
                   key={g.src}
-                  className="relative aspect-[4/3] rounded-2xl overflow-hidden"
+                  className="relative aspect-[4/3] rounded-md overflow-hidden"
                 >
                   <Image
                     src={g.src}
@@ -65,11 +65,11 @@ export default function CumbreConstructorasPage() {
               ))}
             </div>
 
-            <div className="mt-12 rounded-2xl border border-dashed border-wine/25 bg-cream-soft px-6 py-10 text-center">
+            <div className="mt-12 rounded-md border border-dashed border-wine/25 bg-cream-soft px-6 py-10 text-center">
               <H3 as="p" className="text-wine">
                 Catálogo de productos en camino
               </H3>
-              <p className="mt-3 text-ink/70 max-w-lg mx-auto">
+              <p className="mt-3 text-ink-soft max-w-lg mx-auto">
                 Ya estamos cargando el equipamiento de cercado y obra para
                 que lo compres directamente acá. Mientras tanto, contanos tu
                 desarrollo y te armamos una cotización a medida.

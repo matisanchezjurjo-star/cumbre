@@ -80,7 +80,7 @@ export function FAQ() {
                       transition={{ duration: 0.25, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="pb-5 text-sm text-ink/70 leading-relaxed">
+                      <p className="pb-5 text-sm text-ink-soft leading-relaxed">
                         {item.a}
                       </p>
                     </motion.div>
@@ -91,7 +91,7 @@ export function FAQ() {
           })}
         </div>
 
-        <p className="mt-8 text-center text-sm text-ink/70">
+        <p className="mt-8 text-center text-sm text-ink-soft">
           ¿Tenés otra consulta?{" "}
           <a
             href={WHATSAPP_URL}

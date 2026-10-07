@@ -36,17 +36,17 @@ export function QuoteForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl bg-cream-soft border border-wine/10 p-6 sm:p-8 grid sm:grid-cols-2 gap-4"
+      className="rounded-md bg-cream-soft border border-wine/10 p-6 sm:p-8 grid sm:grid-cols-2 gap-4"
     >
       <div className="sm:col-span-2">
         <h3 className="font-serif text-2xl text-wine">Solicitá tu cotización</h3>
-        <p className="mt-1 text-sm text-ink/70">
+        <p className="mt-1 text-sm text-ink-soft">
           Contanos sobre tu proyecto y te contactamos por WhatsApp.
         </p>
       </div>
 
       <div>
-        <label className="text-xs text-ink/70">Nombre y apellido *</label>
+        <label className="text-xs text-ink-soft">Nombre y apellido *</label>
         <input
           required
           value={name}
@@ -55,7 +55,7 @@ export function QuoteForm() {
         />
       </div>
       <div>
-        <label className="text-xs text-ink/70">Empresa / Estudio (opcional)</label>
+        <label className="text-xs text-ink-soft">Empresa / Estudio (opcional)</label>
         <input
           value={company}
           onChange={(e) => setCompany(e.target.value)}
@@ -63,7 +63,7 @@ export function QuoteForm() {
         />
       </div>
       <div>
-        <label className="text-xs text-ink/70">Email</label>
+        <label className="text-xs text-ink-soft">Email</label>
         <input
           type="email"
           value={email}
@@ -72,7 +72,7 @@ export function QuoteForm() {
         />
       </div>
       <div>
-        <label className="text-xs text-ink/70">Teléfono</label>
+        <label className="text-xs text-ink-soft">Teléfono</label>
         <input
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
@@ -80,7 +80,7 @@ export function QuoteForm() {
         />
       </div>
       <div className="sm:col-span-2">
-        <label className="text-xs text-ink/70">Tipo de proyecto *</label>
+        <label className="text-xs text-ink-soft">Tipo de proyecto *</label>
         <select
           required
           value={projectType}
@@ -95,7 +95,7 @@ export function QuoteForm() {
         </select>
       </div>
       <div className="sm:col-span-2">
-        <label className="text-xs text-ink/70">
+        <label className="text-xs text-ink-soft">
           Contanos sobre tu proyecto (opcional)
         </label>
         <textarea

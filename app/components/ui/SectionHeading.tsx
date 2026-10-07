@@ -30,14 +30,19 @@ export function SectionHeading({
       transition={{ duration: 0.6 }}
       className={`max-w-2xl ${alignClass} ${className}`}
     >
-      <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
-      <H2 className={`mt-3 ${isInverted ? "text-cream" : "text-wine"}`}>
+      <Eyebrow
+        tone={tone}
+        className={align === "center" ? "justify-center" : ""}
+      >
+        {eyebrow}
+      </Eyebrow>
+      <H2 className={`mt-4 ${isInverted ? "text-cream" : "text-wine"}`}>
         {title}
       </H2>
       {description && (
         <p
-          className={`mt-4 leading-relaxed ${
-            isInverted ? "text-cream/75" : "text-ink/70"
+          className={`mt-5 leading-relaxed ${
+            isInverted ? "text-cream/75" : "text-ink-soft"
           }`}
         >
           {description}

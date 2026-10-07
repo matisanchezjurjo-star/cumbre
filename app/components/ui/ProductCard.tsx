@@ -14,9 +14,9 @@ export function ProductCard({
   return (
     <Link
       href={`/productos/${product.slug}`}
-      className="group block rounded-2xl overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
+      className="group block rounded-sm overflow-hidden border border-border bg-cream-soft transition-colors duration-300 hover:border-wine/30"
     >
-      <div className="relative aspect-square bg-cream">
+      <div className="relative aspect-square bg-cream overflow-hidden">
         {product.images[0] && (
           <Image
             src={product.images[0]}
@@ -37,7 +37,7 @@ export function ProductCard({
             ${product.price.toLocaleString("es-AR")}
           </span>
           {product.compareAtPrice && (
-            <span className="text-xs text-ink/70 line-through">
+            <span className="text-xs text-ink-soft line-through">
               ${product.compareAtPrice.toLocaleString("es-AR")}
             </span>
           )}

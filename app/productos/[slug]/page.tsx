@@ -87,7 +87,7 @@ export default async function ProductPage({
           {/* breadcrumb */}
           <nav
             aria-label="Breadcrumb"
-            className="flex items-center flex-wrap gap-1.5 text-xs text-ink/70 mb-8"
+            className="flex items-center flex-wrap gap-1.5 text-xs text-ink-soft mb-8"
           >
             <Link href="/productos" className="hover:text-wine transition-colors">
               Catálogo
@@ -113,7 +113,7 @@ export default async function ProductPage({
           </nav>
 
           <div className="grid sm:grid-cols-2 gap-10 sm:gap-14">
-            <div className="relative aspect-square rounded-2xl overflow-hidden bg-cream-soft border border-wine/10">
+            <div className="relative aspect-square rounded-md overflow-hidden bg-cream-soft border border-wine/10">
               {product.images[0] && (
                 <Image
                   src={product.images[0]}
@@ -145,21 +145,21 @@ export default async function ProductPage({
                   ${product.price.toLocaleString("es-AR")}
                 </span>
                 {product.compareAtPrice && (
-                  <span className="text-lg text-ink/70 line-through">
+                  <span className="text-lg text-ink-soft line-through">
                     ${product.compareAtPrice.toLocaleString("es-AR")}
                   </span>
                 )}
               </div>
 
               <p
-                className={`mt-2 text-sm font-medium ${lowStock ? "text-wine" : "text-ink/70"}`}
+                className={`mt-2 text-sm font-medium ${lowStock ? "text-wine" : "text-ink-soft"}`}
               >
                 {lowStock
                   ? `¡Últimas unidades! Quedan ${product.stock} en stock.`
                   : "En stock."}
               </p>
 
-              <p className="mt-6 text-ink/70 leading-relaxed">
+              <p className="mt-6 text-ink-soft leading-relaxed">
                 {product.description}
               </p>
 
@@ -186,7 +186,7 @@ export default async function ProductPage({
                       <p className="text-sm font-medium text-ink">
                         {item.label}
                       </p>
-                      <p className="text-xs text-ink/70">{item.sub}</p>
+                      <p className="text-xs text-ink-soft">{item.sub}</p>
                     </div>
                   </div>
                 ))}

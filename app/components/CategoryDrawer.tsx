@@ -111,13 +111,13 @@ export function CategoryDrawer({
                     key={line.slug}
                     href={`/${line.slug}`}
                     onClick={onClose}
-                    className="group flex items-center justify-between gap-3 rounded-xl border border-wine/15 px-4 py-3.5 hover:border-wine/40 hover:bg-wine/5 transition-colors"
+                    className="group flex items-center justify-between gap-3 rounded-sm border border-wine/15 px-4 py-3.5 hover:border-wine/40 hover:bg-wine/5 transition-colors"
                   >
                     <div>
                       <p className="font-serif text-lg text-wine">
                         {line.name}
                       </p>
-                      <p className="mt-0.5 text-xs text-ink/70 leading-snug">
+                      <p className="mt-0.5 text-xs text-ink-soft leading-snug">
                         {line.blurb}
                       </p>
                     </div>

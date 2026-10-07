@@ -82,7 +82,7 @@ export default function ProyectosPage() {
                 <br />
                 <span className="text-ink">para cada tipo de proyecto</span>
               </h1>
-              <p className="mt-5 text-ink/70 text-base sm:text-lg max-w-lg">
+              <p className="mt-5 text-ink-soft text-base sm:text-lg max-w-lg">
                 Casas inteligentes, obras y empresas. Un solo interlocutor
                 para todo el equipamiento tecnológico, de punta a punta.
               </p>
@@ -93,7 +93,7 @@ export default function ProyectosPage() {
             </div>
 
             <div className="relative">
-              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
+              <div className="relative aspect-[4/3] rounded-md overflow-hidden">
                 <Image
                   src="/hero-door-v1.webp"
                   alt="Entrada de proyecto equipado por Cumbre"
@@ -103,7 +103,7 @@ export default function ProyectosPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 left-6 sm:left-8 flex items-center gap-3 rounded-2xl bg-white shadow-lg px-5 py-4 max-w-[260px]">
+              <div className="absolute -bottom-6 left-6 sm:left-8 flex items-center gap-3 rounded-md bg-white shadow-lg px-5 py-4 max-w-[260px]">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-wine text-cream">
                   <ShieldCheck size={20} />
                 </span>
@@ -111,7 +111,7 @@ export default function ProyectosPage() {
                   <p className="text-sm font-semibold text-ink">
                     Garantía oficial
                   </p>
-                  <p className="text-xs text-ink/70">en todos los productos</p>
+                  <p className="text-xs text-ink-soft">en todos los productos</p>
                 </div>
               </div>
             </div>
@@ -130,7 +130,7 @@ export default function ProyectosPage() {
                     reverse ? "sm:[&>*:first-child]:order-2" : ""
                   }`}
                 >
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                  <div className="relative aspect-[4/3] rounded-md overflow-hidden">
                     <Image
                       src={s.image}
                       alt={s.title}
@@ -146,7 +146,7 @@ export default function ProyectosPage() {
                     <h2 className="mt-4 font-serif text-2xl sm:text-3xl text-wine">
                       {s.title}
                     </h2>
-                    <p className="mt-3 text-ink/70 leading-relaxed">
+                    <p className="mt-3 text-ink-soft leading-relaxed">
                       {s.description}
                     </p>
                     <ul className="mt-5 space-y-2">

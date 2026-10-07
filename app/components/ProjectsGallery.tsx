@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Home, Briefcase, UtensilsCrossed } from "lucide-react";
 import { Button } from "./ui/Button";
 import { SectionHeading } from "./ui/SectionHeading";
 
@@ -11,7 +10,6 @@ const CATEGORIES = [
   {
     key: "domotica",
     label: "Domótica para tu Hogar",
-    icon: Home,
     description:
       "Living y ambientes principales con iluminación, climatización y control integrado desde un solo panel o app.",
     images: [
@@ -22,7 +20,6 @@ const CATEGORIES = [
   {
     key: "hogar",
     label: "Equipamiento para el Hogar",
-    icon: UtensilsCrossed,
     description:
       "Cocinas equipadas de punta a punta: heladeras conectadas, anafes, hornos y electrodomésticos premium.",
     images: [
@@ -33,7 +30,6 @@ const CATEGORIES = [
   {
     key: "empresas",
     label: "Empresas y Oficinas",
-    icon: Briefcase,
     description:
       "Salas de reunión y espacios de trabajo equipados con pantallas, climatización y conectividad para empresas.",
     images: [
@@ -59,22 +55,25 @@ export function ProjectsGallery() {
         />
 
         {/* tabs */}
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-b border-border">
           {CATEGORIES.map((cat) => {
-            const Icon = cat.icon;
             const isActive = cat.key === active;
             return (
               <button
                 key={cat.key}
                 onClick={() => setActive(cat.key)}
-                className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors ${
-                  isActive
-                    ? "bg-wine text-cream"
-                    : "bg-white text-ink/70 border border-wine/15 hover:border-wine/40"
+                className={`relative pb-4 text-sm font-medium transition-colors ${
+                  isActive ? "text-wine" : "text-ink-soft hover:text-ink"
                 }`}
               >
-                <Icon size={16} strokeWidth={1.75} />
                 {cat.label}
+                {isActive && (
+                  <motion.span
+                    layoutId="projects-tab-underline"
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="absolute left-0 right-0 -bottom-px h-[2px] bg-wine"
+                  />
+                )}
               </button>
             );
           })}
@@ -90,14 +89,14 @@ export function ProjectsGallery() {
             transition={{ duration: 0.4 }}
             className="mt-8"
           >
-            <p className="text-ink/70 leading-relaxed max-w-2xl mb-6">
+            <p className="text-ink-soft leading-relaxed max-w-2xl mb-6">
               {current.description}
             </p>
             <div className="grid sm:grid-cols-2 gap-5">
               {current.images.map((img) => (
                 <div
                   key={img.src}
-                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden"
+                  className="group relative aspect-[4/3] overflow-hidden"
                 >
                   <Image
                     src={img.src}
