@@ -1,6 +1,7 @@
 import { AnnouncementBar } from "./components/AnnouncementBar";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
+import { About } from "./components/About";
 import { ServicesSection } from "./components/ServicesSection";
 import { DomoticaPossibilities } from "./components/DomoticaPossibilities";
 import { ProcessSection } from "./components/ProcessSection";
@@ -19,6 +20,7 @@ export default function Home() {
       <AnnouncementBar />
       <main className="flex-1">
         <Hero />
+        <About />
         <ServicesSection />
         <DomoticaPossibilities />
         <ProcessSection />

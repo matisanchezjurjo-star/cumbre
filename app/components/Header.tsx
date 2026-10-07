@@ -29,6 +29,13 @@ export function Header() {
             Proyectos y Empresas
             <span className="absolute inset-x-0 -bottom-0.5 h-px bg-brass-soft scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
           </Link>
+          <Link
+            href="/galeria"
+            className="group relative py-1 text-cream/85 hover:text-cream transition-colors"
+          >
+            Galería
+            <span className="absolute inset-x-0 -bottom-0.5 h-px bg-brass-soft scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
+          </Link>
           <button
             onClick={() => setDrawerOpen(true)}
             className="group relative flex items-center gap-1.5 py-1 text-cream/85 hover:text-cream transition-colors"
@@ -81,6 +88,13 @@ export function Header() {
             className="font-semibold text-cream text-sm"
           >
             Proyectos y Empresas
+          </Link>
+          <Link
+            href="/galeria"
+            onClick={() => setOpen(false)}
+            className="font-semibold text-cream text-sm"
+          >
+            Galería
           </Link>
           <button
             onClick={() => {

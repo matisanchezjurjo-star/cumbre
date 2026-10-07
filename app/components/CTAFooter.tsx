@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Mail, AtSign } from "lucide-react";
+import { Mail, AtSign, MessageCircle } from "lucide-react";
 import { LogoLockup } from "./Logo";
 import { Button } from "./ui/Button";
 import {
@@ -12,6 +12,8 @@ import {
   COUPON_CODE,
   BUSINESS_INFO,
 } from "../lib/constants";
+
+const WHATSAPP_DISPLAY = "+54 9 11 3919-5754";
 
 export function CTASection() {
   return (
@@ -40,27 +42,30 @@ export function CTASection() {
 
 const COLUMNS = [
   {
-    title: "Más Buscados",
+    title: "Navegación",
     links: [
       { label: "Inicio", href: "/" },
+      { label: "Galería", href: "/galeria" },
+      { label: "Proyectos", href: "/proyectos" },
+      { label: "Garantías", href: "/garantias" },
+      { label: "Contacto", href: "/contacto" },
+    ],
+  },
+  {
+    title: "Nuestras Líneas",
+    links: [
       { label: "Cumbre Home", href: "/cumbre-home" },
       { label: "Cumbre Domótica", href: "/cumbre-domotica" },
       { label: "Cumbre Constructoras", href: "/cumbre-constructoras" },
     ],
   },
   {
-    title: "Servicio al Cliente",
+    title: "Ayuda y Legal",
     links: [
       { label: "Estado de mi pedido", href: WHATSAPP_URL },
       { label: "Cambios y devoluciones", href: "/cambios-y-devoluciones" },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
       { label: "Términos y Condiciones", href: "/terminos" },
       { label: "Política de Privacidad", href: "/privacidad" },
-      { label: "Comunicate por WhatsApp", href: WHATSAPP_URL },
     ],
   },
 ];
@@ -106,14 +111,31 @@ export function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-10">
           <div>
             <LogoLockup color="var(--cream)" />
+
+            <p className="mt-6 text-[0.7rem] tracking-[0.12em] text-cream/50 font-medium uppercase">
+              Seguinos
+            </p>
             <a
               href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 flex items-center gap-2 text-cream/70 hover:text-cream transition-colors"
+              className="mt-2.5 flex items-center gap-2 text-cream/70 hover:text-cream text-sm transition-colors"
             >
-              <AtSign size={18} />
+              <AtSign size={16} />
               @ec.cumbre
+            </a>
+
+            <p className="mt-6 text-[0.7rem] tracking-[0.12em] text-cream/50 font-medium uppercase">
+              Contacto
+            </p>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2.5 flex items-center gap-2 text-cream/70 hover:text-cream text-sm transition-colors"
+            >
+              <MessageCircle size={16} />
+              {WHATSAPP_DISPLAY}
             </a>
           </div>
 
