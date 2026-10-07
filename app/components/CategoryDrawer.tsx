@@ -3,28 +3,8 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  X,
-  Refrigerator,
-  AirVent,
-  Microwave,
-  WashingMachine,
-  Tv,
-  Flame,
-  Wind,
-  type LucideIcon,
-} from "lucide-react";
-import { CATEGORIES, BRANDS, LINES } from "../lib/constants";
-
-const ICONS: Record<string, LucideIcon> = {
-  Refrigerator,
-  AirVent,
-  Microwave,
-  WashingMachine,
-  Tv,
-  Flame,
-  Wind,
-};
+import { X, ChevronRight } from "lucide-react";
+import { BRANDS, LINES } from "../lib/constants";
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -125,35 +105,29 @@ export function CategoryDrawer({
                 Todos los productos
               </Link>
 
-              {LINES.map((line) => (
-                <div key={line.slug} className="mt-5">
+              <div className="mt-5 flex flex-col gap-3">
+                {LINES.map((line) => (
                   <Link
+                    key={line.slug}
                     href={`/${line.slug}`}
                     onClick={onClose}
-                    className="block font-serif text-lg text-wine"
+                    className="group flex items-center justify-between gap-3 rounded-xl border border-wine/15 px-4 py-3.5 hover:border-wine/40 hover:bg-wine/5 transition-colors"
                   >
-                    {line.name}
+                    <div>
+                      <p className="font-serif text-lg text-wine">
+                        {line.name}
+                      </p>
+                      <p className="mt-0.5 text-xs text-ink/70 leading-snug">
+                        {line.blurb}
+                      </p>
+                    </div>
+                    <ChevronRight
+                      size={18}
+                      className="shrink-0 text-wine/50 group-hover:translate-x-0.5 transition-transform"
+                    />
                   </Link>
-                  <div className="mt-2 flex flex-col">
-                    {CATEGORIES.filter((c) => c.line === line.slug).map(
-                      (c) => {
-                        const Icon = ICONS[c.icon];
-                        return (
-                          <Link
-                            key={c.category}
-                            href={`/productos?linea=${line.slug}&categoria=${encodeURIComponent(c.category)}`}
-                            onClick={onClose}
-                            className="flex items-center gap-3 py-2 pl-1 text-sm text-ink/75 hover:text-wine hover:translate-x-1 transition-all"
-                          >
-                            <Icon size={18} className="shrink-0 text-wine/70" />
-                            {c.label}
-                          </Link>
-                        );
-                      }
-                    )}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
 
               <div className="mt-6 pt-6 border-t border-wine/10">
                 <p className="font-serif text-lg text-wine">Marcas</p>
