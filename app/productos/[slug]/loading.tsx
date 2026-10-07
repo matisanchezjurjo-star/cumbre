@@ -6,7 +6,7 @@ export default function LoadingProduct() {
         <div className="h-8 w-3/4 rounded bg-wine/10 animate-pulse" />
         <div className="h-6 w-32 rounded bg-wine/10 animate-pulse" />
         <div className="h-20 w-full rounded bg-wine/10 animate-pulse" />
-        <div className="h-11 w-40 rounded-full bg-wine/10 animate-pulse" />
+        <div className="h-11 w-40 rounded-sm bg-wine/10 animate-pulse" />
       </div>
     </div>
   );

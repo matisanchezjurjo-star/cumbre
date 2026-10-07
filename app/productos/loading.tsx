@@ -1,10 +1,10 @@
 export default function LoadingProductos() {
   return (
     <div className="mx-auto max-w-6xl px-5 sm:px-8 py-12">
-      <div className="h-9 w-64 rounded-lg bg-wine/10 animate-pulse" />
-      <div className="mt-4 flex gap-3">
-        {[0, 1, 2].map((i) => (
-          <div key={i} className="h-8 w-24 rounded-full bg-wine/10 animate-pulse" />
+      <div className="h-12 w-72 rounded-sm bg-wine/10 animate-pulse" />
+      <div className="mt-6 flex gap-7 pb-3 border-b border-border">
+        {[0, 1, 2, 3].map((i) => (
+          <div key={i} className="h-4 w-20 rounded-sm bg-wine/10 animate-pulse" />
         ))}
       </div>
       <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
