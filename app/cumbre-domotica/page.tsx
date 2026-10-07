@@ -85,7 +85,7 @@ export default function CumbreDomoticaPage() {
                   <Link
                     key={item.slug}
                     href={`/cumbre-domotica/${item.slug}`}
-                    className="group rounded-md overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
+                    className="group rounded-sm overflow-hidden border border-border bg-cream-soft transition-colors duration-300 hover:border-wine/30"
                   >
                     <div
                       className={`grid gap-0.5 ${item.images.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}
@@ -118,7 +118,7 @@ export default function CumbreDomoticaPage() {
               </div>
             </div>
 
-            <div className="mt-12 rounded-md border border-dashed border-wine/25 bg-cream-soft px-6 py-10 text-center">
+            <div className="mt-12 rounded-sm border border-dashed border-wine/25 bg-cream-soft px-6 py-10 text-center">
               <H3 as="p" className="text-wine">
                 Catálogo de productos en camino
               </H3>

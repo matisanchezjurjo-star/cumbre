@@ -109,7 +109,7 @@ export default async function ProductosPage({
           </div>
 
           {products.length === 0 ? (
-            <div className="mt-16 rounded-md border border-dashed border-wine/25 bg-cream-soft py-20 text-center">
+            <div className="mt-16 rounded-sm border border-dashed border-wine/25 bg-cream-soft py-20 text-center">
               <H3 as="p" className="text-wine">
                 Estamos cargando el catálogo
               </H3>

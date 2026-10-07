@@ -20,7 +20,7 @@ export default function CarritoPage() {
           <h1 className="font-serif text-3xl text-wine">Tu carrito</h1>
 
           {items.length === 0 ? (
-            <div className="mt-10 rounded-md border border-dashed border-wine/25 bg-cream-soft py-16 text-center">
+            <div className="mt-10 rounded-sm border border-dashed border-wine/25 bg-cream-soft py-16 text-center">
               <p className="text-ink-soft">Todavía no agregaste productos.</p>
               <Link
                 href="/productos"
@@ -35,7 +35,7 @@ export default function CarritoPage() {
                 {items.map((item) => (
                   <div
                     key={item.slug}
-                    className="flex items-center gap-4 rounded-sm border border-wine/10 bg-cream-soft p-3"
+                    className="flex items-center gap-4 rounded-sm border border-border bg-cream-soft p-3"
                   >
                     <div className="relative h-20 w-20 shrink-0 rounded-lg overflow-hidden bg-cream">
                       {item.image && (
@@ -86,7 +86,7 @@ export default function CarritoPage() {
                 ))}
               </div>
 
-              <div className="rounded-sm border border-wine/10 bg-cream-soft p-5 h-fit">
+              <div className="rounded-sm border border-border bg-cream-soft p-5 h-fit">
                 <div className="flex justify-between text-sm text-ink-soft">
                   <span>Subtotal</span>
                   <span>${subtotal.toLocaleString("es-AR")}</span>

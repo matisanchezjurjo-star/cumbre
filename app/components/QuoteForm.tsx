@@ -36,7 +36,7 @@ export function QuoteForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-md bg-cream-soft border border-wine/10 p-6 sm:p-8 grid sm:grid-cols-2 gap-4"
+      className="rounded-md bg-cream-soft border border-border p-6 sm:p-8 grid sm:grid-cols-2 gap-4"
     >
       <div className="sm:col-span-2">
         <h3 className="font-serif text-2xl text-wine">Solicitá tu cotización</h3>

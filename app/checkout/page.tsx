@@ -107,7 +107,7 @@ export default function CheckoutPage() {
               />
             </div>
 
-            <div className="mt-8 rounded-sm border border-wine/10 bg-cream-soft p-4">
+            <div className="mt-8 rounded-sm border border-border bg-cream-soft p-4">
               <div className="flex justify-between text-sm text-ink-soft">
                 <span>Subtotal</span>
                 <span>${subtotal.toLocaleString("es-AR")}</span>

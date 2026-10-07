@@ -47,7 +47,7 @@ function CategoryGrid({
           <Link
             key={c.category}
             href={`/productos?linea=cumbre-home&categoria=${encodeURIComponent(c.category)}`}
-            className="group block rounded-md overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
+            className="group block rounded-sm overflow-hidden border border-border bg-cream-soft transition-colors duration-300 hover:border-wine/30"
           >
             <div className="relative aspect-square bg-cream">
               <Image

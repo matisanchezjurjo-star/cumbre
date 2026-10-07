@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import {
-  Home,
-  Building2,
-  Briefcase,
-  CheckCircle2,
-  ShieldCheck,
-  ArrowRight,
-} from "lucide-react";
+import { CheckCircle2, ShieldCheck, ArrowRight } from "lucide-react";
 import { Button } from "../components/ui/Button";
+import { Eyebrow, H1 } from "../components/ui/Typography";
 import { Header } from "../components/Header";
 import { AnnouncementBar } from "../components/AnnouncementBar";
 import { Footer } from "../components/CTAFooter";
@@ -23,7 +17,6 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   {
-    icon: Home,
     title: "Domótica para tu Hogar",
     image: "/hero-smart-living-v1.webp",
     description:
@@ -36,7 +29,6 @@ const SERVICES = [
     ],
   },
   {
-    icon: Building2,
     title: "Constructoras y Obra",
     image: "/hero-domotica-fence-v1.webp",
     description:
@@ -50,7 +42,6 @@ const SERVICES = [
     ],
   },
   {
-    icon: Briefcase,
     title: "Empresas y Oficinas",
     image: "/hero-smart-office-v1.webp",
     description:
@@ -73,15 +64,12 @@ export default function ProyectosPage() {
         <section className="bg-cream-soft py-20 sm:py-28">
           <div className="mx-auto max-w-6xl px-5 sm:px-8 grid sm:grid-cols-2 gap-10 sm:gap-12 items-center">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-wine/10 text-wine px-4 py-2 text-xs font-medium tracking-wide">
-                <Building2 size={14} />
-                EQUIPAMIENTO TECNOLÓGICO PARA CADA PROYECTO
-              </span>
-              <h1 className="mt-5 font-serif text-4xl sm:text-5xl leading-tight">
+              <Eyebrow>EQUIPAMIENTO TECNOLÓGICO PARA CADA PROYECTO</Eyebrow>
+              <H1 className="mt-5">
                 <span className="text-wine">Equipamiento tecnológico</span>
                 <br />
                 <span className="text-ink">para cada tipo de proyecto</span>
-              </h1>
+              </H1>
               <p className="mt-5 text-ink-soft text-base sm:text-lg max-w-lg">
                 Casas inteligentes, obras y empresas. Un solo interlocutor
                 para todo el equipamiento tecnológico, de punta a punta.
@@ -103,7 +91,7 @@ export default function ProyectosPage() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 left-6 sm:left-8 flex items-center gap-3 rounded-md bg-white shadow-lg px-5 py-4 max-w-[260px]">
+              <div className="absolute -bottom-6 left-6 sm:left-8 flex items-center gap-3 rounded-sm bg-cream-soft border border-border shadow-sm px-5 py-4 max-w-[260px]">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-wine text-cream">
                   <ShieldCheck size={20} />
                 </span>
@@ -121,7 +109,6 @@ export default function ProyectosPage() {
         <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-5 sm:px-8 flex flex-col gap-16">
             {SERVICES.map((s, i) => {
-              const Icon = s.icon;
               const reverse = i % 2 === 1;
               return (
                 <div
@@ -140,10 +127,10 @@ export default function ProyectosPage() {
                     />
                   </div>
                   <div>
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-wine/10 text-wine">
-                      <Icon size={24} />
+                    <span className="font-serif text-sm text-brass tracking-[0.2em]">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h2 className="mt-4 font-serif text-2xl sm:text-3xl text-wine">
+                    <h2 className="mt-2 font-serif text-2xl sm:text-3xl text-wine">
                       {s.title}
                     </h2>
                     <p className="mt-3 text-ink-soft leading-relaxed">

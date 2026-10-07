@@ -73,7 +73,7 @@ export function SearchAutocomplete({
       </form>
 
       {open && needle && (
-        <div className="absolute left-0 right-0 top-full mt-2 rounded-sm bg-white shadow-xl border border-wine/10 overflow-hidden z-50 text-ink">
+        <div className="absolute left-0 right-0 top-full mt-2 rounded-sm bg-white shadow-xl border border-border overflow-hidden z-50 text-ink">
           {results.length === 0 ? (
             <p className="px-4 py-4 text-sm text-ink-soft">
               Sin resultados para &quot;{query}&quot;
@@ -109,7 +109,7 @@ export function SearchAutocomplete({
               <button
                 type="button"
                 onClick={goToResults}
-                className="w-full text-left px-4 py-2.5 text-sm text-wine font-medium border-t border-wine/10 hover:bg-cream-soft transition-colors"
+                className="w-full text-left px-4 py-2.5 text-sm text-wine font-medium border-t border-border hover:bg-cream-soft transition-colors"
               >
                 Ver todos los resultados para &quot;{query}&quot;
               </button>

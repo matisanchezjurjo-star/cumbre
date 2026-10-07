@@ -129,7 +129,7 @@ export function CategoryDrawer({
                 ))}
               </div>
 
-              <div className="mt-6 pt-6 border-t border-wine/10">
+              <div className="mt-6 pt-6 border-t border-border">
                 <p className="font-serif text-lg text-wine">Marcas</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {BRANDS.map((b) => (

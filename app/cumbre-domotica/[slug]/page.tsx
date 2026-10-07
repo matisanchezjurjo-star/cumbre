@@ -8,7 +8,7 @@ import { AnnouncementBar } from "../../components/AnnouncementBar";
 import { Footer } from "../../components/CTAFooter";
 import { WhatsAppButton } from "../../components/WhatsAppButton";
 import { Button } from "../../components/ui/Button";
-import { H2, H3 } from "../../components/ui/Typography";
+import { Eyebrow, H2, H3 } from "../../components/ui/Typography";
 import { DOMOTICA_EQUIPMENT } from "../../lib/domotica-equipment";
 import { WHATSAPP_URL } from "../../lib/constants";
 
@@ -81,7 +81,7 @@ export default async function DomoticaEquipmentPage({
               {item.images.map((img, i) => (
                 <div
                   key={img.src}
-                  className="relative aspect-square rounded-md overflow-hidden bg-cream-soft border border-wine/10"
+                  className="relative aspect-square rounded-md overflow-hidden bg-cream-soft border border-border"
                 >
                   <Image
                     src={img.src}
@@ -96,9 +96,7 @@ export default async function DomoticaEquipmentPage({
             </div>
 
             <div>
-              <span className="inline-block rounded-full bg-wine/10 text-wine text-xs font-medium px-3 py-1.5">
-                CUMBRE DOMÓTICA
-              </span>
+              <Eyebrow>CUMBRE DOMÓTICA</Eyebrow>
 
               <H2 as="h1" className="mt-4 text-wine">
                 {item.title}
@@ -153,7 +151,7 @@ export default async function DomoticaEquipmentPage({
                   <Link
                     key={e.slug}
                     href={`/cumbre-domotica/${e.slug}`}
-                    className="group rounded-md overflow-hidden border border-wine/10 bg-cream-soft transition-all duration-300 hover:-translate-y-1 hover:border-wine/25 hover:shadow-[0_12px_28px_-12px_rgba(78,22,32,0.28)]"
+                    className="group rounded-sm overflow-hidden border border-border bg-cream-soft transition-colors duration-300 hover:border-wine/30"
                   >
                     <div className="relative aspect-[4/3]">
                       <Image

@@ -45,7 +45,7 @@ export function FAQ() {
           title="Lo que más nos preguntan"
         />
 
-        <div className="mt-10 divide-y divide-wine/10 border-y border-wine/10">
+        <div className="mt-10 divide-y divide-wine/10 border-y border-border">
           {ITEMS.map((item, i) => {
             const isOpen = openIndex === i;
             return (

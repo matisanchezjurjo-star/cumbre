@@ -65,7 +65,7 @@ export default function CumbreConstructorasPage() {
               ))}
             </div>
 
-            <div className="mt-12 rounded-md border border-dashed border-wine/25 bg-cream-soft px-6 py-10 text-center">
+            <div className="mt-12 rounded-sm border border-dashed border-wine/25 bg-cream-soft px-6 py-10 text-center">
               <H3 as="p" className="text-wine">
                 Catálogo de productos en camino
               </H3>

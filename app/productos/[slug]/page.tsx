@@ -113,7 +113,7 @@ export default async function ProductPage({
           </nav>
 
           <div className="grid sm:grid-cols-2 gap-10 sm:gap-14">
-            <div className="relative aspect-square rounded-md overflow-hidden bg-cream-soft border border-wine/10">
+            <div className="relative aspect-square rounded-md overflow-hidden bg-cream-soft border border-border">
               {product.images[0] && (
                 <Image
                   src={product.images[0]}
@@ -176,12 +176,17 @@ export default async function ProductPage({
                 ¿Tenés dudas sobre este producto? Preguntanos por WhatsApp →
               </a>
 
-              <div className="mt-10 pt-8 border-t border-wine/10 grid gap-4">
+              <div className="mt-10 pt-8 border-t border-border divide-y divide-border">
                 {ASSURANCES.map((item) => (
-                  <div key={item.label} className="flex items-start gap-3">
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cream-soft text-wine">
-                      <item.icon size={16} strokeWidth={1.75} />
-                    </span>
+                  <div
+                    key={item.label}
+                    className="flex items-start gap-3 py-3 first:pt-0 last:pb-0"
+                  >
+                    <item.icon
+                      size={18}
+                      strokeWidth={1.75}
+                      className="mt-0.5 shrink-0 text-wine"
+                    />
                     <div>
                       <p className="text-sm font-medium text-ink">
                         {item.label}

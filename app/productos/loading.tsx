@@ -9,7 +9,7 @@ export default function LoadingProductos() {
       </div>
       <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
         {Array.from({ length: 8 }).map((_, i) => (
-          <div key={i} className="rounded-sm overflow-hidden border border-wine/10">
+          <div key={i} className="rounded-sm overflow-hidden border border-border">
             <div className="aspect-square bg-wine/10 animate-pulse" />
             <div className="p-3 space-y-2">
               <div className="h-3 w-full rounded bg-wine/10 animate-pulse" />
