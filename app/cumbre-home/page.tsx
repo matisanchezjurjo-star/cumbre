@@ -49,25 +49,24 @@ function CategoryGrid({
             href={`/productos?linea=cumbre-home&categoria=${encodeURIComponent(c.category)}`}
             className="group block rounded-sm overflow-hidden border border-border bg-cream-soft transition-colors duration-300 hover:border-wine/30"
           >
-            <div className="relative aspect-square bg-cream">
+            <div className="relative aspect-square bg-cream overflow-hidden">
               <Image
                 src={c.image}
                 alt={c.label}
                 fill
                 sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
+                className="object-contain p-7 group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-wine-dark/70 via-wine-dark/5 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-4">
-                <p className="font-serif text-lg text-cream leading-snug">
-                  {c.label}
-                </p>
-                <p className="text-xs text-cream/75">
-                  {count > 0
-                    ? `${count} ${count === 1 ? "producto" : "productos"}`
-                    : "Próximamente"}
-                </p>
-              </div>
+            </div>
+            <div className="px-4 py-3.5 border-t border-border">
+              <p className="font-serif text-base text-wine leading-snug">
+                {c.label}
+              </p>
+              <p className="mt-0.5 text-xs text-ink-soft">
+                {count > 0
+                  ? `${count} ${count === 1 ? "producto" : "productos"}`
+                  : "Próximamente"}
+              </p>
             </div>
           </Link>
         );
