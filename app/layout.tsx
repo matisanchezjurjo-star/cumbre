@@ -3,6 +3,7 @@ import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./lib/cart-context";
 import { SITE_URL } from "./lib/constants";
+import { IntroLock } from "./components/IntroLock";
 
 const playfair = Fraunces({
   variable: "--font-playfair",
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink">
+        <IntroLock />
         <CartProvider>{children}</CartProvider>
       </body>
     </html>
