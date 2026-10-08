@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CheckCircle2, ShieldCheck, ArrowRight } from "lucide-react";
 import { Button } from "../components/ui/Button";
-import { Eyebrow, H1 } from "../components/ui/Typography";
+import { Eyebrow, H1, H2 } from "../components/ui/Typography";
 import { Header } from "../components/Header";
 import { AnnouncementBar } from "../components/AnnouncementBar";
 import { Footer } from "../components/CTAFooter";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import { QuoteForm } from "../components/QuoteForm";
+import { BeforeAfterSlider } from "../components/BeforeAfterSlider";
 
 export const metadata: Metadata = {
   title: "Proyectos y Equipamiento Tecnológico | Cumbre",
@@ -102,6 +103,31 @@ export default function ProyectosPage() {
                   <p className="text-xs text-ink-soft">en todos los productos</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20 sm:py-28 bg-cream-soft">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <Eyebrow>ANTES Y DESPUÉS</Eyebrow>
+              <H2 className="mt-4 text-wine">
+                Así transformamos cada ambiente
+              </H2>
+              <p className="mt-5 text-ink-soft leading-relaxed max-w-md">
+                Un mismo espacio, dos versiones: de un interruptor tradicional
+                a un panel que controla luces, climatización, seguridad y
+                escenas desde la pared. Deslizá para ver la diferencia.
+              </p>
+            </div>
+            <div className="order-1 lg:order-2">
+              <BeforeAfterSlider
+                before="/domotica-antes-v1.webp"
+                after="/domotica-despues-v1.webp"
+                beforeAlt="Pasillo con interruptor tradicional"
+                afterAlt="Mismo pasillo con panel de domótica Cumbre instalado"
+                className="aspect-[4/5]"
+              />
             </div>
           </div>
         </section>
