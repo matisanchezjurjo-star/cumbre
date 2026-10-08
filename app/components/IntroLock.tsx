@@ -2,44 +2,58 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Lock, LockOpen } from "lucide-react";
+import { Check, Fingerprint } from "lucide-react";
 import { LogoMark } from "./Logo";
 
-type Stage = "counting" | "unlocked" | "opening" | "done";
+type Stage = "entering" | "accepted" | "opening" | "done";
 
-const COUNT_DURATION = 1400;
-const UNLOCK_PAUSE = 450;
+const KEYS = [
+  ["1", "2", "3"],
+  ["4", "5", "6"],
+  ["7", "8", "9"],
+  ["*", "0", "#"],
+];
+
+const CODE = ["2", "5", "8", "0"];
+
+const FIRST_TAP_DELAY = 350;
+const TAP_INTERVAL = 380;
+const PULSE_DURATION = 180;
+const ACCEPT_DELAY = 420;
+const ACCEPT_PAUSE = 550;
 const DOOR_DURATION = 900;
 
 export function IntroLock() {
-  const [percent, setPercent] = useState(0);
-  const [stage, setStage] = useState<Stage>("counting");
+  const [stage, setStage] = useState<Stage>("entering");
+  const [tapCount, setTapCount] = useState(0);
+  const [activeKey, setActiveKey] = useState<string | null>(null);
   const reduceMotion = useReducedMotion();
   const skipIntro = reduceMotion === true;
 
   useEffect(() => {
     if (skipIntro) return;
 
-    const start = performance.now();
-    let raf: number;
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    CODE.forEach((key, i) => {
+      const t = FIRST_TAP_DELAY + i * TAP_INTERVAL;
+      timers.push(
+        setTimeout(() => {
+          setActiveKey(key);
+          setTapCount(i + 1);
+        }, t)
+      );
+      timers.push(setTimeout(() => setActiveKey(null), t + PULSE_DURATION));
+    });
 
-    function tick(now: number) {
-      const t = Math.min(1, (now - start) / COUNT_DURATION);
-      const eased = 1 - Math.pow(1 - t, 3);
-      setPercent(Math.round(eased * 100));
-      if (t < 1) {
-        raf = requestAnimationFrame(tick);
-      } else {
-        setStage("unlocked");
-      }
-    }
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    const lastTap = FIRST_TAP_DELAY + (CODE.length - 1) * TAP_INTERVAL;
+    timers.push(setTimeout(() => setStage("accepted"), lastTap + ACCEPT_DELAY));
+
+    return () => timers.forEach(clearTimeout);
   }, [skipIntro]);
 
   useEffect(() => {
-    if (stage === "unlocked") {
-      const t = setTimeout(() => setStage("opening"), UNLOCK_PAUSE);
+    if (stage === "accepted") {
+      const t = setTimeout(() => setStage("opening"), ACCEPT_PAUSE);
       return () => clearTimeout(t);
     }
     if (stage === "opening") {
@@ -59,9 +73,8 @@ export function IntroLock() {
 
   if (!visible) return null;
 
-  const circumference = 2 * Math.PI * 34;
-  const offset = circumference * (1 - percent / 100);
   const opening = stage === "opening";
+  const accepted = stage === "accepted" || stage === "opening";
 
   return (
     <div className="fixed inset-0 z-[100] overflow-hidden" aria-hidden="true">
@@ -77,60 +90,80 @@ export function IntroLock() {
       />
 
       <motion.div
-        className="absolute inset-0 flex flex-col items-center justify-center gap-7"
+        className="absolute inset-0 flex flex-col items-center justify-center gap-5"
         animate={{ opacity: opening ? 0 : 1 }}
         transition={{ duration: 0.3 }}
       >
-        <LogoMark className="h-10 w-10" color="var(--cream)" />
+        <LogoMark className="h-8 w-8" color="var(--cream)" />
 
-        <div className="relative flex h-20 w-20 items-center justify-center">
-          <svg viewBox="0 0 80 80" className="absolute inset-0 -rotate-90">
-            <circle
-              cx="40"
-              cy="40"
-              r="34"
-              fill="none"
-              stroke="rgba(243,233,218,0.18)"
-              strokeWidth="2"
+        <div className="w-[148px] rounded-xl border border-cream/15 bg-black/30 px-4 pt-5 pb-5 shadow-2xl backdrop-blur-sm">
+          <div className="mx-auto mb-4 h-1.5 w-1.5 rounded-full bg-cream/25" />
+
+          <div className="relative h-[164px]">
+            <AnimatePresence mode="wait">
+              {!accepted ? (
+                <motion.div
+                  key="keypad"
+                  className="grid grid-cols-3 gap-2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {KEYS.flat().map((k) => {
+                    const isActive = activeKey === k;
+                    return (
+                      <div
+                        key={k}
+                        className={`flex h-9 w-9 items-center justify-center rounded-md font-serif text-sm transition-all duration-150 ${
+                          isActive
+                            ? "scale-110 bg-cream/25 text-cream shadow-[0_0_10px_rgba(243,233,218,0.55)]"
+                            : "scale-100 bg-cream/5 text-cream/45"
+                        }`}
+                      >
+                        {k}
+                      </div>
+                    );
+                  })}
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="check"
+                  className="flex h-full items-center justify-center"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ type: "spring", stiffness: 340, damping: 16 }}
+                >
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-cream/15">
+                    <Check size={26} className="text-cream" strokeWidth={2} />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <div className="mt-4 flex items-center justify-center gap-2">
+            {CODE.map((_, i) => (
+              <span
+                key={i}
+                className={`h-1.5 w-1.5 rounded-full border border-cream/35 transition-colors duration-150 ${
+                  i < tapCount || accepted ? "bg-cream" : "bg-transparent"
+                }`}
+              />
+            ))}
+          </div>
+
+          <div className="mt-4 flex justify-center border-t border-cream/10 pt-4">
+            <Fingerprint
+              size={18}
+              className={accepted ? "text-cream" : "text-cream/30"}
+              strokeWidth={1.5}
             />
-            <circle
-              cx="40"
-              cy="40"
-              r="34"
-              fill="none"
-              stroke="var(--cream)"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeDasharray={circumference}
-              strokeDashoffset={offset}
-            />
-          </svg>
-          <AnimatePresence mode="wait">
-            {stage === "counting" ? (
-              <motion.div
-                key="lock"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.7 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Lock size={22} className="text-cream" strokeWidth={1.5} />
-              </motion.div>
-            ) : (
-              <motion.div
-                key="unlock"
-                initial={{ opacity: 0, scale: 0.6, rotate: -18 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                transition={{ type: "spring", stiffness: 320, damping: 14 }}
-              >
-                <LockOpen size={22} className="text-cream" strokeWidth={1.5} />
-              </motion.div>
-            )}
-          </AnimatePresence>
+          </div>
         </div>
 
-        <span className="font-serif text-2xl tabular-nums tracking-wide text-cream">
-          {percent}%
+        <span className="text-[0.65rem] tracking-[0.18em] uppercase text-cream/70">
+          {accepted ? "Acceso concedido" : "Ingresando código"}
         </span>
       </motion.div>
     </div>
