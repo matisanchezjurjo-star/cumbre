@@ -133,6 +133,30 @@ export default function ProyectosPage() {
           </div>
         </section>
 
+        <section className="py-20 sm:py-28">
+          <div className="mx-auto max-w-6xl px-5 sm:px-8 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div>
+              <BeforeAfterSlider
+                before="/domotica-cerradura-antes-v1.webp"
+                after="/domotica-cerradura-despues-v1.webp"
+                beforeAlt="Puerta doble de entrada con cerradura y manija tradicional"
+                afterAlt="Misma puerta doble con cerradura inteligente Cumbre instalada"
+                className="aspect-[4/5]"
+              />
+            </div>
+            <div>
+              <Eyebrow>ACCESO INTELIGENTE</Eyebrow>
+              <H2 className="mt-4 text-wine">Entrá sin llaves</H2>
+              <p className="mt-5 text-ink-soft leading-relaxed max-w-md">
+                De una cerradura tradicional a una cerradura inteligente con
+                teclado y huella digital. Asigná códigos temporales, dejá
+                entrar a quien necesites desde tu celular y mirá el historial
+                de accesos.
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-5 sm:px-8 flex flex-col gap-16">
             {SERVICES.map((s, i) => {
