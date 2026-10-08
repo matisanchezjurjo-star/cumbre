@@ -115,17 +115,18 @@ export default function ProyectosPage() {
                 Así transformamos cada ambiente
               </H2>
               <p className="mt-5 text-ink-soft leading-relaxed max-w-md">
-                Un mismo espacio, dos versiones: de un interruptor tradicional
-                a un panel que controla luces, climatización, seguridad y
-                escenas desde la pared. Deslizá para ver la diferencia.
+                Un mismo living, dos versiones: de una luz de techo plana a
+                iluminación integral con escenas cálidas en cada mueble,
+                controlada desde la pared o la app. Deslizá para ver la
+                diferencia.
               </p>
             </div>
             <div className="order-1 lg:order-2">
               <BeforeAfterSlider
                 before="/domotica-antes-v1.webp"
                 after="/domotica-despues-v1.webp"
-                beforeAlt="Pasillo con interruptor tradicional"
-                afterAlt="Mismo pasillo con panel de domótica Cumbre instalado"
+                beforeAlt="Living de una casa con iluminación de techo plana, sin domótica"
+                afterAlt="Mismo living con iluminación integral y escenas instaladas por Cumbre"
                 className="aspect-[4/5]"
               />
             </div>
