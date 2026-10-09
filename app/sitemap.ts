@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { PRODUCTS } from "./lib/products";
 import { DOMOTICA_EQUIPMENT } from "./lib/domotica-equipment";
+import { ARTICLES } from "./lib/explica";
 import { SITE_URL } from "./lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -10,11 +11,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/cumbre-home",
     "/cumbre-domotica",
     "/cumbre-constructoras",
+    "/empresas",
+    "/simulador",
+    "/cumbre-explica",
     "/terminos",
     "/privacidad",
     "/cambios-y-devoluciones",
   ].map((path) => ({
     url: `${SITE_URL}${path}`,
+    lastModified: new Date(),
+  }));
+
+  const explicaRoutes = ARTICLES.map((a) => ({
+    url: `${SITE_URL}/cumbre-explica/${a.slug}`,
     lastModified: new Date(),
   }));
 
@@ -28,5 +37,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  return [...staticRoutes, ...productRoutes, ...domoticaEquipmentRoutes];
+  return [...staticRoutes, ...explicaRoutes, ...productRoutes, ...domoticaEquipmentRoutes];
 }

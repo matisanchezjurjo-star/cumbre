@@ -12,6 +12,16 @@ const COLUMNS = [
       { label: "Cumbre Domótica", href: "/cumbre-domotica" },
       { label: "Cumbre Home", href: "/cumbre-home" },
       { label: "Cumbre Constructoras", href: "/cumbre-constructoras" },
+      { label: "Cumbre Empresas", href: "/empresas" },
+    ],
+  },
+  {
+    title: "Recursos",
+    links: [
+      { label: "¿Qué puede hacer tu casa?", href: "/simulador" },
+      { label: "Cumbre explica", href: "/cumbre-explica" },
+      { label: "Proyectos", href: "/proyectos" },
+      { label: "Contacto", href: "/contacto" },
     ],
   },
   {
@@ -29,7 +39,7 @@ const COLUMNS = [
 export function Footer() {
   return (
     <footer className="bg-wine-dark text-cream">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 pt-14 pb-8 grid sm:grid-cols-3 gap-10">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 pt-14 pb-8 grid grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="flex flex-col gap-3.5">
           <LogoLockup color="var(--cream)" subColor="var(--border)" />
           <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-border hover:text-cream text-[0.9375rem] transition-colors mt-2">

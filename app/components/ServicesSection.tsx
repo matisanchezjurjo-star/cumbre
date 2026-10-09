@@ -17,13 +17,13 @@ const SECONDARY = [
     href: "/cumbre-constructoras",
   },
   {
-    line: "Cumbre Home",
+    line: "Cumbre Empresas",
     title: "Equipamiento para hogar y empresa",
     description:
       "Hornos, anafes, heladeras, climatización, lavado y TV de Samsung, TCL y Longvie, con garantía oficial y provisión en volumen para oficinas.",
     image: "/hero-smart-office-v1.webp",
     alt: "Oficina moderna equipada",
-    href: "/cumbre-home",
+    href: "/empresas",
   },
 ];
 

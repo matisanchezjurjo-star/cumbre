@@ -47,6 +47,12 @@ export function ContactCTA() {
             propuesta para tu casa, obra u oficina.
           </p>
           <a
+            href="/simulador"
+            className="self-start text-cream text-[0.9375rem] font-semibold border-b border-brass-soft pb-0.5"
+          >
+            ¿No sabés por dónde empezar? Hacé el simulador →
+          </a>
+          <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"

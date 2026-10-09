@@ -9,13 +9,13 @@ import { useCart } from "../lib/cart-context";
 
 const NAV_LINKS = [
   { label: "Domótica", href: "/cumbre-domotica" },
-  { label: "Proyectos", href: "/proyectos" },
-  { label: "Equipamiento", href: "/cumbre-home" },
   { label: "Constructoras", href: "/cumbre-constructoras" },
-  { label: "Contacto", href: "/contacto" },
+  { label: "Empresas", href: "/empresas" },
+  { label: "Equipamiento", href: "/cumbre-home" },
+  { label: "Cumbre explica", href: "/cumbre-explica" },
 ];
 
-const PRIMARY_CTA = { label: "Empezá tu proyecto", href: "/#contacto" };
+const PRIMARY_CTA = { label: "Empezá tu proyecto", href: "/simulador" };
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -29,7 +29,7 @@ export function Header() {
           <LogoLockup />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden xl:flex items-center gap-6 whitespace-nowrap">
           {NAV_LINKS.map((l) => {
             const active = pathname?.startsWith(l.href);
             return (
@@ -73,7 +73,7 @@ export function Header() {
           </Link>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden h-11 w-11 flex items-center justify-center border border-border text-ink"
+            className="xl:hidden h-11 w-11 flex items-center justify-center border border-border text-ink"
             aria-label={open ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={open}
           >
@@ -83,7 +83,7 @@ export function Header() {
       </div>
 
       {open && (
-        <nav className="lg:hidden border-t border-border px-5 sm:px-8 pt-2 pb-5 flex flex-col bg-cream">
+        <nav className="xl:hidden border-t border-border px-5 sm:px-8 pt-2 pb-5 flex flex-col bg-cream">
           {NAV_LINKS.map((l, i) => (
             <Link
               key={l.href}
