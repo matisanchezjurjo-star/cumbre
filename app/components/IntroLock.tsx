@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Check, Fingerprint } from "lucide-react";
 import { LogoMark } from "./Logo";
@@ -28,7 +29,13 @@ export function IntroLock() {
   const [tapCount, setTapCount] = useState(0);
   const [activeKey, setActiveKey] = useState<string | null>(null);
   const reduceMotion = useReducedMotion();
-  const skipIntro = reduceMotion === true;
+  const pathname = usePathname();
+  const [seen] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      sessionStorage.getItem("cumbre-intro") === "1"
+  );
+  const skipIntro = reduceMotion === true || pathname !== "/" || seen;
 
   useEffect(() => {
     if (skipIntro) return;
@@ -57,7 +64,10 @@ export function IntroLock() {
       return () => clearTimeout(t);
     }
     if (stage === "opening") {
-      const t = setTimeout(() => setStage("done"), DOOR_DURATION);
+      const t = setTimeout(() => {
+        setStage("done");
+        sessionStorage.setItem("cumbre-intro", "1");
+      }, DOOR_DURATION);
       return () => clearTimeout(t);
     }
   }, [stage]);
@@ -77,7 +87,11 @@ export function IntroLock() {
   const accepted = stage === "accepted" || stage === "opening";
 
   return (
-    <div className="fixed inset-0 z-[100] overflow-hidden" aria-hidden="true">
+    <div
+      className="fixed inset-0 z-[100] overflow-hidden cursor-pointer"
+      onClick={() => setStage("opening")}
+      aria-hidden="true"
+    >
       <motion.div
         className="absolute inset-y-0 left-0 w-1/2 bg-wine-dark"
         animate={{ x: opening ? "-100%" : 0 }}

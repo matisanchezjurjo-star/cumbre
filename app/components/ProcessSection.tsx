@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "./ui/SectionHeading";
-import { H3 } from "./ui/Typography";
 
 const STEPS = [
   {
@@ -24,15 +23,10 @@ const STEPS = [
 
 export function ProcessSection() {
   return (
-    <section className="py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading
-          eyebrow="CÓMO TRABAJAMOS"
-          title="De la idea a la puesta en marcha"
-          description="Nos encargamos de la instalación y configuración, como también del asesoramiento y la ingeniería de cada proyecto."
-        />
-
-        <div className="mt-14 grid sm:grid-cols-3 gap-10 sm:gap-8 border-t border-border">
+    <section className="py-[72px] sm:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 flex flex-col gap-12">
+        <SectionHeading eyebrow="Cómo trabajamos" title="De la idea a la puesta en marcha" />
+        <div className="grid md:grid-cols-3 gap-x-8 gap-y-10 border-t border-border">
           {STEPS.map((step, i) => (
             <motion.div
               key={step.title}
@@ -40,13 +34,13 @@ export function ProcessSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="pt-8"
+              className="pt-8 flex flex-col gap-3.5"
             >
-              <span className="font-serif text-5xl text-brass-soft">
+              <span className="font-serif text-5xl leading-none text-brass">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <H3 className="mt-5 text-wine">{step.title}</H3>
-              <p className="mt-3 text-sm text-ink-soft leading-relaxed">
+              <h3 className="font-serif text-2xl text-ink">{step.title}</h3>
+              <p className="text-[0.9375rem] leading-relaxed text-ink-soft">
                 {step.description}
               </p>
             </motion.div>

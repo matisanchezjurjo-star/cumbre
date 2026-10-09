@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import { Eyebrow, H2 } from "./Typography";
 
+// Headings now default to ink; wine is reserved for display moments
+// and the primary button.
 export function SectionHeading({
   eyebrow,
   title,
@@ -30,19 +32,14 @@ export function SectionHeading({
       transition={{ duration: 0.6 }}
       className={`max-w-2xl ${alignClass} ${className}`}
     >
-      <Eyebrow
-        tone={tone}
-        className={align === "center" ? "justify-center" : ""}
-      >
-        {eyebrow}
-      </Eyebrow>
-      <H2 className={`mt-4 ${isInverted ? "text-cream" : "text-wine"}`}>
+      <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
+      <H2 className={`mt-4 ${isInverted ? "text-cream" : "text-ink"}`}>
         {title}
       </H2>
       {description && (
         <p
-          className={`mt-5 leading-relaxed ${
-            isInverted ? "text-cream/75" : "text-ink-soft"
+          className={`mt-5 text-[1.0625rem] leading-relaxed text-pretty ${
+            isInverted ? "text-border" : "text-ink-soft"
           }`}
         >
           {description}

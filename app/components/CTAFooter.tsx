@@ -1,68 +1,24 @@
-"use client";
-
-import { useState } from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { Mail, AtSign, MessageCircle } from "lucide-react";
 import { LogoLockup } from "./Logo";
-import { Button } from "./ui/Button";
-import {
-  INSTAGRAM_URL,
-  WHATSAPP_URL,
-  COUPON_CODE,
-  BUSINESS_INFO,
-} from "../lib/constants";
+import { INSTAGRAM_URL, WHATSAPP_URL, BUSINESS_INFO } from "../lib/constants";
 
+// CTASection (10% OFF band) and the unconnected newsletter were removed.
 const WHATSAPP_DISPLAY = "+54 9 11 3919-5754";
-
-export function CTASection() {
-  return (
-    <section className="py-20 sm:py-28 bg-wine text-cream border-y border-wine-dark">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.6 }}
-        className="mx-auto max-w-2xl text-center px-5 sm:px-8"
-      >
-        <h2 className="font-serif text-3xl sm:text-4xl">
-          Tu primer pedido, con 10% OFF
-        </h2>
-        <p className="mt-4 text-cream/80">
-          Usá el código <span className="font-semibold">{COUPON_CODE}</span>{" "}
-          en el checkout de tu primera compra.
-        </p>
-        <Button href="/productos" variant="invert" size="lg" className="mt-8">
-          Ver catálogo
-        </Button>
-      </motion.div>
-    </section>
-  );
-}
 
 const COLUMNS = [
   {
-    title: "Navegación",
+    title: "Líneas",
     links: [
-      { label: "Inicio", href: "/" },
-      { label: "Galería", href: "/galeria" },
-      { label: "Proyectos", href: "/proyectos" },
-      { label: "Garantías", href: "/garantias" },
-      { label: "Contacto", href: "/contacto" },
-    ],
-  },
-  {
-    title: "Nuestras Líneas",
-    links: [
-      { label: "Cumbre Home", href: "/cumbre-home" },
       { label: "Cumbre Domótica", href: "/cumbre-domotica" },
+      { label: "Cumbre Home", href: "/cumbre-home" },
       { label: "Cumbre Constructoras", href: "/cumbre-constructoras" },
     ],
   },
   {
-    title: "Ayuda y Legal",
+    title: "Ayuda",
     links: [
       { label: "Estado de mi pedido", href: WHATSAPP_URL },
+      { label: "Garantías", href: "/garantias" },
       { label: "Cambios y devoluciones", href: "/cambios-y-devoluciones" },
       { label: "Términos y Condiciones", href: "/terminos" },
       { label: "Política de Privacidad", href: "/privacidad" },
@@ -71,110 +27,39 @@ const COLUMNS = [
 ];
 
 export function Footer() {
-  const [sent, setSent] = useState(false);
-
   return (
     <footer className="bg-wine-dark text-cream">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 py-14">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 pb-12 mb-14 border-b border-cream/10">
-          <div className="flex items-center gap-2 text-cream/90">
-            <Mail size={18} />
-            <span className="font-medium">Newsletter</span>
-            <span className="text-cream/60 hidden sm:inline">
-              ¡Recibí nuestras novedades en tu email!
-            </span>
-          </div>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSent(true);
-            }}
-            className="flex w-full max-w-sm ml-0 sm:ml-auto border border-cream/20"
-          >
-            <input
-              type="email"
-              required
-              placeholder="Email"
-              disabled={sent}
-              className="flex-1 bg-transparent px-4 py-2.5 text-sm placeholder:text-cream/60 outline-none disabled:opacity-60"
-            />
-            <button
-              type="submit"
-              disabled={sent}
-              className="border-l border-cream/20 bg-cream text-wine text-sm font-medium px-5 hover:bg-cream/90 transition-colors disabled:opacity-60"
-            >
-              {sent ? "¡Listo!" : "Suscribirme"}
-            </button>
-          </form>
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 pt-14 pb-8 grid sm:grid-cols-3 gap-10">
+        <div className="flex flex-col gap-3.5">
+          <LogoLockup color="var(--cream)" subColor="var(--border)" />
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-border hover:text-cream text-[0.9375rem] transition-colors mt-2">
+            @ec.cumbre
+          </a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-border hover:text-cream text-[0.9375rem] transition-colors">
+            {WHATSAPP_DISPLAY}
+          </a>
         </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-10">
-          <div>
-            <LogoLockup color="var(--cream)" />
-
-            <p className="mt-6 text-[0.7rem] tracking-[0.12em] text-cream/50 font-medium uppercase">
-              Seguinos
-            </p>
-            <a
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2.5 flex items-center gap-2 text-cream/70 hover:text-cream text-sm transition-colors"
-            >
-              <AtSign size={16} />
-              @ec.cumbre
-            </a>
-
-            <p className="mt-6 text-[0.7rem] tracking-[0.12em] text-cream/50 font-medium uppercase">
-              Contacto
-            </p>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2.5 flex items-center gap-2 text-cream/70 hover:text-cream text-sm transition-colors"
-            >
-              <MessageCircle size={16} />
-              {WHATSAPP_DISPLAY}
-            </a>
+        {COLUMNS.map((col) => (
+          <div key={col.title} className="flex flex-col gap-3">
+            <h4 className="text-[0.8125rem] tracking-[0.14em] uppercase text-brass-soft font-semibold">
+              {col.title}
+            </h4>
+            {col.links.map((l) => {
+              const cls = "text-border hover:text-cream text-[0.9375rem] transition-colors";
+              return l.href.startsWith("http") ? (
+                <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className={cls}>
+                  {l.label}
+                </a>
+              ) : (
+                <Link key={l.label} href={l.href} className={cls}>
+                  {l.label}
+                </Link>
+              );
+            })}
           </div>
-
-          {COLUMNS.map((col) => (
-            <div key={col.title}>
-              <h4 className="text-[0.7rem] tracking-[0.12em] text-cream/50 font-medium mb-4 uppercase">
-                {col.title}
-              </h4>
-              <ul className="space-y-2.5">
-                {col.links.map((l) => {
-                  const external = l.href.startsWith("http");
-                  const linkClassName =
-                    "text-cream/70 hover:text-cream text-sm transition-colors";
-                  return (
-                    <li key={l.label}>
-                      {external ? (
-                        <a
-                          href={l.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={linkClassName}
-                        >
-                          {l.label}
-                        </a>
-                      ) : (
-                        <Link href={l.href} className={linkClassName}>
-                          {l.label}
-                        </Link>
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </div>
+        ))}
       </div>
-
-      <div className="border-t border-cream/10 py-5 px-5 sm:px-8 text-center text-xs text-cream/60 space-y-1">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 pt-5 pb-7 border-t border-wine text-[0.8125rem] leading-relaxed text-border">
         {BUSINESS_INFO.legalName && (
           <p>
             {BUSINESS_INFO.legalName}
@@ -182,11 +67,7 @@ export function Footer() {
             {BUSINESS_INFO.address && ` — ${BUSINESS_INFO.address}`}
           </p>
         )}
-        <p>
-          © {new Date().getFullYear()} Cumbre — Las imágenes son
-          ilustrativas y pueden variar, los precios y stock pueden variar
-          sin previo aviso.
-        </p>
+        <p>© {new Date().getFullYear()} Cumbre</p>
       </div>
     </footer>
   );

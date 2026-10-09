@@ -1,12 +1,5 @@
 import type { ElementType, ReactNode } from "react";
 
-/*
- * Formal type scale for the site. Visual size is decoupled from the
- * rendered tag via `as`, so a block can look like an H2 while staying
- * semantically correct in the document outline (e.g. a card title that
- * should be an h3 for accessibility, but reads at H4 size).
- */
-
 type HeadingProps = {
   as?: ElementType;
   className?: string;
@@ -16,7 +9,7 @@ type HeadingProps = {
 export function H1({ as: Tag = "h1", className = "", children }: HeadingProps) {
   return (
     <Tag
-      className={`font-serif text-[2.75rem] sm:text-6xl lg:text-7xl leading-[1.03] tracking-[-0.01em] ${className}`}
+      className={`font-serif text-[2.4rem] sm:text-5xl lg:text-[4rem] leading-[1.03] tracking-[-0.015em] text-balance ${className}`}
     >
       {children}
     </Tag>
@@ -26,7 +19,7 @@ export function H1({ as: Tag = "h1", className = "", children }: HeadingProps) {
 export function H2({ as: Tag = "h2", className = "", children }: HeadingProps) {
   return (
     <Tag
-      className={`font-serif text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.15] ${className}`}
+      className={`font-serif text-[2rem] sm:text-4xl lg:text-[2.875rem] leading-[1.1] text-balance ${className}`}
     >
       {children}
     </Tag>
@@ -49,6 +42,7 @@ export function H4({ as: Tag = "h4", className = "", children }: HeadingProps) {
   );
 }
 
+// 13px floor for labels (was 0.7rem / 11.2px).
 export function Eyebrow({
   tone = "default",
   className = "",
@@ -58,15 +52,11 @@ export function Eyebrow({
   className?: string;
   children: ReactNode;
 }) {
-  const color = tone === "inverted" ? "text-cream/60" : "text-brass";
+  const color = tone === "inverted" ? "text-brass-soft" : "text-brass";
   return (
     <p
-      className={`flex items-center gap-2.5 tracking-[0.16em] text-[0.7rem] font-medium ${color} ${className}`}
+      className={`tracking-[0.16em] text-[0.8125rem] font-semibold uppercase ${color} ${className}`}
     >
-      <span
-        className={`h-px w-5 ${tone === "inverted" ? "bg-cream/40" : "bg-brass"}`}
-        aria-hidden="true"
-      />
       {children}
     </p>
   );

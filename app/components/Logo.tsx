@@ -23,9 +23,11 @@ export function LogoMark({
 export function LogoLockup({
   className = "",
   color = "var(--wine)",
+  subColor = "var(--ink-soft)",
 }: {
   className?: string;
   color?: string;
+  subColor?: string;
 }) {
   return (
     <div className={`flex items-center gap-3 ${className}`}>
@@ -38,10 +40,10 @@ export function LogoLockup({
           CUMBRE
         </span>
         <span
-          className="text-[9px] tracking-[0.25em] mt-1 uppercase whitespace-nowrap"
-          style={{ color, opacity: 0.65 }}
+          className="hidden sm:block text-[10px] tracking-[0.2em] mt-1 uppercase whitespace-nowrap"
+          style={{ color: subColor }}
         >
-          Technology Equipment
+          Domótica · Equipamiento
         </span>
       </div>
     </div>

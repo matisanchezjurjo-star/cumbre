@@ -3,43 +3,41 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ShoppingCart, LayoutGrid } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
 import { LogoLockup } from "./Logo";
-import { CategoryDrawer } from "./CategoryDrawer";
-import { SearchAutocomplete } from "./SearchAutocomplete";
-import { Button } from "./ui/Button";
 import { useCart } from "../lib/cart-context";
 
 const NAV_LINKS = [
-  { label: "Inicio", href: "/" },
-  { label: "Galería", href: "/galeria" },
+  { label: "Domótica", href: "/cumbre-domotica" },
   { label: "Proyectos", href: "/proyectos" },
-  { label: "Garantías", href: "/garantias" },
+  { label: "Equipamiento", href: "/cumbre-home" },
+  { label: "Constructoras", href: "/cumbre-constructoras" },
   { label: "Contacto", href: "/contacto" },
 ];
 
+const PRIMARY_CTA = { label: "Empezá tu proyecto", href: "/#contacto" };
+
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const { count } = useCart();
   const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-40 bg-cream border-b border-border">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8 h-[4.5rem] flex items-center gap-8 lg:gap-10">
-        <Link href="/" className="shrink-0">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 h-[4.5rem] flex items-center gap-8">
+        <Link href="/" className="shrink-0" aria-label="Cumbre — inicio">
           <LogoLockup />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7">
           {NAV_LINKS.map((l) => {
-            const active = l.href === "/" ? pathname === "/" : pathname?.startsWith(l.href);
+            const active = pathname?.startsWith(l.href);
             return (
               <Link
                 key={l.href}
                 href={l.href}
-                className={`relative py-1 text-[0.72rem] tracking-[0.14em] uppercase transition-colors ${
-                  active ? "text-wine" : "text-ink-soft hover:text-ink"
+                className={`relative py-1 text-sm font-medium transition-colors ${
+                  active ? "text-wine" : "text-ink hover:text-wine"
                 }`}
               >
                 {l.label}
@@ -51,80 +49,55 @@ export function Header() {
               </Link>
             );
           })}
-          <button
-            onClick={() => setDrawerOpen(true)}
-            className="group relative flex items-center gap-1.5 py-1 text-[0.72rem] tracking-[0.14em] uppercase text-ink-soft hover:text-ink transition-colors"
-          >
-            <LayoutGrid size={13} className="opacity-70" />
-            Categorías
-          </button>
         </nav>
 
-        <SearchAutocomplete className="hidden lg:block flex-1 max-w-sm" />
-
-        <div className="ml-auto flex items-center gap-6">
-          <Link
-            href="/carrito"
-            className="relative flex items-center text-ink hover:text-wine transition-colors"
-            aria-label="Carrito"
-          >
-            <ShoppingCart size={19} />
-            {count > 0 && (
+        <div className="ml-auto flex items-center gap-2 sm:gap-4">
+          {count > 0 && (
+            <Link
+              href="/carrito"
+              className="relative flex items-center text-ink hover:text-wine transition-colors"
+              aria-label="Carrito"
+            >
+              <ShoppingCart size={19} />
               <span className="absolute -top-2 -right-2 h-4 min-w-4 px-1 rounded-full bg-wine text-cream text-[10px] font-medium flex items-center justify-center">
                 {count}
               </span>
-            )}
+            </Link>
+          )}
+          <Link
+            href={PRIMARY_CTA.href}
+            className="bg-wine text-cream-soft hover:bg-wine-dark transition-colors text-xs sm:text-sm font-semibold px-3 py-2.5 sm:px-5 sm:py-3 whitespace-nowrap"
+          >
+            <span className="sm:hidden">Empezar</span>
+            <span className="hidden sm:inline">{PRIMARY_CTA.label}</span>
           </Link>
-          <div className="hidden lg:block">
-            <Button href="/proyectos#cotizar" variant="primary" size="md">
-              Cotizá tu proyecto
-            </Button>
-          </div>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden text-ink"
-            aria-label="Abrir menú"
+            className="lg:hidden h-11 w-11 flex items-center justify-center border border-border text-ink"
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={open}
           >
-            {open ? <X size={22} /> : <Menu size={22} />}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border px-5 py-4 flex flex-col gap-4 bg-cream">
-          <SearchAutocomplete />
-          {NAV_LINKS.map((l) => (
+        <nav className="lg:hidden border-t border-border px-5 sm:px-8 pt-2 pb-5 flex flex-col bg-cream">
+          {NAV_LINKS.map((l, i) => (
             <Link
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-[0.72rem] tracking-[0.14em] uppercase font-medium text-ink"
+              className={`py-3.5 text-[1.0625rem] font-medium text-ink ${
+                i < NAV_LINKS.length - 1 ? "border-b border-border" : ""
+              }`}
             >
               {l.label}
             </Link>
           ))}
-          <button
-            onClick={() => {
-              setOpen(false);
-              setDrawerOpen(true);
-            }}
-            className="flex items-center gap-1.5 text-ink text-[0.72rem] tracking-[0.14em] uppercase text-left"
-          >
-            <LayoutGrid size={14} className="opacity-70" />
-            Categorías
-          </button>
-          <Button
-            href="/productos"
-            variant="primary"
-            onClick={() => setOpen(false)}
-            className="text-center"
-          >
-            Ver catálogo
-          </Button>
-        </div>
+        </nav>
       )}
-
-      <CategoryDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </header>
   );
 }
