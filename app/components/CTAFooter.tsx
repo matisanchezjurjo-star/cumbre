@@ -33,7 +33,7 @@ export function Footer() {
         <div className="flex flex-col gap-3.5">
           <LogoLockup color="var(--cream)" subColor="var(--border)" />
           <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-border hover:text-cream text-[0.9375rem] transition-colors mt-2">
-            @ec.cumbre
+            @cumbre.te
           </a>
           <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-border hover:text-cream text-[0.9375rem] transition-colors">
             {WHATSAPP_DISPLAY}

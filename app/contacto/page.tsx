@@ -61,7 +61,7 @@ export default function ContactoPage() {
                 >
                   <AtSign size={18} className="text-wine shrink-0" />
                   <span>
-                    <span className="block font-medium">@ec.cumbre</span>
+                    <span className="block font-medium">@cumbre.te</span>
                     <span className="block text-sm text-ink-soft">
                       Seguinos en Instagram
                     </span>

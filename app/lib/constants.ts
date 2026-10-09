@@ -1,7 +1,7 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://cumbre-s1uh.vercel.app";
 
-export const INSTAGRAM_URL = "https://instagram.com/ec.cumbre";
+export const INSTAGRAM_URL = "https://instagram.com/cumbre.te";
 
 // Completar con los datos reales del negocio para que aparezcan en el
 // footer (razón social, CUIT, domicilio fiscal). Mientras legalName esté
