@@ -18,16 +18,16 @@ const SOLUTIONS = [
     tag: "Control de acceso",
     title: "Nadie pierde una tarjeta más",
     desc: "Ingreso con código, huella o celular, permisos por horario y registro de quién entró y cuándo. Dar o quitar un acceso lleva segundos.",
-    image: "/domotica-cerradura-despues-v1.webp",
-    alt: "Cerradura inteligente con teclado y huella",
+    image: "/empresas-control-acceso-v1.webp",
+    alt: "Cerradura inteligente con teclado en puerta de sala de reunión",
   },
   {
     n: "03",
     tag: "Seguridad",
     title: "Todo a la vista, desde el celular",
     desc: "Cámaras y sensores con aviso al celular ante eventos fuera de horario, integrados con el control de acceso.",
-    image: "/domotica-camara-v1.webp",
-    alt: "Cámara de seguridad",
+    image: "/empresas-camara-seguridad-v1.webp",
+    alt: "Cámara de seguridad Hikvision en oficina",
   },
   {
     n: "04",
@@ -52,7 +52,7 @@ export default function EmpresasPage() {
       <Header />
       <main className="flex-1">
         <section className="relative flex items-end bg-ink overflow-hidden min-h-[540px] h-[80vh] max-h-[760px]">
-          <Image src="/hero-smart-office-v1.webp" alt="Oficina moderna equipada" fill priority sizes="100vw" className="object-cover" />
+          <Image src="/empresas-sala-reunion-pantalla-v1.webp" alt="Sala de reunión equipada con pantalla y panel de control" fill priority sizes="100vw" className="object-cover" />
           <div className="relative w-full mx-auto max-w-6xl px-5 sm:px-8 pb-5 sm:pb-12">
             <div className="bg-cream max-w-[620px] p-7 sm:p-12 flex flex-col gap-5">
               <span className="text-[0.8125rem] tracking-[0.16em] uppercase text-ink-soft font-semibold">Cumbre Empresas</span>
@@ -79,7 +79,7 @@ export default function EmpresasPage() {
 
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-14 items-center">
               <div className="relative aspect-[16/11] overflow-hidden bg-stone">
-                <Image src="/hero-domotica-office-v1.webp" alt="Sala de reunión con panel de control integrado" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+                <Image src="/empresas-sala-reunion-panel-v1.webp" alt="Panel de reserva de salas instalado en la pared" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
               </div>
               <div className="flex flex-col gap-4">
                 <span className="text-[0.8125rem] tracking-[0.16em] uppercase text-brass font-semibold">01 · Salas de reunión</span>
